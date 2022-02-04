@@ -1,6 +1,8 @@
 <!doctype html>
 <html lang="en">
   <head>
+
+    <link rel="stylesheet" type="text/css" href="login.css" />
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -18,13 +20,13 @@
       <form>
         <img class="mt-4 mb-4" src="https://upload.wikimedia.org/wikipedia/en/d/d9/NDDUseal.png" class="png" height="120" alt="NDDU Logo">
         <h1 class="h3 mb-3 font-weight-normal">NDDU-VAX SIGN IN</h1>
-        <label for= "emailAddress"
-        class="sr-only">Email Address</label>
+        
+        
+        
         <input type="email" id="emailAddress"
-        class="form-control" placeholder="Email Address" required autofocus>
+        class="form-control" placeholder="Email Address">
+        
 
-        <label for="password"Password
-        class="sr-only">Password</label>
         <input type="password" id="password"
         placeholder="Password" class="form-control">
 
