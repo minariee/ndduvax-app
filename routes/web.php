@@ -23,5 +23,6 @@ Route::get('/vaccine-form', '\App\Http\Controllers\VaccineFormController@index')
 Route::post('/vaccine-form', '\App\Http\Controllers\VaccineFormController@submit');
 Route::get('/terms-and-condition', '\App\Http\Controllers\TermsAndConditionController@index');
 Route::get('/login-page', '\App\Http\Controllers\LoginPageController@index');
+Route::get('/home-page', '\App\Http\Controllers\HomePageController@index');
 
 
