@@ -53,14 +53,14 @@
   <header class="blog-header py-3">
     <div class="row flex-nowrap justify-content-between align-items-center">
       <div class="col-4 pt-1">
-        <img src="assets/images/nddu.png" class="css-class" alt="alt text">
+        <a href = "{{url('/home-page')}}">  <img src="assets/images/nddu.png" class="css-class"></a>
       </div>
       <div class="col-4 text-center">
         <a class="blog-header-logo text-dark" href="#">NDDU VAX APP</a>
       </div>
       <div class= "col-4" align="right">
-        <a class="btn btn-md btn-outline-success" href="#">Login</a>
-        <a class="btn btn-md btn-outline-success" href="#">Register</a>
+        <a class="btn btn-md btn-outline-success" href="{{url('/login-page')}}">Login</a>
+        <a class="btn btn-md btn-outline-success" href="{{url('/registration-page')}}">Register</a>
       </div>
     </div>
   </header>
