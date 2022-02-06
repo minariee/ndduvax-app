@@ -58,7 +58,7 @@
       <div class="col-4 text-center">
         <a class="blog-header-logo text-dark" href="#">NDDU VAX APP</a>
       </div>
-      <div class="col-4 d-flex justify-content-end align-items-center">
+      <div class= "col-4" align="right">
         <a class="btn btn-md btn-outline-success" href="#">Login</a>
         <a class="btn btn-md btn-outline-success" href="#">Register</a>
       </div>
@@ -75,11 +75,11 @@
 </div>
 
 <main class="container">
-  <div class="p-4 p-md-5 mb-4 text-white rounded bg-dark">
+  <div class="p-4 p-md-5 mb-4 text-white rounded bg-success">
     <div class="col-md-6 px-0">
-      <h1 class="display-4 fst-italic">Title of a longer featured blog post</h1>
-      <p class="lead my-3">Multiple lines of text that form the lede, informing new readers quickly and efficiently about what’s most interesting in this post’s contents.</p>
-      <p class="lead mb-0"><a href="#" class="text-white fw-bold">Continue reading...</a></p>
+      <h1 class="display-4 fst-italic">Philippines: COVID-19 Vaccine Tracker</h1>
+      <p class="lead my-3">ABS-CBN News tracks the supply of vaccines arriving in the Philippines, the volume per brand, and the status of their distribution in the regions.</p>
+      <p class="lead mb-0"><a href="https://news.abs-cbn.com/spotlight/multimedia/infographic/03/23/21/philippines-covid-19-vaccine-tracker" class="text-white fw-bold">Continue reading...</a></p>
     </div>
   </div>
 
@@ -284,7 +284,7 @@
 </main>
 
 <footer class="blog-footer">
-  <p>Copyright © 2022 <a href="https://www.nddu.edu.ph/">NDDU</a></p>
+  <p>Copyright © 2022</p>
   <p>
     <a href="#">Back to top</a>
   </p>
