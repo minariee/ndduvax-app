@@ -53,21 +53,21 @@
   <header class="blog-header py-3">
     <div class="row flex-nowrap justify-content-between align-items-center">
       <div class="col-4 pt-1">
-        <img src="assets/images/nddu.png" class="css-class" alt="alt text">
+        <a href = "{{url('/home-page')}}">  <img src="assets/images/nddu.png" class="css-class"></a>
       </div>
       <div class="col-4 text-center">
         <a class="blog-header-logo text-dark" href="#">NDDU VAX APP</a>
       </div>
       <div class= "col-4" align="right">
-        <a class="btn btn-md btn-outline-success" href="#">Login</a>
-        <a class="btn btn-md btn-outline-success" href="#">Register</a>
+        <a class="btn btn-md btn-outline-success" href="{{url('/login-page')}}">Login</a>
+        <a class="btn btn-md btn-outline-success" href="{{url('/registration-page')}}">Register</a>
       </div>
     </div>
   </header>
 
   <div class="nav-scroller py-1 mb-2">
     <nav class="nav d-flex justify-content-center">
-      <a class="p-2 link-secondary" href="#">Home</a>
+      <a class="p-2 link-secondary" href="{{url('/home-page')}}">Home</a>
       <a class="p-2 link-secondary" href="#">Blog</a>
       <a class="p-2 link-secondary" href="#">Privacy Policy</a>
     </nav>
@@ -89,12 +89,12 @@
         <div class="col p-4 d-flex flex-column position-static">
           <strong class="d-inline-block mb-2 text-primary">World</strong>
           <h3 class="mb-0">Featured post</h3>
-          <div class="mb-1 text-muted">Nov 12</div>
-          <p class="card-text mb-auto">This is a wider card with supporting text below as a natural lead-in to additional content.</p>
-          <a href="#" class="stretched-link">Continue reading</a>
+          <div class="mb-1 text-muted">8 December 2020</div>
+          <p class="card-text mb-auto">Germs are all around us, both in our environment and in our bodies. When a person is susceptible and they encounter a harmful organism, it can lead to disease and death.</p>
+          <a href="https://www.who.int/news-room/feature-stories/detail/how-do-vaccines-work?adgroupsurvey={adgroupsurvey}&gclid=Cj0KCQiAgP6PBhDmARIsAPWMq6mxOrvw13jAwitFNKx6Qdx5Eij3BHw_TeS-1oKz9OYfymzFbJnwgx0aAr7JEALw_wcB" class="stretched-link">Continue reading</a>
         </div>
         <div class="col-auto d-none d-lg-block">
-          <svg class="bd-placeholder-img" width="200" height="250" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg>
+          <svg class="bd-placeholder-img" width="200" height="250" xmlns="https://www.who.int/images/default-source/vaccines-explained/vaccines-antibody-illustration-02-29-oct.jpg?Status=Master&sfvrsn=a79ee886_36" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg>
 
         </div>
       </div>
@@ -102,7 +102,7 @@
     <div class="col-md-6">
       <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
         <div class="col p-4 d-flex flex-column position-static">
-          <strong class="d-inline-block mb-2 text-success">Design</strong>
+          <strong class="d-inline-block mb-2 text-success">National</strong>
           <h3 class="mb-0">Post title</h3>
           <div class="mb-1 text-muted">Nov 11</div>
           <p class="mb-auto">This is a wider card with supporting text below as a natural lead-in to additional content.</p>
@@ -285,9 +285,6 @@
 
 <footer class="blog-footer">
   <p>Copyright © 2022</p>
-  <p>
-    <a href="#">Back to top</a>
-  </p>
 </footer>
     
   </body>
