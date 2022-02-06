@@ -8,7 +8,7 @@ class HomePageController extends Controller
 {
     public function index() {
         return view('home', [
-            'page_substitle' => 'Login Page'
+            'page_substitle' => 'Home Page'
         ]);
     }
 }
