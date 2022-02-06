@@ -1,3 +1,6 @@
+@extends('layouts.main-bootstrap')
+
+@section('content')
 <!doctype html>
 <html lang="en">
   <head>
@@ -38,12 +41,12 @@
       }
     </style>
 
-    
     <!-- Custom styles for this template -->
     <link href="https://fonts.googleapis.com/css?family=Playfair&#43;Display:700,900&amp;display=swap" rel="stylesheet">
     <!-- Custom styles for this template -->
-    <link href="blog.css" rel="stylesheet">
+    <link rel="stylesheet" href="{{ URL::asset('assets/css/blog.css') }}">
   </head>
+  
   <body>
     
 <div class="container">
@@ -297,8 +300,7 @@
     <a href="#">Back to top</a>
   </p>
 </footer>
-
-
     
   </body>
 </html>
+@endsection

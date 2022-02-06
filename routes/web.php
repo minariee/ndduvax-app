@@ -22,8 +22,12 @@ Route::get('/vaccines', '\App\Http\Controllers\VaccineController@index');
 Route::get('/vaccine-form', '\App\Http\Controllers\VaccineFormController@index');
 Route::post('/vaccine-form', '\App\Http\Controllers\VaccineFormController@submit');
 Route::get('/terms-and-condition', '\App\Http\Controllers\TermsAndConditionController@index');
+Route::get('/home-page', '\App\Http\Controllers\HomePageController@index');
 Route::get('/login-page', '\App\Http\Controllers\LoginPageController@index');
+<<<<<<< HEAD
 Route::post('/login-page', '\App\Http\Controllers\LoginController@submit');
+=======
+>>>>>>> ac7ff54eed429d1d017114d7b64b9e4699b53311
 Route::get('/registration-page', '\App\Http\Controllers\RegistrationController@index');
 
 
