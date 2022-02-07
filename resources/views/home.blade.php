@@ -94,8 +94,7 @@
           <a href="https://www.who.int/news-room/feature-stories/detail/how-do-vaccines-work?adgroupsurvey={adgroupsurvey}&gclid=Cj0KCQiAgP6PBhDmARIsAPWMq6mxOrvw13jAwitFNKx6Qdx5Eij3BHw_TeS-1oKz9OYfymzFbJnwgx0aAr7JEALw_wcB" class="stretched-link">Continue reading</a>
         </div>
         <div class="col-auto d-none d-lg-block">
-          <svg class="bd-placeholder-img" width="200" height="250" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg>
-
+          <img src="assets/images/vaccine.jpg" svg class="bd-placeholder-img"  width="200" height="250" xmlns="http://www.w3.org/2000/svg" >
         </div>
       </div>
     </div>
@@ -109,8 +108,7 @@
           <a href="https://doh.gov.ph/vaccines" class="stretched-link">Continue reading</a>
         </div>
         <div class="col-auto d-none d-lg-block">
-          <svg class="bd-placeholder-img" width="200" height="250" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg>
-
+          <img src="assets/images/new.jpg" svg class="bd-placeholder-img"  width="200" height="250" xmlns="http://www.w3.org/2000/svg" >
         </div>
       </div>
     </div>
@@ -136,7 +134,8 @@
         </blockquote>
         <p>“Malaki ang naging epekto ng Bagyong Odette sa ating pagbabakuna kaya bahagyang naantala ang pag-abot sa target nating 54 million fully vaccinated individuals sa pagtatapos ng 2021,"</p>
         <p>"Sinabayan pa ito ng panibagong surge ngayong Enero, pero hindi tayo tumigil sa pagbabakuna,” he added.</p>
-        <h3>Other Stories</h3>
+        <a class="btn btn-md btn-outline-success" href="https://www.gmanetwork.com/news/topstories/nation/818225/philippines-reaches-54m-fully-vaccinated-persons-almost-2-weeks-into-2022/story/"> Read More</a>
+        <br><br><h3>Other Stories</h3>
         <ul>
           <li><a href="https://www.gmanetwork.com/news/topstories/nation/818220/doh-coming-up-with-system-to-include-antigen-self-test-results-in-covid-19-tally/story/">DOH coming up with system to include antigen self-test results in COVID-19 tally</a></li>
           <li><a href="https://www.gmanetwork.com/news/topstories/nation/818207/unvaccinated-persons-form-long-queues-crowd-vax-sites/story/">Unvaccinated persons form long queues, crowd vax sites</a></li>
@@ -147,7 +146,7 @@
         <p>TINGNAN | As Of 6:00 PM, Lunes, November 01, 2021, Narito Ang Update Sa Tala Ng Mga Kumpirmadong Kaso Ng COVID-19 Sa Lungsod.</p>
         <a href = "https://eportal.gensantos.gov.ph/news-content/?tkx=258a02ec145bf25ef3d9d456b26d6dd7">  <img src="assets/images/genews.jpg" class="css-class"></a>
         
-        <nav class="nav d-flex justify-content-center">
+        <br><br><nav class="nav d-flex justify-content-center">
         <a class="btn btn-md btn-outline-success" href="https://eportal.gensantos.gov.ph/news/"> Read More</a>
         </nav>
      
