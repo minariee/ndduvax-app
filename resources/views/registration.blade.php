@@ -65,7 +65,7 @@
                             </div>
                         </div>
                     </form>
-                    <p class=text-center>If you have an account, Please <a href="#"> Log in</a></p>  
+                    <p class=text-center>If you have an account, Please <a href="{{url('/login-page')}}"> Log in</a></p>  
                 </div>
             </div>
         </div>
