@@ -19,10 +19,7 @@ Route::get('/vaccine-form', '\App\Http\Controllers\VaccineFormController@index')
 Route::post('/vaccine-form', '\App\Http\Controllers\VaccineFormController@submit');
 Route::get('/terms-and-condition', '\App\Http\Controllers\TermsAndConditionController@index');
 Route::get('/', '\App\Http\Controllers\HomePageController@index');
-Route::get('/login-page', '\App\Http\Controllers\LoginPageController@index');
-Route::post('/login-page', '\App\Http\Controllers\LoginPageController@index');
-Route::get('/registration-page', '\App\Http\Controllers\RegistrationController@index');
-Route::get('/user-dashboard', '\App\Http\Controllers\UserDashboardController@index');
+Route::get('/user-dashboard', '\App\Http\Controllers\UserDashboardController@index')->name('dashboard');
 Route::get('/privacy-policy', '\App\Http\Controllers\PrivacyPolicyController@index');
 
 

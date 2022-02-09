@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.main-bootstrap')
 
 @section('content')
 <div class="container">
