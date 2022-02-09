@@ -15,7 +15,7 @@
 
     <!-- Bootstrap core CSS -->
 
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    
 
 <link rel="apple-touch-icon" href="/docs/5.1/assets/img/favicons/apple-touch-icon.png" sizes="180x180">
 <link rel="icon" href="/docs/5.1/assets/img/favicons/favicon-32x32.png" sizes="32x32" type="image/png"> 
@@ -40,45 +40,9 @@
         }
       }
     </style>
-
-    <!-- Custom styles for this template -->
-    <link href="https://fonts.googleapis.com/css?family=Playfair&#43;Display:700,900&amp;display=swap" rel="stylesheet">
-    <!-- Custom styles for this template -->
-    <link rel="stylesheet" href="{{ URL::asset('assets/css/blog.css') }}">
   </head>
   
   <body>
-    
-<div class="container">
-  <header class="blog-header py-3">
-    <div class="row flex-nowrap justify-content-between align-items-center">
-      <div class="col-4 pt-1">
-        <a href = "{{url('/home-page')}}">  <img src="assets/images/nddu.png" class="css-class"></a>
-      </div>
-      <div class="col-4 text-center">
-        <a class="blog-header-logo text-dark" href="#">NDDU VAX APP</a>
-      </div>
-
-
-      
-      <img class="mt-4 mb-4" src="https://upload.wikimedia.org/wikipedia/en/d/d9/NDDUseal.png" class="png" height="120" alt="NDDU Logo">
-
-
-
-      <div class= "col-4" align="right">
-        <a class="btn btn-md btn-outline-success" href="{{url('/login-page')}}">Login</a>
-        <a class="btn btn-md btn-outline-success" href="{{url('/registration-page')}}">Register</a>
-      </div>
-    </div>
-  </header>
-
-  <div class="nav-scroller py-1 mb-2">
-    <nav class="nav d-flex justify-content-center">
-      <a class="p-2 link-secondary" href="{{url('/home-page')}}">Home</a>
-      <a class="p-2 link-secondary" href="#">Blog</a>
-      <a class="p-2 link-secondary" href="#">Privacy Policy</a>
-    </nav>
-  </div>
 </div>
 
 <main class="container">
@@ -185,11 +149,6 @@
   </div>
 
 </main>
-
-<footer class="blog-footer">
-  <p>Copyright © 2022</p>
-</footer>
-    
   </body>
 </html>
 @endsection
