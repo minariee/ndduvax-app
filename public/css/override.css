@@ -93,15 +93,17 @@
   /*
    * Footer
    */
+  
   .blog-footer {
-    padding: 1rem 0;
-    color: #FFFFFF;
+    color:#FFFFFF;
     text-align: center;
-    background-color: #012b09;
+    position:fixed;
+    background-color:#012b09;
     border-top: .05rem solid #e5e5e5;
-  }
-  .blog-footer p:last-child {
-    margin-bottom: 0;
+    left:0px;
+    bottom:0px;
+    height:40px;
+    width:100%;
   }
   
 
