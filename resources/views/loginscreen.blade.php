@@ -2,15 +2,21 @@
 <html lang="en">
   <head>
 
-    <link rel="stylesheet" type="text/css" href="login.css" />
+    <link rel="stylesheet" type="text/css" href="loginscreen.css" />
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    
 
     <title>NDDU-VAX Login</title>
+    <style>
+
+    
+    </style>
+
   </head>
   
   <body>
@@ -32,7 +38,7 @@
         placeholder="Password" class="form-control">
 
         <div class="mt-3">
-          <button class="btn btn-lg btn-primary btn-block">Log In</button>
+          <button class="btn1">Log In</button>
         </div>
 
       </form>
