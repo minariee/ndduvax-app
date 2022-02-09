@@ -55,9 +55,5 @@
       <footer class="blog-footer">
         <p>Copyright © 2022</p>
       </footer>
-=======
-    <h1>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Esse impedit blanditiis quae rerum amet temporibus voluptatibus quis voluptatum quibusdam molestiae odit fuga id consequatur sequi atque, provident ipsum, adipisci iusto!</h1>
-    @yield('content')
->>>>>>> Stashed changes
 </body>
 </html>
