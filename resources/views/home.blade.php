@@ -58,6 +58,13 @@
       <div class="col-4 text-center">
         <a class="blog-header-logo text-dark" href="#">NDDU VAX APP</a>
       </div>
+
+
+      
+      <img class="mt-4 mb-4" src="https://upload.wikimedia.org/wikipedia/en/d/d9/NDDUseal.png" class="png" height="120" alt="NDDU Logo">
+
+
+
       <div class= "col-4" align="right">
         <a class="btn btn-md btn-outline-success" href="{{url('/login-page')}}">Login</a>
         <a class="btn btn-md btn-outline-success" href="{{url('/registration-page')}}">Register</a>
