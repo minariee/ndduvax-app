@@ -1,3 +1,6 @@
+@extends('layouts.main-bootstrap')
+
+@section('content')
 <html>
 <head>
     <title>Privacy Policy</title>
@@ -26,3 +29,4 @@
     </div>
 </body>
 </html>
+@endsection
