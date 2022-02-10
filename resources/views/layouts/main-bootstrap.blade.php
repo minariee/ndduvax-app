@@ -45,7 +45,7 @@
         <div class="nav-scroller py-1 mb-2">
             <nav class="nav d-flex justify-content-center">
               <a class="p-2 link-secondary" href="{{url('/')}}">Home</a>
-              <a class="p-2 link-secondary" href="#">Blog</a>
+              <a class="p-2 link-secondary" href="{{url('/blog')}}">Blog</a>
               <a class="p-2 link-secondary" href="{{url('/privacy-policy')}}">Privacy Policy</a>
             </nav>
           </div>

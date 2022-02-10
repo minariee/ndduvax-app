@@ -22,6 +22,7 @@ Route::get('/', '\App\Http\Controllers\HomePageController@index');
 Route::get('/user-dashboard', '\App\Http\Controllers\UserDashboardController@index')->name('dashboard');
 Route::get('/privacy-policy', '\App\Http\Controllers\PrivacyPolicyController@index');
 Route::get('/admin-dashboard', '\App\Http\Controllers\AdminDashboardController@index')->name('adminDashboard');
+Route::get('/blog', '\App\Http\Controllers\BlogController@index');
 
 
 
