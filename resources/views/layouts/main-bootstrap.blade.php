@@ -50,8 +50,8 @@
             </nav>
           </div>
          
-      @yield('content')
-      <footer class="blog-footer">
+    @yield('content')
+    <footer class="blog-footer">
         <p>Copyright © 2022</p>
       </footer>
 </body>
