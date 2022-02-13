@@ -48,5 +48,4 @@
     </table>
 
     <a href="{{url('admin-form')}}" class="btn btn-primary">Add Record</a>
-    <a href="{{url('admin-form')}}" class="btn btn-primary">Delete Record</a>
 @endsection
