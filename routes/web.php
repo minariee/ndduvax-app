@@ -26,6 +26,8 @@ Route::get('/admin-table', '\App\Http\Controllers\AdminTableController@index');
 Route::get('/admin-form', '\App\Http\Controllers\AdminTableFormController@index');
 Route::post('/admin-form', '\App\Http\Controllers\AdminTableFormController@submit');
 
+Route::get('edit-admin','AdminTableController@edit_function');
+
 
 
 Auth::routes();

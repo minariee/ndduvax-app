@@ -1,15 +1,27 @@
 @extends('layouts.dashboard-layout')
 
 @section('content')
+
+<style>
+    td{
+        width:130px;
+        text-align:center;
+    }
+    th{
+        width:130px;
+        text-align:center;
+    }
+</style>
+
     <h1>User Accounts</h1>
     <table border="2">
         <tr>
-            <td>No </td>
-            <td>Name</td>
-            <td>Occupation </td>
-            <td>Date </td>
-            <td>Type of Vaccine </td>
-            <td>Dose </td>
+            <th>No </th>
+            <th>Name  </th>
+            <th>Occupation</th>
+            <th>Date</th>
+            <th>Type of Vaccine</th>
+            <th>Dose </th>
         </tr>
         @foreach ($accounts as $account)
         <tr>
@@ -19,9 +31,14 @@
             <td>{{ $account->date}}</td>
             <td>{{ $account->type_of_vaccine}}</td>
             <td>{{ $account->dose}}</td>
+            
+            <td>
+            <a href="edit-admin/{{ $account->id }}" class= "btn btn-success">Edit</a>
+            </td>
         </tr>    
         @endforeach        
     </table>
 
-    <input type="submit" value="Add Record">
+    <a href="{{url('admin-form')}}" class="btn btn-primary">Add Record</a>
+    <a href="{{url('admin-form')}}" class="btn btn-primary">Delete Record</a>
 @endsection
