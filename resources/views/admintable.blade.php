@@ -1,26 +1,27 @@
-@extends('layouts.main-bootstrap')
+@extends('layouts.dashboard-layout')
 
 @section('content')
     <h1>User Accounts</h1>
-    <table border="1">
+    <table border="2">
         <tr>
-            <td>No.</td>
-            <td>Account</td>
-            <td>Occupation</td>
-            <td>Date</td>
-            <td>Type of Vaccine</td>
-            <td>Dose</td>
+            <td>No </td>
+            <td>Name</td>
+            <td>Occupation </td>
+            <td>Date </td>
+            <td>Type of Vaccine </td>
+            <td>Dose </td>
         </tr>
         @foreach ($accounts as $account)
         <tr>
-            <td>{{ $account->No. }}</td>
-            <td>{{ $account->Acount}}</td>
-            <td>{{ $account->Occupation}}</td>
-            <td>{{ $account->Date}}</td>
-            <td>{{ $account->Type_of_Vaccine}}</td>
-            <td>{{ $account->Dose}}</td>
+            <td>{{ $account->no }}</td>
+            <td>{{ $account->name}}</td>
+            <td>{{ $account->occupation }}</td>
+            <td>{{ $account->date}}</td>
+            <td>{{ $account->type_of_vaccine}}</td>
+            <td>{{ $account->dose}}</td>
         </tr>    
-        @endforeach
-        
+        @endforeach        
     </table>
+
+    <input type="submit" value="Add Record">
 @endsection

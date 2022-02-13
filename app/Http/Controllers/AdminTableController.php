@@ -3,13 +3,13 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Vaccine;
+use App\Models\Account;
 class AdminTableController extends Controller
 {
     public function index() {
         
-        $vaccines = Vaccine::all();
-        return view('vaccine', [
+        $accounts = Account::all();
+        return view('admintable', [
             'page_substitle' => 'Admintable',
             'accounts' => $accounts
         ]);
