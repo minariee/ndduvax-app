@@ -26,7 +26,10 @@ Route::get('/admin-table', '\App\Http\Controllers\AdminTableController@index');
 Route::get('/admin-form', '\App\Http\Controllers\AdminTableFormController@index');
 Route::post('/admin-form', '\App\Http\Controllers\AdminTableFormController@submit');
 
-Route::get('edit-admin','AdminTableController@edit_function');
+Route::get('edit-admin/{id}','\App\Http\Controllers\AdminTableFormController@edit');
+Route::put('update-account/{id}','\App\Http\Controllers\AdminTableFormController@update');
+
+Route::delete('delete-admin/{id}','\App\Http\Controllers\AdminTableFormController@delete');
 
 
 

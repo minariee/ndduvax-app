@@ -25,7 +25,7 @@
         </tr>
         @foreach ($accounts as $account)
         <tr>
-            <td>{{ $account->no }}</td>
+            <td>{{ $account->id }}</td>
             <td>{{ $account->name}}</td>
             <td>{{ $account->occupation }}</td>
             <td>{{ $account->date}}</td>
@@ -34,6 +34,14 @@
             
             <td>
             <a href="edit-admin/{{ $account->id }}" class= "btn btn-success">Edit</a>
+            </td>
+            
+            <td>
+                <form action="{{url('delete-admin/'.$account->id)  }}" method="POST">
+                    @csrf
+                    @method('DELETE')
+                    <button type="submit" class="btn btn-danger">Delete</button>
+                </form>
             </td>
         </tr>    
         @endforeach        
