@@ -39,7 +39,7 @@
                 <ul class="nav-menu list-unstyled d-flex flex-md-row align-items-md-center">
     
                   <!-- Logout    -->
-                  <li class="nav-item"><a class="nav-link text-white" href="{{url('/login')}}"> <span class="d-none d-sm-inline">Logout</span>
+                  <li class="nav-item"><a class="nav-link text-white" href="{{ route('login')}}" method="POST"> <span class="d-none d-sm-inline">Logout</span>
                       <svg class="svg-icon svg-icon-xs svg-icon-heavy">
                         <use xlink:href="#security-1"> </use>
                       </svg></a></li>
@@ -62,6 +62,8 @@
                 </div>
               </div>
             </div>
-          </footer>
+          </footer>   
+      <!-- FontAwesome CSS - loading as last, so it doesn't block rendering-->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">    
 </body>
 </html>  
