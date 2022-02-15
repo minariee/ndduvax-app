@@ -22,6 +22,7 @@ Route::get('/', '\App\Http\Controllers\HomePageController@index');
 Route::get('/user-dashboard', '\App\Http\Controllers\UserDashboardController@index')->name('dashboard');
 Route::get('/privacy-policy', '\App\Http\Controllers\PrivacyPolicyController@index');
 Route::get('/admin-dashboard', '\App\Http\Controllers\AdminDashboardController@index')->name('adminDashboard');
+Route::get('/blog', '\App\Http\Controllers\BlogController@index');
 Route::get('/admin-table', '\App\Http\Controllers\AdminTableController@index');
 Route::get('/admin-form', '\App\Http\Controllers\AdminTableFormController@index');
 Route::post('/admin-form', '\App\Http\Controllers\AdminTableFormController@submit');
