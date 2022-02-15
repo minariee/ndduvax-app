@@ -5,10 +5,10 @@
       <!-- Side Navbar -->
       <nav class="side-navbar z-index-40">
         <!-- Sidebar Header-->
-        <div class="sidebar-header d-flex align-items-center py-4 px-3"><img class="avatar shadow-0 img-fluid rounded-circle" src="/assets/images/avatar-3.jpg" alt="...">
+        <div class="sidebar-header d-flex align-items-center py-4 px-3"><img class="avatar shadow-0 img-fluid rounded-circle" src="/assets/images/avatar-3.png" alt="...">
           <div class="ms-3 title">
-            <h1 class="h4 mb-2">Dummy</h1>
-            <p class="text-sm text-gray-500 fw-light mb-0 lh-1">Student</p>
+            <h1 class="h4 mb-2">{{ Auth::user()->name }}</h1>
+            <p class="text-sm text-gray-500 fw-light mb-0 lh-1">User</p>
           </div>
         </div>
         <!-- Sidebar Navidation Menus--><span class="text-uppercase text-gray-400 text-xs letter-spacing-0 mx-3 px-2 heading">Menu</span>

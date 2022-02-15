@@ -20,25 +20,9 @@
             <div class="col-4 text-center">
               <a class="blog-header-logo text-dark" href="#">NDDU VAX APP</a>
             </div>
-            <div class= "col-4" align="right">
-                @auth
-                    <a id="navbarDropdown" class="nav-link" href="{{ route('dashboard') }}" role="button">
-                        {{ Auth::user()->name }}
-                    </a>
-                    <a class="dropdown-item" href="{{ route('logout') }}"
-                        onclick="event.preventDefault();
-                                        document.getElementById('logout-form').submit();">
-                        {{ __('Logout') }}
-                    </a>
-
-                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                        @csrf
-                    </form>
-                @endauth
-                @guest             
-                    <a class="btn btn-md btn-outline-success" href="{{url('/login')}}">Login</a>
-                    <a class="btn btn-md btn-outline-success" href="{{url('/register')}}">Register</a>
-                @endguest
+            <div class= "col-4" align="right">            
+                <a class="btn btn-md btn-outline-success" href="{{url('/login')}}">Login</a>
+                <a class="btn btn-md btn-outline-success" href="{{url('/register')}}">Register</a> 
             </div>
           </div>
         </header>
