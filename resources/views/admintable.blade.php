@@ -11,12 +11,21 @@
         width:130px;
         text-align:center;
     }
+
+    .btn-primary, .btn-primary-outline , .btn-primary:hover, .btn-primary:active, .btn-primary:visited {
+    background-color: #006400 !important;
+}
+
+    .btn-success{
+    background-color: #006400 !important;
+}  
+
 </style>
 
-    <h1>User Accounts</h1>
-    <table border="2">
+    <center><h1>User Accounts</h1></center>
+    <table style ="border:2px solid black;margin-right:auto;margin-left:auto;">
         <tr>
-            <th>No </th>
+
             <th>Name  </th>
             <th>Occupation</th>
             <th>Date</th>
@@ -25,7 +34,7 @@
         </tr>
         @foreach ($accounts as $account)
         <tr>
-            <td>{{ $account->id }}</td>
+
             <td>{{ $account->name}}</td>
             <td>{{ $account->occupation }}</td>
             <td>{{ $account->date}}</td>
@@ -43,9 +52,9 @@
                     <button type="submit" class="btn btn-danger">Delete</button>
                 </form>
             </td>
-        </tr>    
+        </tr>
         @endforeach        
     </table>
 
-    <a href="{{url('admin-form')}}" class="btn btn-primary">Add Record</a>
+    <center><a href="{{url('admin-form')}}" class="btn btn-primary">Add Record</a></center>
 @endsection
