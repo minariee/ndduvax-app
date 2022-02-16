@@ -51,6 +51,7 @@
     </div>
     @yield('content')
           <!-- Page Footer-->
+          <div class="content-inner w-100">
           <footer class="position-absolute bottom-0 bg-darkBlue text-white text-center py-3 w-100 text-xs" id="footer">
             <div class="container-fluid">
               <div class="row gy-2">
@@ -62,7 +63,8 @@
                 </div>
               </div>
             </div>
-          </footer>   
+          </footer>
+          </div>   
       <!-- FontAwesome CSS - loading as last, so it doesn't block rendering-->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">    
 </body>

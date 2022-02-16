@@ -7,8 +7,8 @@
         <!-- Sidebar Header-->
         <div class="sidebar-header d-flex align-items-center py-4 px-3"><img class="avatar shadow-0 img-fluid rounded-circle" src="/assets/images/avatar-3.jpg" alt="...">
           <div class="ms-3 title">
-            <h1 class="h4 mb-2">
-              {{ Auth::user()->name }}
+            <h1 class="h4 mb-2">Admin
+              
             </h1>
             <p class="text-sm text-gray-500 fw-light mb-0 lh-1">Nurse</p>
           </div>
@@ -45,24 +45,24 @@
               <svg class="svg-icon svg-icon-sm svg-icon-heavy me-xl-2">
                 <use xlink:href="#disable-1"> </use>
               </svg>Content Management </a></li>
-        </ul><span class="text-uppercase text-gray-400 text-xs letter-spacing-0 mx-3 px-2 heading">Extras</span>
+        </ul><span class="text-uppercase text-gray-400 text-xs letter-spacing-0 mx-3 px-2 heading">Settings</span>
         <ul class="list-unstyled py-4">
-          <li class="sidebar-item"> <a class="sidebar-link" href="#"> 
+          <li class="sidebar-item"> <a class="sidebar-link" href="{{url('/admin-form')}}"> 
               <svg class="svg-icon svg-icon-sm svg-icon-heavy me-xl-2">
                 <use xlink:href="#imac-screen-1"> </use>
-              </svg>Demo </a></li>
-          <li class="sidebar-item"> <a class="sidebar-link" href="#"> 
+              </svg>Add Admin </a></li>
+          <li class="sidebar-item"> <a class="sidebar-link" href="{{url('/admin-table')}}"> 
               <svg class="svg-icon svg-icon-sm svg-icon-heavy me-xl-2">
                 <use xlink:href="#chart-1"> </use>
-              </svg>Demo </a></li>
+              </svg>Admin's List </a></li>
           <li class="sidebar-item"> <a class="sidebar-link" href="#"> 
               <svg class="svg-icon svg-icon-sm svg-icon-heavy me-xl-2">
                 <use xlink:href="#quality-1"> </use>
-              </svg>Demo </a></li>
+              </svg>Additional menu </a></li>
           <li class="sidebar-item"> <a class="sidebar-link" href="#"> 
               <svg class="svg-icon svg-icon-sm svg-icon-heavy me-xl-2">
                 <use xlink:href="#security-shield-1"> </use>
-              </svg>Demo </a></li>
+              </svg>Additional Menu </a></li>
         </ul>
       </nav>
       <div class="content-inner w-100">
