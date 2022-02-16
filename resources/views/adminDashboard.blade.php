@@ -7,9 +7,7 @@
         <!-- Sidebar Header-->
         <div class="sidebar-header d-flex align-items-center py-4 px-3"><img class="avatar shadow-0 img-fluid rounded-circle" src="/assets/images/avatar-3.jpg" alt="...">
           <div class="ms-3 title">
-            <h1 class="h4 mb-2">Admin
-              
-            </h1>
+            <h1 class="h4 mb-2">Admin</h1>
             <p class="text-sm text-gray-500 fw-light mb-0 lh-1">Nurse</p>
           </div>
         </div>
@@ -54,7 +52,7 @@
           <li class="sidebar-item"> <a class="sidebar-link" href="{{url('/admin-table')}}"> 
               <svg class="svg-icon svg-icon-sm svg-icon-heavy me-xl-2">
                 <use xlink:href="#chart-1"> </use>
-              </svg>Admin's List </a></li>
+              </svg>Admin List </a></li>
           <li class="sidebar-item"> <a class="sidebar-link" href="#"> 
               <svg class="svg-icon svg-icon-sm svg-icon-heavy me-xl-2">
                 <use xlink:href="#quality-1"> </use>
