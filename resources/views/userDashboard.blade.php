@@ -67,8 +67,21 @@
       <div class="content-inner w-100">
         <header class="bg-white shadow-sm px-4 py-3 z-index-20">
           <div class="container-fluid px-0">
-            <h2 class="mb-0 p-1">Welcome!</h2>
+            <h2 class="mb-0 p-1">Welcome {{ Auth::user()->name }}!</h2>
           </div>
         </header>
+         <!-- Page Footer-->
+        <footer class="position-absolute bottom-0 bg-darkBlue text-white text-center py-3 w-100 text-xs" id="footer">
+          <div class="container-fluid">
+            <div class="row gy-2">
+              <div class="col-sm-6 text-sm-start">
+                <p class="mb-0">NDDU <a href="#" class="text-white text-decoration-none">VAX APP</a></p>
+              </div>
+              <div class="col-sm-6 text-sm-end">
+                <p class="mb-0">Copyright &copy; 2022</p>
+              </div>
+            </div>
+          </div>
+        </footer> 
     </div>
 @endsection
