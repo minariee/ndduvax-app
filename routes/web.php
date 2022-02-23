@@ -25,6 +25,7 @@ Route::get('/privacy-policy', '\App\Http\Controllers\PrivacyPolicyController@ind
 Route::get('/blog', '\App\Http\Controllers\BlogController@index');
 Route::get('/admin-table', '\App\Http\Controllers\AdminTableController@index');
 Route::get('/admin-form', '\App\Http\Controllers\AdminTableFormController@index');
+Route::get('/user-list', '\App\Http\Controllers\UserListController@index');
 Route::post('/admin-form', '\App\Http\Controllers\AdminTableFormController@submit');
 
 Route::get('edit-admin/{id}','\App\Http\Controllers\AdminTableFormController@edit');
