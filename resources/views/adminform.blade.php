@@ -63,7 +63,57 @@
             </svg>Additional Menu </a></li>
       </ul>
     </nav>
-    <div class="content-inner w-100">
+
+    <style>
+      * {box-sizing: border-box}
+
+/* Add padding to containers */
+.container {
+  padding: 16px;
+}
+
+/* Full-width input fields */
+  input[type=text], input[type=date]{
+  width: 100%;
+  padding: 15px;
+  margin: 5px 0 22px 0;
+  display: inline-block;
+  border: none;
+  background: #f1f1f1;
+}
+
+input[type=text]:focus, input[type=password]:focus {
+  background-color: #ddd;
+  outline: none;
+}
+
+/* Overwrite default styles of hr */
+hr {
+  border: 1px solid #f1f1f1;
+  margin-bottom: 25px;
+}
+
+/* Set a style for the submit/register button */
+.button {
+  background-color: #006400;
+  color: white;
+  padding: 16px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  opacity: 0.9;
+}
+
+.addbutton:hover {
+  opacity:1;
+}
+
+
+
+    </style>
+
+    {{--<div class="content-inner w-100">
         <!-- Page Header-->
         <header class="bg-white shadow-sm px-4 py-3 z-index-20">
           <div class="container-fluid px-0">
@@ -84,5 +134,30 @@
         </table>
         <input type="submit" value="Submit">
     </form>
-    </div>  
+    </div>--}}
+
+    <form method="POST" action="/admin-form">
+      @csrf
+      <div class="container">
+        <h1>Add Vaccine Record</h1>
+        <hr>
+        <label for="name"><b>Email</b></label>
+        <input type="text" placeholder="Enter Name" input name="name" required>
+    
+        <label for="occupation"><b>Occupation</b></label>
+        <input type="text" placeholder="Enter Occupation" input name="occupation" id="occupation" required>
+    
+        <label for="date"><b>Date</b></label>
+        <input type="date" placeholder="Date" input name="date" id="date" required>
+
+        <label for="type_of_vaccine"><b>Type of Vaccine</b></label>
+        <input type="text" placeholder="Enter Name" input name="type_of_vaccine" id="type_of_vaccine" required>
+    
+        <label for="dose"><b>Dose</b></label>
+        <input type="text" placeholder="Enter Dose" input name="dose" id="dose" required>
+        <hr>
+
+        <button type="submit" class="button">Add Record</button>
+      </div>
+    </form>
 @endsection
