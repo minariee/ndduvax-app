@@ -21,7 +21,7 @@
               <svg class="svg-icon svg-icon-sm svg-icon-heavy me-xl-2">
                 <use xlink:href="#portfolio-grid-1"> </use>
               </svg>Admin Record </a></li>
-          <li class="sidebar-item"><a class="sidebar-link" href="charts.html"> 
+          <li class="sidebar-item"><a class="sidebar-link" href="{{url('/user-list')}}"> 
               <svg class="svg-icon svg-icon-sm svg-icon-heavy me-xl-2">
                 <use xlink:href="#sales-up-1"> </use>
               </svg>Patients Record </a></li>
