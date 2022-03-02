@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Bootstrap Material Admin by Bootstrapious.com</title>
+    <title></title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="robots" content="all,follow">
@@ -18,8 +18,6 @@
     <!-- Favicon-->
     <link rel="shortcut icon" href="img/favicon.ico">
   
-        <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
-        <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
   </head>
   <body>
     <div class="page">
@@ -30,10 +28,15 @@
               <div class="navbar-holder d-flex align-items-center justify-content-between w-100">
                 <!-- Navbar Header-->
                 <div class="navbar-header">
-                  <!-- Navbar Brand --><a class="navbar-brand d-none d-sm-inline-block" href="index.html">
-                        <a class href = "{{url('/')}}">  <img src="assets/images/nddu-logo.png"></a>
-                          <div class="brand-text d-none d-sm-inline-block d-lg-none"><strong>BD</strong></div></a>
-                  <!-- Toggle Button--><a class="menu-btn active" id="toggle-btn" href="#"><span></span><span></span><span></span></a>
+                  <!-- Navbar Brand -->
+                  <a class="navbar-brand d-none d-sm-inline-block" href = "#">  <img src="assets/images/nddu-logo.png">
+                          <div class="brand-text d-none d-sm-inline-block d-lg-none"><strong>BD</strong>
+                          </div>
+                  </a>
+                  <!-- Toggle Button-->
+                  <a class="menu-btn active" id="toggle-btn" href="#">
+                    <span></span><span></span><span></span>
+                  </a>
                 </div>
                 <!-- Navbar Menu -->
                 <ul class="nav-menu list-unstyled d-flex flex-md-row align-items-md-center">
@@ -51,13 +54,8 @@
     </div>
      <!-- FontAwesome CSS - loading as last, so it doesn't block rendering-->
      <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">    
-     <script src="public/assets/js/bootstrap/js/bootstrap.bundle.min.js"></script>
-     <script src="public/assets/js/chart.js/Chart.min.js"></script>
-     <script src="public/assets/js/just-validate/js/just-validate.min.js"></script>
-     <script src="public/assets/js/choices.js/public/assets/scripts/choices.min.js"></script>
-     <script src="public/js/charts-home.js"></script>
-     <!-- Main File-->
-     <script src="public/js/front.js"></script>
+     <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+     <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
      <script>
             // ------------------------------------------------------- //
       //   Inject SVG Sprite - 
