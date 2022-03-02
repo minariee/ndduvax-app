@@ -56,7 +56,7 @@ class User extends Authenticatable
         // Maybe you can just hardcode in a user id that you
         //   know is always an admin ID?
 
-       if (  $this->user_type === 'admin'
+       if (  $this->user_type === 'administrator'
            ){
 
            // return true so this user CAN edit/post/delete
