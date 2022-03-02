@@ -18,7 +18,7 @@
               <a href = "{{url('/')}}">  <img src="assets/images/nddu.png" class="css-class"></a>
             </div>
             <div class="col-4 text-center">
-              <a class="blog-header-logo text-dark" href="#">NDDU VAX APP</a>
+              <a class="blog-header-logo text-dark" href = "{{url('/')}}">NDDU VAX APP</a>
             </div>
             <div class= "col-4" align="right">            
                 <a class="btn btn-md btn-outline-success" href="{{url('/login')}}">Login</a>

@@ -29,16 +29,10 @@
               <svg class="svg-icon svg-icon-sm svg-icon-heavy me-xl-2">
                 <use xlink:href="#survey-1"> </use>
               </svg>SMS </a></li>
-          <li class="sidebar-item"><a class="sidebar-link" href="#exampledropdownDropdown" data-bs-toggle="collapse"> 
+          <li class="sidebar-item"><a class="sidebar-link" href="forms.html"> 
               <svg class="svg-icon svg-icon-sm svg-icon-heavy me-xl-2">
                 <use xlink:href="#browser-window-1"> </use>
-              </svg>Vaccine Lists </a>
-            <ul class="collapse list-unstyled " id="exampledropdownDropdown">
-              <li><a class="sidebar-link" href="#">Page</a></li>
-              <li><a class="sidebar-link" href="#">Page</a></li>
-              <li><a class="sidebar-link" href="#">Page</a></li>
-            </ul>
-          </li>
+              </svg>Vaccine Lists </a></li>
           <li class="sidebar-item"><a class="sidebar-link" href="login.html"> 
               <svg class="svg-icon svg-icon-sm svg-icon-heavy me-xl-2">
                 <use xlink:href="#disable-1"> </use>
