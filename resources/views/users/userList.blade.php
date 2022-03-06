@@ -13,7 +13,7 @@
       </div>
       <!-- Sidebar Navidation Menus--><span class="text-uppercase text-gray-400 text-xs letter-spacing-0 mx-3 px-2 heading">Menu</span>
       <ul class="list-unstyled py-4">
-        <li class="sidebar-item"><a class="sidebar-link" href="index.html"> 
+        <li class="sidebar-item"><a class="sidebar-link" href="{{url('/admin-dashboard')}}"> 
             <svg class="svg-icon svg-icon-sm svg-icon-heavy me-xl-2">
               <use xlink:href="#real-estate-1"> </use>
             </svg>Dashboard </a></li>
@@ -29,15 +29,10 @@
             <svg class="svg-icon svg-icon-sm svg-icon-heavy me-xl-2">
               <use xlink:href="#survey-1"> </use>
             </svg>SMS </a></li>
-        <li class="sidebar-item"><a class="sidebar-link" href="#exampledropdownDropdown" data-bs-toggle="collapse"> 
-            <svg class="svg-icon svg-icon-sm svg-icon-heavy me-xl-2">
-              <use xlink:href="#browser-window-1"> </use>
-            </svg>Vaccine Lists </a>
-          <ul class="collapse list-unstyled " id="exampledropdownDropdown">
-            <li><a class="sidebar-link" href="#">Page</a></li>
-            <li><a class="sidebar-link" href="#">Page</a></li>
-            <li><a class="sidebar-link" href="#">Page</a></li>
-          </ul>
+            <li class="sidebar-item"><a class="sidebar-link" href="forms.html"> 
+              <svg class="svg-icon svg-icon-sm svg-icon-heavy me-xl-2">
+                <use xlink:href="#browser-window-1"> </use>
+              </svg>Vaccine Lists </a></li>
         </li>
         <li class="sidebar-item"><a class="sidebar-link" href="login.html"> 
             <svg class="svg-icon svg-icon-sm svg-icon-heavy me-xl-2">
@@ -77,6 +72,13 @@
         <div class="row"> 
             <div class="col-md-8 offset-2">
                 <table class="table table-responsive table-bordered">
+                  <!-- Button trigger modal -->
+                  <div class="pull-right">
+                    <a class="btn btn-success" data-toggle="modal" id="mediumButton" data-target="#mediumModal" data-attr="{{ route('users.create') }}" title="Add User"> <i class="fas fa-plus-circle"></i>
+                        </a>
+                </div>
+
+<br><br>
                     <thead class="table bg-success">
                       <tr>
                         <th scope="col">Id</th>
@@ -84,9 +86,7 @@
                         <th scope="col">Email</th>
                         <th scope="col">Role</th>
                         <th scope="col">Created at</th>
-                        <th scope="col">Edit</th>
-                        <th scope="col">Archive</th>
-                        <th scope="col">Add</th>
+                        <th width="280px">Action</th>
                       </tr>
                     </thead>
                     <tbody>
@@ -97,16 +97,33 @@
                                 <td>{{ $user->email }}</td>
                                 <td>{{ $user->user_type}}</td>
                                 <td>{{ $user->created_at}}</td>
-                                <td>User : Edit</td>
-                                <td>User : Archive</td>
-                                <td>User : Add</td>
+                                <td>
+                                  <form action="{{ route('users.destroy', $user->id) }}" method="POST">
+
+                                    <a data-toggle="modal" id="mediumButton" data-target="#mediumModal"
+                                        data-attr="{{ route('users.show', $user->id) }}" title="show">
+                                        <i class="fas fa-eye text-success  fa-lg"></i>
+                                    </a>
+        
+                                    <a class="text-secondary" data-toggle="modal" id="mediumButton" data-target="#mediumModal" data-attr="{{ route('users.edit',$user->id) }}">
+                                        <i class="fas fa-edit text-gray-300"></i>
+                                    </a>
+                                    @csrf
+                                    @method('DELETE')
+        
+                                    <button type="submit" title="delete" style="border: none; background-color:transparent;"><i class="fas fa-trash fa-lg text-danger"></i>
+                                    </button>
+                                </form>
+                              </td>
                               </tr>
                             @endforeach
                     
                     </tbody>
                   </table>
+                  {{ $users->links()}}
             </div>
         </div>
+      
     </section>
          <!-- Page Footer-->
         <footer class="position-absolute bottom-0 bg-darkBlue text-white text-center py-3 w-100 text-xs" id="footer">
@@ -122,4 +139,51 @@
           </div>
         </footer> 
     </div>
+
+     <!-- medium modal -->
+     <div class="modal fade" id="mediumModal" tabindex="-1" role="dialog" aria-labelledby="mediumModalLabel"
+     aria-hidden="true">
+     <div class="modal-dialog" role="document">
+         <div class="modal-content">
+             <div class="modal-header">
+                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                     <span aria-hidden="true">&times;</span>
+                 </button>
+             </div>
+             <div class="modal-body" id="mediumBody">
+                 <div>
+                     <!-- the result to be displayed apply here -->
+                 </div>
+             </div>
+         </div>
+     </div>
+ </div>
+    <script>
+    // display a modal (medium modal)
+    $(document).on('click', '#mediumButton', function(event) {
+        event.preventDefault();
+        let href = $(this).attr('data-attr');
+        $.ajax({
+            url: href,
+            beforeSend: function() {
+                $('#loader').show();
+            },
+            // return the result
+            success: function(result) {
+                $('#mediumModal').modal("show");
+                $('#mediumBody').html(result).show();
+            },
+            complete: function() {
+                $('#loader').hide();
+            },
+            error: function(jqXHR, testStatus, error) {
+                console.log(error);
+                alert("Page " + href + " cannot open. Error:" + error);
+                $('#loader').hide();
+            },
+            timeout: 8000
+        })
+    });
+
+</script>
 @endsection

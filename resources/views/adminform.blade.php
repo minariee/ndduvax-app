@@ -13,7 +13,7 @@
       </div>
       <!-- Sidebar Navidation Menus--><span class="text-uppercase text-gray-400 text-xs letter-spacing-0 mx-3 px-2 heading">Menu</span>
       <ul class="list-unstyled py-4">
-        <li class="sidebar-item active"><a class="sidebar-link" href="index.html"> 
+        <li class="sidebar-item"><a class="sidebar-link" href="{{url('/admin-dashboard')}}"> 
             <svg class="svg-icon svg-icon-sm svg-icon-heavy me-xl-2">
               <use xlink:href="#real-estate-1"> </use>
             </svg>Dashboard </a></li>
@@ -21,7 +21,7 @@
             <svg class="svg-icon svg-icon-sm svg-icon-heavy me-xl-2">
               <use xlink:href="#portfolio-grid-1"> </use>
             </svg>Admin Record </a></li>
-        <li class="sidebar-item"><a class="sidebar-link" href="charts.html"> 
+        <li class="sidebar-item"><a class="sidebar-link" href="{{url('/user-list')}}"> 
             <svg class="svg-icon svg-icon-sm svg-icon-heavy me-xl-2">
               <use xlink:href="#sales-up-1"> </use>
             </svg>Patients Record </a></li>
@@ -29,23 +29,17 @@
             <svg class="svg-icon svg-icon-sm svg-icon-heavy me-xl-2">
               <use xlink:href="#survey-1"> </use>
             </svg>SMS </a></li>
-        <li class="sidebar-item"><a class="sidebar-link" href="#exampledropdownDropdown" data-bs-toggle="collapse"> 
+        <li class="sidebar-item"><a class="sidebar-link" href="forms.html"> 
             <svg class="svg-icon svg-icon-sm svg-icon-heavy me-xl-2">
               <use xlink:href="#browser-window-1"> </use>
-            </svg>Vaccine Lists </a>
-          <ul class="collapse list-unstyled " id="exampledropdownDropdown">
-            <li><a class="sidebar-link" href="#">Page</a></li>
-            <li><a class="sidebar-link" href="#">Page</a></li>
-            <li><a class="sidebar-link" href="#">Page</a></li>
-          </ul>
-        </li>
+            </svg>Vaccine Lists </a></li>
         <li class="sidebar-item"><a class="sidebar-link" href="login.html"> 
             <svg class="svg-icon svg-icon-sm svg-icon-heavy me-xl-2">
               <use xlink:href="#disable-1"> </use>
             </svg>Content Management </a></li>
       </ul><span class="text-uppercase text-gray-400 text-xs letter-spacing-0 mx-3 px-2 heading">Settings</span>
       <ul class="list-unstyled py-4">
-        <li class="sidebar-item"> <a class="sidebar-link" href="{{url('/admin-form')}}"> 
+        <li class="sidebar-item active"> <a class="sidebar-link" href="{{url('/admin-form')}}"> 
             <svg class="svg-icon svg-icon-sm svg-icon-heavy me-xl-2">
               <use xlink:href="#imac-screen-1"> </use>
             </svg>Add Admin </a></li>
