@@ -18,14 +18,16 @@
               <svg class="svg-icon svg-icon-sm svg-icon-heavy me-xl-2">
                 <use xlink:href="#real-estate-1"> </use>
               </svg>Dashboard </a></li>
-          <li class="sidebar-item"><a class="sidebar-link" href="tables.html"> 
+          <li class="sidebar-item"><a class="sidebar-link" href="{{url('/vaccinerecord')}}">
               <svg class="svg-icon svg-icon-sm svg-icon-heavy me-xl-2">
                 <use xlink:href="#portfolio-grid-1"> </use>
               </svg>Vaccine Record </a></li>
-          <li class="sidebar-item"><a class="sidebar-link" href="charts.html"> 
+              
+          <li class="sidebar-item"><a class="sidebar-link" href="{{url('vaccinerecord')}}"> 
               <svg class="svg-icon svg-icon-sm svg-icon-heavy me-xl-2">
                 <use xlink:href="#sales-up-1"> </use>
               </svg>Statistics </a></li>
+              
           <li class="sidebar-item"><a class="sidebar-link" href="forms.html"> 
               <svg class="svg-icon svg-icon-sm svg-icon-heavy me-xl-2">
                 <use xlink:href="#survey-1"> </use>

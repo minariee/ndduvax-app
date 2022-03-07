@@ -1,10 +1,10 @@
 @if(\Auth::check() && \Auth::user()->canManageBinshopsBlogPosts())
-    <a href="{{$post->edit_url()}}" class="btn btn-outline-secondary btn-sm pull-right float-right">Edit
+    <a href="{{$post->edit_url()}}" class="btn btn-outline-success btn-lg pull-right float-right">Edit
         Post</a>
 @endif
 
-<h1 class='blog_title'>{{$post->title}}</h1>
-<h5 class='blog_subtitle'>{{$post->subtitle}}</h5>
+<h1 style = "font-family:Arial"class='blog_title'>{{$post->title}}</h1>
+<h5 style = "font-family:Arial" class='blog_subtitle'>{{$post->subtitle}}</h5>
 
 
 <?=$post->image_tag("medium", false, 'd-block mx-auto'); ?>

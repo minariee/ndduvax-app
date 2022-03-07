@@ -3,6 +3,7 @@
     @foreach(\BinshopsBlog\Models\BinshopsPost::inRandomOrder()->limit(5)->get() as $post)
         <li class="nav-item">
             <a class='nav-link' href='{{$post->url()}}'>{{$post->title}}</a>
+            <h1>hello</h1>
         </li>
     @endforeach
 </ul>

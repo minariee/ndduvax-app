@@ -31,7 +31,7 @@ margin-bottom: 25px;
 
 /* Set a style for the submit/register button */
 .button {
-background-color: #006400;
+background-color: #012b09;
 color: white;
 padding: 16px 20px;
 margin: 8px 0;

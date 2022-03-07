@@ -19,10 +19,10 @@ Route::get('/vaccine-form', '\App\Http\Controllers\VaccineFormController@index')
 Route::post('/vaccine-form', '\App\Http\Controllers\VaccineFormController@submit');
 Route::get('/terms-and-condition', '\App\Http\Controllers\TermsAndConditionController@index');
 Route::get('/', '\App\Http\Controllers\HomePageController@index');
-Route::get('/user-dashboard', '\App\Http\Controllers\UserDashboardController@index')->name('dashboard');
+Route::get('/user-dashboard', '\App\Http\Controllers\UserDashboardController@index');
 Route::get('/privacy-policy', '\App\Http\Controllers\PrivacyPolicyController@index');
 //Route::get('/admin-dashboard', '\App\Http\Controllers\AdminDashboardController@index')->name('adminDashboard');
-Route::get('/en/blog');
+//Route::get('/en/blog');
 Route::get('/admin-table', '\App\Http\Controllers\AdminTableController@index');
 Route::get('/admin-form', '\App\Http\Controllers\AdminTableFormController@index');
 Route::get('/user-list', '\App\Http\Controllers\UserListController@index');
@@ -48,3 +48,10 @@ Route::middleware(['auth', 'isAdmin'])->group(function () {
       return view('adminDashboard');
     })->name('dashboard');
   });
+
+
+Route::get('/vaccinerecord/{id}', '\App\Http\Controllers\VaccineRecordController@index');
+
+/*Route::get('/user-dashboard/{id}', function ($id) {
+  dd($id);
+});*/

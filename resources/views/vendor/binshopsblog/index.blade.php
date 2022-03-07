@@ -1,4 +1,4 @@
-@extends("layouts.app",['title'=>$title])
+@extends("layouts.main-bootstrap",['title'=>$title])
 
 @section('blog-custom-css')
     <link type="text/css" href="{{ asset('binshops-blog.css') }}" rel="stylesheet">
@@ -6,13 +6,13 @@
 
 @section("content")
 
-    <div class='col-sm-12 binshopsblog_container'>
+    <div style="margin-top:50px"class='col-sm-12 binshopsblog_container'>
         @if(\Auth::check() && \Auth::user()->canManageBinshopsBlogPosts())
             <div class="text-center">
-                <p class='mb-1'>You are logged in as a blog admin user.
+                <p style="font-size:18px"class='mb-1'>You are logged in as an Admin User.
                     <br>
-                    <a href='{{route("binshopsblog.admin.index")}}'
-                       class='btn border  btn-outline-primary btn-sm '>
+                    <a style="margin-bottom:40px" href='{{route("binshopsblog.admin.index")}}'
+                       class='btn border  btn-outline-success btn-lg '>
                         <i class="fa fa-cogs" aria-hidden="true"></i>
                         Go To Blog Admin Panel</a>
                 </p>
@@ -58,7 +58,7 @@
                 </div>
             </div>
             <div class="col-md-3">
-                <h6>Blog Categories</h6>
+                <h6 style="font-family:Arial">Blog Categories</h6>
                 <ul class="binshops-cat-hierarchy">
                     @if($categories)
                         @include("binshopsblog::partials._category_partial", [

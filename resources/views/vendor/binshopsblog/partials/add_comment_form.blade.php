@@ -1,5 +1,12 @@
+<style>
+    .btn-success{
+        background-color: #012b09 !important;
+    }
+</style>
+
+
 <div class='add_comment_area'>
-    <h5 class='text-center'>Add a comment</h5>
+    <h5 style = "font-family:Arial" class='text-center'>Add a comment</h5>
     <form method='post' action='{{route("binshopsblog.comments.add_new_comment",[app('request')->get('locale'),$post->slug])}}'>
         @csrf
 
