@@ -13,7 +13,11 @@
       </div>
       <!-- Sidebar Navidation Menus--><span class="text-uppercase text-gray-400 text-xs letter-spacing-0 mx-3 px-2 heading">Menu</span>
       <ul class="list-unstyled py-4">
+<<<<<<< HEAD
         <li class="sidebar-item active"><a class="sidebar-link" href="index.html"> 
+=======
+        <li class="sidebar-item"><a class="sidebar-link" href="index.html"> 
+>>>>>>> 83575f5795a97cb6f05edc5cb7de0092a38f8e23
             <svg class="svg-icon svg-icon-sm svg-icon-heavy me-xl-2">
               <use xlink:href="#real-estate-1"> </use>
             </svg>Dashboard </a></li>
@@ -21,7 +25,11 @@
             <svg class="svg-icon svg-icon-sm svg-icon-heavy me-xl-2">
               <use xlink:href="#portfolio-grid-1"> </use>
             </svg>Admin Record </a></li>
+<<<<<<< HEAD
         <li class="sidebar-item"><a class="sidebar-link" href="charts.html"> 
+=======
+        <li class="sidebar-item"><a class="sidebar-link" href="{{url('/user-list')}}"> 
+>>>>>>> 83575f5795a97cb6f05edc5cb7de0092a38f8e23
             <svg class="svg-icon svg-icon-sm svg-icon-heavy me-xl-2">
               <use xlink:href="#sales-up-1"> </use>
             </svg>Patients Record </a></li>
@@ -29,6 +37,7 @@
             <svg class="svg-icon svg-icon-sm svg-icon-heavy me-xl-2">
               <use xlink:href="#survey-1"> </use>
             </svg>SMS </a></li>
+<<<<<<< HEAD
         <li class="sidebar-item"><a class="sidebar-link" href="#exampledropdownDropdown" data-bs-toggle="collapse"> 
             <svg class="svg-icon svg-icon-sm svg-icon-heavy me-xl-2">
               <use xlink:href="#browser-window-1"> </use>
@@ -39,6 +48,12 @@
             <li><a class="sidebar-link" href="#">Page</a></li>
           </ul>
         </li>
+=======
+        <li class="sidebar-item"><a class="sidebar-link" href="forms.html"> 
+            <svg class="svg-icon svg-icon-sm svg-icon-heavy me-xl-2">
+              <use xlink:href="#browser-window-1"> </use>
+            </svg>Vaccine Lists </a></li>
+>>>>>>> 83575f5795a97cb6f05edc5cb7de0092a38f8e23
         <li class="sidebar-item"><a class="sidebar-link" href="login.html"> 
             <svg class="svg-icon svg-icon-sm svg-icon-heavy me-xl-2">
               <use xlink:href="#disable-1"> </use>
@@ -49,7 +64,11 @@
             <svg class="svg-icon svg-icon-sm svg-icon-heavy me-xl-2">
               <use xlink:href="#imac-screen-1"> </use>
             </svg>Add Admin </a></li>
+<<<<<<< HEAD
         <li class="sidebar-item"> <a class="sidebar-link" href="{{url('/admin-table')}}"> 
+=======
+        <li class="sidebar-item active"> <a class="sidebar-link" href="{{url('/admin-table')}}"> 
+>>>>>>> 83575f5795a97cb6f05edc5cb7de0092a38f8e23
             <svg class="svg-icon svg-icon-sm svg-icon-heavy me-xl-2">
               <use xlink:href="#chart-1"> </use>
             </svg>Admin List </a></li>
@@ -63,7 +82,10 @@
             </svg>Additional Menu </a></li>
       </ul>
     </nav>
+<<<<<<< HEAD
 
+=======
+>>>>>>> 83575f5795a97cb6f05edc5cb7de0092a38f8e23
 <style>
     td{
         width:130px;

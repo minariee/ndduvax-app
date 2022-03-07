@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use Illuminate\Http\Request;
+use App\Http\Controllers\UserListController;
 
 /*
 |--------------------------------------------------------------------------
@@ -26,6 +27,8 @@ Route::get('/privacy-policy', '\App\Http\Controllers\PrivacyPolicyController@ind
 Route::get('/admin-table', '\App\Http\Controllers\AdminTableController@index');
 Route::get('/admin-form', '\App\Http\Controllers\AdminTableFormController@index');
 Route::get('/user-list', '\App\Http\Controllers\UserListController@index');
+Route::resource('users', UserListController::class); 
+Route::post('users/{id}', 'UserListController@edit')->name('users.edit');
 Route::post('/admin-form', '\App\Http\Controllers\AdminTableFormController@submit');
 
 Route::get('edit-admin/{id}','\App\Http\Controllers\AdminTableFormController@edit');
