@@ -7,12 +7,15 @@
     "require": {
         "php": "^7.3|^8.0",
         "binshops/laravel-blog": "^9.2",
+        "djunehor/laravel-sms": "^2.2",
         "fruitcake/laravel-cors": "^2.0",
         "guzzlehttp/guzzle": "^7.0.1",
+        "humans/semaphore-sms": "^4.0",
         "laravel/framework": "^8.75",
         "laravel/sanctum": "^2.11",
         "laravel/tinker": "^2.5",
-        "laravel/ui": "^3.4"
+        "laravel/ui": "^3.4",
+        "laravelcollective/html": "^6.3"
     },
     "require-dev": {
         "facade/ignition": "^2.5",
@@ -24,11 +27,13 @@
     },
     "autoload": {
         "psr-4": {
+            "Humans\\Semaphore\\": "src",
             "App\\": "app/",
             "Database\\Factories\\": "database/factories/",
             "Database\\Seeders\\": "database/seeders/"
         }
     },
+    
     "autoload-dev": {
         "psr-4": {
             "Tests\\": "tests/"
@@ -49,16 +54,22 @@
             "@php artisan key:generate --ansi"
         ]
     },
-    "extra": {
-        "laravel": {
-            "dont-discover": []
-        }
-    },
+
     "config": {
         "optimize-autoloader": true,
         "preferred-install": "dist",
         "sort-packages": true
     },
+    "prefer-stable": true,
     "minimum-stability": "dev",
-    "prefer-stable": true
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Humans\\Semaphore\\AppServiceProvider"
+            ],
+            "aliases": {
+                "Semaphore": "Humans\\Semaphore\\Facade"
+            }
+        }
+    }
 }

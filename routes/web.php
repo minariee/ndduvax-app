@@ -2,7 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use Illuminate\Http\Request;
-use App\Http\Controllers\UserListController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -26,14 +26,24 @@ Route::get('/privacy-policy', '\App\Http\Controllers\PrivacyPolicyController@ind
 //Route::get('/en/blog');
 Route::get('/admin-table', '\App\Http\Controllers\AdminTableController@index');
 Route::get('/admin-form', '\App\Http\Controllers\AdminTableFormController@index');
-Route::get('/user-list', '\App\Http\Controllers\UserListController@index');
-Route::resource('users', UserListController::class); 
-Route::post('users/{id}', 'UserListController@edit')->name('users.edit');
-Route::post('/admin-form', '\App\Http\Controllers\AdminTableFormController@submit');
 
+Route::group(['users'], function() {
+  Route::get('/user-list', '\App\Http\Controllers\UserListController@index')->name('users.index');
+  Route::get('/create', '\App\Http\Controllers\UserListController@create')->name('users.create');
+  Route::post('/create', '\App\Http\Controllers\UserListController@store')->name('users.store');
+  Route::get('/{users}/show', '\App\Http\Controllers\UserListController@show')->name('users.show');
+  Route::get('/{users}/edit', '\App\Http\Controllers\UserListController@edit')->name('users.edit');
+  Route::patch('/{users}/update', '\App\Http\Controllers\UserListController@update')->name('users.update');
+  Route::delete('/{users}/delete', '\App\Http\Controllers\UserListController@destroy')->name('users.destroy');
+  Route::post('/{users}/restore', '\App\Http\Controllers\UserListController@restore')->name('users.restore');
+  Route::delete('/{users}/force-delete', '\App\Http\Controllers\UserListController@forceDelete')->name('users.force-delete');
+  Route::post('/restore-all', '\App\Http\Controllers\UserListController@restoreAll')->name('users.restore-all');
+});
+
+
+Route::post('/admin-form', '\App\Http\Controllers\AdminTableFormController@submit');
 Route::get('edit-admin/{id}','\App\Http\Controllers\AdminTableFormController@edit');
 Route::put('update-account/{id}','\App\Http\Controllers\AdminTableFormController@update');
-
 Route::delete('delete-admin/{id}','\App\Http\Controllers\AdminTableFormController@delete');
 
 

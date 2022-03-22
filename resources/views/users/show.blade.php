@@ -60,7 +60,7 @@
     <div class="content-inner w-100">
         <header class="bg-white shadow-sm px-4 py-3 z-index-20">
           <div class="container-fluid px-0">
-            <h2 class="mb-0 p-1">Welcome Admin!</h2>
+            <h2 class="mb-0 p-1">Show User</h2>
           </div>
         </header>
         <section class="pb-0">
@@ -68,59 +68,25 @@
               <div class="card mb-0">
                 <div class="card-body">
                   <div class="row gx-3 bg-white">
-        <div class="row">
-            <div class="col-lg-12 margin-tb">
-                <div class="pull-left">
-                    <h2>Add New User</h2>
-                </div>
-               
-            </div>
-        </div>
-    
-        @if ($errors->any())
-            <div class="alert alert-danger">
-                <strong>Whoops!</strong> There were some problems with your input.<br><br>
-                <ul>
-                    @foreach ($errors->all() as $error)
-                        <li>{{ $error }}</li>
-                    @endforeach
-                </ul>
-            </div>
-        @endif
-        <form action="{{ route('users.store') }}" method="POST" >
-            {{ csrf_field() }}
-            <div class="row">
-                <div class="col-xs-12 col-sm-12 col-md-12">
-                    <div class="form-group">
-                        <strong>Name:</strong>
-                        <input type="text" name="name" class="form-control" placeholder="Name">
+                    <div class="bg-light p-4 rounded">
+                        
+                            <div>
+                                Name: {{ $user->name }}
+                            </div>
+                            <div>
+                                Email: {{ $user->email }}
+                            </div>
                     </div>
-                </div>
-                <div class="col-xs-12 col-sm-12 col-md-12">
-                    <div class="form-group">
-                        <strong>Email:</strong>
-                        <input type="text" name="email" class="form-control" placeholder="Email">
-                    </div>
-                </div>
-                <div class="col-xs-12 col-sm-12 col-md-12">
-                    <div class="form-group">
-                        <strong>Password:</strong>
-                        <input type="text" name="password" class="form-control" placeholder="Password">
-                    </div>
-                </div>
-                <div class="col-xs-12 col-sm-12 col-md-12 text-center">
-                    <br>
-                    <div class="pull-right">
-                    <button type="submit" class="btn btn-success">Submit</button>  
-                        <a class="btn btn-success" href="{{ route('users.index') }}" title="Go back"> <i class="fas fa-backward "></i> </a>
+                    <div class="mt-4">
+                        <a href="{{ route('users.edit', $user->id) }}" class="btn btn-info">Edit</a>
+                        <a href="{{ route('users.index') }}" class="btn btn-success">Back</a>
                     </div>
                 </div>
             </div>
-        </form>
-    </section>
+        </section>
             
          <!-- Page Footer-->
-        <footer class="position-absolute bottom-0 bg-darkBlue text-white text-center py-3 w-100 text-xs" id="footer">
+         <footer class="position-absolute bottom-0 bg-darkBlue text-white text-center py-3 w-100 text-xs" id="footer">
           <div class="container-fluid">
             <div class="row gy-2">
               <div class="col-sm-6 text-sm-start">

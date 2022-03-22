@@ -3,7 +3,7 @@
 @section('content')
 <div class="page-content d-flex align-items-stretch"> 
   <!-- Side Navbar -->
-  <nav class="side-navbar z-index-40 shrinked">
+  <nav class="side-navbar z-index-40">
     <!-- Sidebar Header-->
     <div class="sidebar-header d-flex align-items-center py-4 px-3"><img class="avatar shadow-0 img-fluid rounded-circle" src="/assets/images/avatar-3.jpg" alt="...">
       <div class="ms-3 title">
@@ -17,7 +17,7 @@
           <svg class="svg-icon svg-icon-sm svg-icon-heavy me-xl-2">
             <use xlink:href="#real-estate-1"> </use>
           </svg>Dashboard </a></li>
-      <li class="sidebar-item active"><a class="sidebar-link" href="{{url('/admin-table')}}"> 
+      <li class="sidebar-item"><a class="sidebar-link" href="tables.html"> 
           <svg class="svg-icon svg-icon-sm svg-icon-heavy me-xl-2">
             <use xlink:href="#portfolio-grid-1"> </use>
           </svg>Admin Record </a></li>
@@ -40,15 +40,15 @@
           </svg>Content Management </a></li>
     </ul><span class="text-uppercase text-gray-400 text-xs letter-spacing-0 mx-3 px-2 heading">Settings</span>
     <ul class="list-unstyled py-4">
-      {{--<li class="sidebar-item"> <a class="sidebar-link" href="{{url('/admin-form')}}"> 
+      <li class="sidebar-item active"> <a class="sidebar-link" href="{{url('/admin-form')}}"> 
           <svg class="svg-icon svg-icon-sm svg-icon-heavy me-xl-2">
             <use xlink:href="#imac-screen-1"> </use>
-          </svg>Add Admin </a></li>
-      <li class="sidebar-item active"> <a class="sidebar-link" href="{{url('/admin-table')}}"> 
+          </svg>Add Record </a></li>
+      <li class="sidebar-item"> <a class="sidebar-link" href="{{url('/admin-table')}}"> 
           <svg class="svg-icon svg-icon-sm svg-icon-heavy me-xl-2">
             <use xlink:href="#chart-1"> </use>
           </svg>Admin List </a></li>
-     <li class="sidebar-item"> <a class="sidebar-link" href="#"> 
+     {{--<li class="sidebar-item"> <a class="sidebar-link" href="#"> 
           <svg class="svg-icon svg-icon-sm svg-icon-heavy me-xl-2">
             <use xlink:href="#quality-1"> </use>
           </svg>Additional menu </a></li>
@@ -61,74 +61,98 @@
   <div class="content-inner w-100">
   <header class="bg-white shadow-sm px-4 py-3 z-index-20">
     <div class="container-fluid px-0">
-      <h2 class="mb-0 p-1">User Account</h2>
+      <h2 class="mb-0 p-1">Add Vaccine Record</h2>
     </div>
   </header>
-  
-<style>
-    td{
-        width:130px;
-        text-align:center;
-    }
-    th{
-        width:130px;
-        text-align:center;
-    }
 
-    .btn-primary, .btn-primary-outline , .btn-primary:hover, .btn-primary:active, .btn-primary:visited {
-    background-color: #012b09 !important;
+    <style>
+      * {box-sizing: border-box}
+
+/* Add padding to containers */
+.container {
+  padding: 16px;
 }
 
-    .btn-success{
-    background-color: #012b09 !important;
-}  
+/* Full-width input fields */
+  input[type=text], input[type=date]{
+  width: 100%;
+  padding: 15px;
+  margin: 5px 0 22px 0;
+  display: inline-block;
+  border: none;
+  background: #f1f1f1;
+}
 
-    .container{
-        padding:50px;
-    }
+input[type=text]:focus, input[type=password]:focus {
+  background-color: #ddd;
+  outline: none;
+}
 
-</style>
+/* Overwrite default styles of hr */
+hr {
+  border: 1px solid #f1f1f1;
+  margin-bottom: 25px;
+}
 
+/* Set a style for the submit/register button */
+.button {
+  background-color: #012b09;
+  color: white;
+  padding: 16px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  opacity: 0.9;
+}
+
+.addbutton:hover {
+  opacity:1;
+}
+
+
+
+    </style>
+
+    {{--<div class="content-inner w-100">
+        <!-- Page Header-->
+        <header class="bg-white shadow-sm px-4 py-3 z-index-20">
+          <div class="container-fluid px-0">
+            <h2 class="mb-0 p-1">Tables</h2>
+          </div>
+        </header>
+        <h1>Vaccine Form</h1>
+        <form method="POST" action="/admin-form">
+        @csrf
+        <table border="2">
+        <tr>
+        <td>Name: <input name="name" type="text"><br></td>
+        <td>Occupation: <input name="occupation" type="text"><br></td>
+        <td>Date: <input name="date" type="date"><br></td>
+        <td>Type of Vaccine: <input name="type_of_vaccine" type="text"><br></td>
+        <td>Dose: <input name="dose" type="text"><br></td>
+        </tr>
+        </table>
+        <input type="submit" value="Submit">
+    </form>
+    </div>--}}
+
+    <form method="POST" action="/form">
+      @csrf
+      <div class="container">
+        <hr>
+        <label for="name"><b>Name</b></label>
+        <input type="text" placeholder="Enter Name" input name="name" required>
     
+        <label for="email"><b>Email</b></label>
+        <input type="text" placeholder="Enter Email" input name="email" id="email" required>
+        <hr>
 
-    <div class="container">
-      {{--<center><h1>User Accounts</h1></center>--}}
-    <table style ="border:2px solid black;margin-right:auto;margin-left:auto;">
-        <tr>
-
-            <th>Name  </th>
-            <th>Occupation</th>
-            <th>Date</th>
-            <th>Type of Vaccine</th>
-            <th>Dose </th>
-        </tr>
-        @foreach ($accounts as $account)
-        <tr>
-
-            <td>{{ $account->name}}</td>
-            <td>{{ $account->occupation }}</td>
-            <td>{{ $account->date}}</td>
-            <td>{{ $account->type_of_vaccine}}</td>
-            <td>{{ $account->dose}}</td>
-            
-            <td>
-            <a href="edit-admin/{{ $account->id }}" class= "btn btn-success">Edit</a>
-            </td>
-            
-            <td>
-                <form action="{{url('delete-admin/'.$account->id)  }}" method="POST">
-                    @csrf
-                    @method('DELETE')
-                    <button type="submit" class="btn btn-danger">Delete</button>
-                </form>
-            </td>
-        </tr>
-        @endforeach        
-    </table>
-    <br><center><a href="{{url('admin-form')}}" class="btn btn-primary">Add Record</a></center>
-  </div>
-   <!-- Page Footer-->
-   <footer class="position-absolute bottom-0 bg-darkBlue text-white text-center py-3 w-100 text-xs" id="footer">
+        <button type="submit" class="button">Add Record</button>
+      </div>
+    </form>
+      <!-- Page Footer-->
+  <footer class="position-absolute bottom-0 bg-darkBlue text-white text-center py-3 w-100 text-xs" id="footer">
     <div class="container-fluid">
       <div class="row gy-2">
         <div class="col-sm-6 text-sm-start">

@@ -3,7 +3,7 @@
 @section('content')
 <div class="page-content d-flex align-items-stretch"> 
     <!-- Side Navbar -->
-    <nav class="side-navbar z-index-40">
+    <nav class="side-navbar z-index-40 shrinked">
       <!-- Sidebar Header-->
       <div class="sidebar-header d-flex align-items-center py-4 px-3"><img class="avatar shadow-0 img-fluid rounded-circle" src="/assets/images/avatar-3.jpg" alt="...">
         <div class="ms-3 title">
@@ -17,7 +17,7 @@
             <svg class="svg-icon svg-icon-sm svg-icon-heavy me-xl-2">
               <use xlink:href="#real-estate-1"> </use>
             </svg>Dashboard </a></li>
-        <li class="sidebar-item"><a class="sidebar-link" href="tables.html"> 
+        <li class="sidebar-item"><a class="sidebar-link" href="{{url('/admin-table')}}"> 
             <svg class="svg-icon svg-icon-sm svg-icon-heavy me-xl-2">
               <use xlink:href="#portfolio-grid-1"> </use>
             </svg>Admin Record </a></li>
@@ -40,7 +40,7 @@
             </svg>Content Management </a></li>
       </ul><span class="text-uppercase text-gray-400 text-xs letter-spacing-0 mx-3 px-2 heading">Settings</span>
       <ul class="list-unstyled py-4">
-        <li class="sidebar-item"> <a class="sidebar-link" href="{{url('/admin-form')}}"> 
+      {{-- <li class="sidebar-item"> <a class="sidebar-link" href="{{url('/admin-form')}}"> 
             <svg class="svg-icon svg-icon-sm svg-icon-heavy me-xl-2">
               <use xlink:href="#imac-screen-1"> </use>
             </svg>Add Admin </a></li>
@@ -55,7 +55,7 @@
         <li class="sidebar-item"> <a class="sidebar-link" href="#"> 
             <svg class="svg-icon svg-icon-sm svg-icon-heavy me-xl-2">
               <use xlink:href="#security-shield-1"> </use>
-            </svg>Additional Menu </a></li>
+            </svg>Additional Menu </a></li>--}}
       </ul>
     </nav>
     <div class="content-inner w-100">
@@ -73,12 +73,13 @@
             <div class="col-md-8 offset-2">
                 <table class="table table-responsive table-bordered">
                   <!-- Button trigger modal -->
-                  <div class="pull-right">
-                    <a class="btn btn-success" data-toggle="modal" id="mediumButton" data-target="#mediumModal" data-attr="{{ route('users.create') }}" title="Add User"> <i class="fas fa-plus-circle"></i>
-                        </a>
+                <div class="mt-2">    
+                  <a href="{{ route('users.create') }}" class="btn btn-primary btn-sm float-right">Add new user</a> | <a href="/users?status=archived">Archived users</a>
+                 <br><br>
+                 @if(request()->has('trashed'))
+                 <a href="{{ route('posts.restoreAll') }}" class="btn btn-primary btn-sm">Restore All</a>
+                 @endif
                 </div>
-
-<br><br>
                     <thead class="table bg-success">
                       <tr>
                         <th scope="col">Id</th>
@@ -97,40 +98,39 @@
                                 <td>{{ $user->email }}</td>
                                 <td>{{ $user->user_type}}</td>
                                 <td>{{ $user->created_at}}</td>
-                                <td>
-                                  <form action="{{ route('users.destroy', $user->id) }}" method="POST">
-
-                                    <a data-toggle="modal" id="mediumButton" data-target="#mediumModal"
-                                        data-attr="{{ route('users.show', $user->id) }}" title="show">
-                                        <i class="fas fa-eye text-success  fa-lg"></i>
-                                    </a>
-        
-                                    <a class="text-secondary" data-toggle="modal" id="mediumButton" data-target="#mediumModal" data-attr="{{ route('users.edit',$user->id) }}">
-                                        <i class="fas fa-edit text-gray-300"></i>
-                                    </a>
-                                    @csrf
-                                    @method('DELETE')
-        
-                                    <button type="submit" title="delete" style="border: none; background-color:transparent;"><i class="fas fa-trash fa-lg text-danger"></i>
-                                    </button>
-                                </form>
-                              </td>
-                              </tr>
+                                  <td><a href="{{ route('users.show', $user->id) }}" class="btn btn-warning btn-sm">Show</a>
+                                      <a href="{{ route('users.edit', $user->id) }}" class="btn btn-info btn-sm">Edit</a>
+                              
+                                      @if(request()->get('status') == 'archived')
+                                          {!! Form::open(['method' => 'POST','route' => ['users.restore', $user->id],'style'=>'display:inline']) !!}
+                                          {!! Form::submit('Restore', ['class' => 'btn btn-success btn-sm']) !!}
+                                          {!! Form::close() !!}
+                                      @else
+                                          {!! Form::open(['method' => 'DELETE','route' => ['users.destroy', $user->id],'style'=>'display:inline']) !!}
+                                          {!! Form::submit('Delete', ['class' => 'btn btn-danger btn-sm']) !!}
+                                          {!! Form::close() !!}
+                                      @endif
+                                      
+                                      @if(request()->get('status') == 'archived')
+                                          {!! Form::open(['method' => 'DELETE','route' => ['users.force-delete', $user->id],'style'=>'display:inline']) !!}
+                                          {!! Form::submit('Force Delete', ['class' => 'btn btn-danger btn-sm']) !!}
+                                          {!! Form::close() !!}
+                                      @endif
+                                  </td>
+                            </tr>
                             @endforeach
-                    
                     </tbody>
                   </table>
                   {{ $users->links()}}
             </div>
         </div>
-      
     </section>
          <!-- Page Footer-->
-        <footer class="position-absolute bottom-0 bg-darkBlue text-white text-center py-3 w-100 text-xs" id="footer">
+         <footer class="position-absolute bottom-0 bg-darkBlue text-white text-center py-3 w-100 text-xs" id="footer">
           <div class="container-fluid">
             <div class="row gy-2">
               <div class="col-sm-6 text-sm-start">
-                <p class="mb-0">NDDU <a href="#" class="text-white text-decoration-none">VAX APP</a></p>
+                <p class="mb-0">VAX <a href="#" class="text-white text-decoration-none">TRACKING APP</a></p>
               </div>
               <div class="col-sm-6 text-sm-end">
                 <p class="mb-0">Copyright &copy; 2022</p>
@@ -139,51 +139,6 @@
           </div>
         </footer> 
     </div>
-
-     <!-- medium modal -->
-     <div class="modal fade" id="mediumModal" tabindex="-1" role="dialog" aria-labelledby="mediumModalLabel"
-     aria-hidden="true">
-     <div class="modal-dialog" role="document">
-         <div class="modal-content">
-             <div class="modal-header">
-                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                     <span aria-hidden="true">&times;</span>
-                 </button>
-             </div>
-             <div class="modal-body" id="mediumBody">
-                 <div>
-                     <!-- the result to be displayed apply here -->
-                 </div>
-             </div>
-         </div>
-     </div>
  </div>
-    <script>
-    // display a modal (medium modal)
-    $(document).on('click', '#mediumButton', function(event) {
-        event.preventDefault();
-        let href = $(this).attr('data-attr');
-        $.ajax({
-            url: href,
-            beforeSend: function() {
-                $('#loader').show();
-            },
-            // return the result
-            success: function(result) {
-                $('#mediumModal').modal("show");
-                $('#mediumBody').html(result).show();
-            },
-            complete: function() {
-                $('#loader').hide();
-            },
-            error: function(jqXHR, testStatus, error) {
-                console.log(error);
-                alert("Page " + href + " cannot open. Error:" + error);
-                $('#loader').hide();
-            },
-            timeout: 8000
-        })
-    });
-
-</script>
+   
 @endsection
