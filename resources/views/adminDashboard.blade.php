@@ -3,7 +3,7 @@
 @section('content')
     <div class="page-content d-flex align-items-stretch"> 
       <!-- Side Navbar -->
-      <nav class="side-navbar z-index-40">
+      <nav class="side-navbar z-index-40 shrinked">
         <!-- Sidebar Header-->
         <div class="sidebar-header d-flex align-items-center py-4 px-3"><img class="avatar shadow-0 img-fluid rounded-circle" src="/assets/images/avatar-3.jpg" alt="...">
           <div class="ms-3 title">
@@ -39,7 +39,7 @@
               </svg>Content Management </a></li>
         </ul><span class="text-uppercase text-gray-400 text-xs letter-spacing-0 mx-3 px-2 heading">Settings</span>
         <ul class="list-unstyled py-4">
-          <li class="sidebar-item"> <a class="sidebar-link" href="{{url('/admin-form')}}"> 
+          {{--<li class="sidebar-item"> <a class="sidebar-link" href="{{url('/admin-form')}}"> 
               <svg class="svg-icon svg-icon-sm svg-icon-heavy me-xl-2">
                 <use xlink:href="#imac-screen-1"> </use>
               </svg>Add Admin </a></li>
@@ -54,7 +54,7 @@
           <li class="sidebar-item"> <a class="sidebar-link" href="#"> 
               <svg class="svg-icon svg-icon-sm svg-icon-heavy me-xl-2">
                 <use xlink:href="#security-shield-1"> </use>
-              </svg>Additional Menu </a></li>
+              </svg>Additional Menu </a></li>--}}
         </ul>
       </nav>
       <div class="content-inner w-100">
@@ -64,11 +64,11 @@
             </div>
           </header>
            <!-- Page Footer-->
-          <footer class="position-absolute bottom-0 bg-darkBlue text-white text-center py-3 w-100 text-xs" id="footer">
+           <footer class="position-absolute bottom-0 bg-darkBlue text-white text-center py-3 w-100 text-xs" id="footer">
             <div class="container-fluid">
               <div class="row gy-2">
                 <div class="col-sm-6 text-sm-start">
-                  <p class="mb-0">NDDU <a href="#" class="text-white text-decoration-none">VAX APP</a></p>
+                  <p class="mb-0">VAX <a href="#" class="text-white text-decoration-none">TRACKING APP</a></p>
                 </div>
                 <div class="col-sm-6 text-sm-end">
                   <p class="mb-0">Copyright &copy; 2022</p>

@@ -50,11 +50,11 @@
           </div>
         </header>
          <!-- Page Footer-->
-        <footer class="position-absolute bottom-0 bg-darkBlue text-white text-center py-3 w-100 text-xs" id="footer">
+         <footer class="position-absolute bottom-0 bg-darkBlue text-white text-center py-3 w-100 text-xs" id="footer">
           <div class="container-fluid">
             <div class="row gy-2">
               <div class="col-sm-6 text-sm-start">
-                <p class="mb-0">NDDU <a href="#" class="text-white text-decoration-none">VAX APP</a></p>
+                <p class="mb-0">VAX <a href="#" class="text-white text-decoration-none">TRACKING APP</a></p>
               </div>
               <div class="col-sm-6 text-sm-end">
                 <p class="mb-0">Copyright &copy; 2022</p>

@@ -22,21 +22,24 @@
   <body>
     <div class="page">
         <!-- Main Navbar-->
-        <header class="header z-index-50">
+        <header class="navbar-header z-index-50">
           <nav class="navbar px-0 shadow-sm text-white position-relative">
-            <div class="container-fluid w-100">
+            <div class="container-fluid  w-100">
               <div class="navbar-holder d-flex align-items-center justify-content-between w-100">
                 <!-- Navbar Header-->
-                <div class="navbar-header">
+                <div class="navbar-brand d-flex d-lg-inline-block">
                   <!-- Navbar Brand -->
-                  <a class="navbar-brand d-none d-sm-inline-block" href = "#">  <img src="assets/images/nddu-logo.png">
-                          <div class="brand-text d-none d-sm-inline-block d-lg-none"><strong>BD</strong>
-                          </div>
+                  <a class="navbar-brand d-flex d-lg-inline-block" href = "#">
+                    <div class="navbar-brand d-flex px-4 py-3 d-lg-inline-block">
+                      <span>Vaccine </span><strong>Tracking App</strong></div>
+                    <div class="brand-text d-none d-sm-inline-block d-lg-none"><strong>BD</strong></div>
+                    
                   </a>
-                  <!-- Toggle Button-->
-                  <a class="menu-btn active" id="toggle-btn" href="#">
+
+                  <!-- Toggle Button
+                  <a class="menu-btn" id="toggle-btn" href="#">
                     <span></span><span></span><span></span>
-                  </a>
+                  </a>-->
                 </div>
                 <!-- Navbar Menu -->
                 <ul class="nav-menu list-unstyled d-flex flex-md-row align-items-md-center">
@@ -52,15 +55,15 @@
           </nav>
         </header>   
     </div>
-     <!-- FontAwesome CSS - loading as last, so it doesn't block rendering-->
+      <!-- Script -->
      <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">    
+     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+     <link rel="text/javascript" href="{{ URL::asset('public/assets/js/front.js') }}"/>
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
      <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-
-     <!-- Script -->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<script src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js' type='text/javascript'></script>
+    <script src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js' type='text/javascript'></script>
      <script>
             // ------------------------------------------------------- //
       //   Inject SVG Sprite - 
@@ -83,9 +86,7 @@
       // inject local SVG sprite (using only 'icons/orion-svg-sprite.svg' path)
       // while using file:// protocol
       // pls don't forget to change to your domain :)
-      injectSvgSprite('https://bootstraptemple.com/files/icons/orion-svg-sprite.svg'); 
-      
-      
+      injectSvgSprite('https://bootstraptemple.com/files/icons/orion-svg-sprite.svg');  
     </script>
      @yield('content') 
 </body>
