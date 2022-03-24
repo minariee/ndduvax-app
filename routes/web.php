@@ -49,8 +49,8 @@ Route::delete('delete-admin/{id}','\App\Http\Controllers\AdminTableFormControlle
 
 
 Auth::routes();
-Route::get('register', 'Auth\RegisterController@showRegistrationForm')->name('register');
-Route::post('register', 'Auth\RegisterController@register');
+Route::get('/register', 'Auth\RegisterController@showRegistrationForm')->name('register');
+Route::post('/register', 'Auth\RegisterController@register');
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
