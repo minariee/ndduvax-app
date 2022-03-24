@@ -22,7 +22,7 @@
             </div>
             <div class= "col-4" align="right">
                 @auth
-                    <a id="navbarDropdown" class="nav-link" href="{{ route('dashboard') }}" role="button">
+                    <a id="navbarDropdown" class="nav-link" href="{{ route('user-dashboard') }}" role="button">
                         {{ Auth::user()->name }}
                     </a>
                     <a class="dropdown-item" href="{{ route('logout') }}"

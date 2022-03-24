@@ -21,7 +21,7 @@ class AdminTableFormController extends Controller
         return redirect('/admin-table');
     }
 
-    public function edit($id, Request $request){
+    public function edit($id,Request $request){
         $account = Account::find($id);
     
         return view('adminformedit',['account' => $account]);

@@ -17,10 +17,10 @@
               <svg class="svg-icon svg-icon-sm svg-icon-heavy me-xl-2">
                 <use xlink:href="#real-estate-1"> </use>
               </svg>Dashboard </a></li>
-          <li class="sidebar-item"><a class="sidebar-link" href="tables.html"> 
+          <li class="sidebar-item"><a class="sidebar-link" href="{{url('/admin-table')}}"> 
               <svg class="svg-icon svg-icon-sm svg-icon-heavy me-xl-2">
                 <use xlink:href="#portfolio-grid-1"> </use>
-              </svg>Admin Record </a></li>
+              </svg>Admin Management</a></li>
           <li class="sidebar-item"><a class="sidebar-link" href="{{url('/user-list')}}"> 
               <svg class="svg-icon svg-icon-sm svg-icon-heavy me-xl-2">
                 <use xlink:href="#sales-up-1"> </use>

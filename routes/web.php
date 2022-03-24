@@ -20,7 +20,7 @@ Route::get('/vaccine-form', '\App\Http\Controllers\VaccineFormController@index')
 Route::post('/vaccine-form', '\App\Http\Controllers\VaccineFormController@submit');
 Route::get('/terms-and-condition', '\App\Http\Controllers\TermsAndConditionController@index');
 Route::get('/', '\App\Http\Controllers\HomePageController@index');
-Route::get('/user-dashboard', '\App\Http\Controllers\UserDashboardController@index');
+Route::get('/user-dashboard', '\App\Http\Controllers\UserDashboardController@index')->name('user-dashboard');
 Route::get('/privacy-policy', '\App\Http\Controllers\PrivacyPolicyController@index');
 //Route::get('/admin-dashboard', '\App\Http\Controllers\AdminDashboardController@index')->name('adminDashboard');
 //Route::get('/en/blog');
@@ -39,6 +39,8 @@ Route::delete('delete-admin/{id}','\App\Http\Controllers\AdminTableFormControlle
 
 
 Auth::routes();
+Route::get('register', 'Auth\RegisterController@showRegistrationForm')->name('register');
+Route::post('register', 'Auth\RegisterController@register');
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
@@ -54,7 +56,6 @@ Route::middleware(['auth', 'isAdmin'])->group(function () {
 
 
 Route::get('/vaccinerecord/{id}', '\App\Http\Controllers\VaccineRecordController@index');
+Route::get('/vaccinerecord/{id}', '\App\Http\Controllers\VaccineRecordController@extension');
 
-/*Route::get('/user-dashboard/{id}', function ($id) {
-  dd($id);
-});*/
+

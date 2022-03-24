@@ -14,11 +14,13 @@
     </tr>
 
     <tr>
+        
         <td>{{ $account->name}}</td>
         <td>{{ $account->occupation }}</td>
         <td>{{ $account->date}}</td>
         <td>{{ $account->type_of_vaccine}}</td>
         <td>{{ $account->dose}}</td>
+        
         </td>
         
     </tr>

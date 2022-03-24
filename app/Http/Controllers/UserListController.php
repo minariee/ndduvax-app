@@ -24,6 +24,7 @@ class UserListController extends Controller
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
+            'mobile_number' => ['required','varchar', 'min:14'],
         ]);
         User::create($request->all());
 
@@ -48,6 +49,7 @@ class UserListController extends Controller
         $users->name = $request->name;
         $users->email = $request->email;
         $users->password = $request->password;
+        $users->mobile_number = $request->mobile_number;
        
         $users->save();
         return redirect()->route('users.index')
