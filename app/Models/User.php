@@ -23,7 +23,7 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
-        'mobile_number'
+        'mobile_number',
     ];
 
     protected $dates = ['deleted_at'];

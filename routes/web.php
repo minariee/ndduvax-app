@@ -65,7 +65,12 @@ Route::middleware(['auth', 'isAdmin'])->group(function () {
   });
 
 
-Route::get('/vaccinerecord/{id}', '\App\Http\Controllers\VaccineRecordController@index');
-Route::get('/vaccinerecord/{id}', '\App\Http\Controllers\VaccineRecordController@extension');
+Route::get('/vaccinerecord', '\App\Http\Controllers\VaccineRecordController@index');
+Route::get('/vaccinerecord/{id}', '\App\Http\Controllers\VaccineRecordController@show');
+
+
+Route::get('/profile', '\App\Http\Controllers\ProfilePictureController@profile');
+Route::post('/profile', '\App\Http\Controllers\ProfilePictureController@updateavatar');
+
 
 
