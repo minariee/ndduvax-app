@@ -29,11 +29,11 @@
               <svg class="svg-icon svg-icon-sm svg-icon-heavy me-xl-2">
                 <use xlink:href="#survey-1"> </use>
               </svg>SMS </a></li>
-          <li class="sidebar-item"><a class="sidebar-link" href="forms.html"> 
+          <li class="sidebar-item"><a class="sidebar-link" href="#"> 
               <svg class="svg-icon svg-icon-sm svg-icon-heavy me-xl-2">
                 <use xlink:href="#browser-window-1"> </use>
               </svg>Vaccine Lists </a></li>
-          <li class="sidebar-item"><a class="sidebar-link" href="login.html"> 
+          <li class="sidebar-item"><a class="sidebar-link" href="#"> 
               <svg class="svg-icon svg-icon-sm svg-icon-heavy me-xl-2">
                 <use xlink:href="#disable-1"> </use>
               </svg>Content Management </a></li>
@@ -82,7 +82,7 @@
                                         <label>Enter Phone Number</label>
                  <input type="tel" class="form-control" placeholder="Enter Phone Number">
                                     </div>
-                      <button type="submit" class="btn btn-primary">Register User</button>
+                      <button type="submit" class="btn btn-success">Register User</button>
                                 </form>
                             </div>
                         </div>
@@ -106,7 +106,7 @@
                                         <label>Notification Message</label>
                                      <textarea class="form-control" rows="3"></textarea>
                                     </div>
-                 <button type="submit" class="btn btn-primary">Send Notification</button>
+                 <button type="submit" class="btn btn-success">Send Notification</button>
                                 </form>
                             </div>
                         </div>

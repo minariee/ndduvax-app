@@ -25,15 +25,15 @@
             <svg class="svg-icon svg-icon-sm svg-icon-heavy me-xl-2">
               <use xlink:href="#sales-up-1"> </use>
             </svg>Patients Record </a></li>
-        <li class="sidebar-item"><a class="sidebar-link" href="forms.html"> 
+        <li class="sidebar-item"><a class="sidebar-link" href="{{url('/sms-semaphore')}}"> 
             <svg class="svg-icon svg-icon-sm svg-icon-heavy me-xl-2">
               <use xlink:href="#survey-1"> </use>
             </svg>SMS </a></li>
-        <li class="sidebar-item"><a class="sidebar-link" href="forms.html"> 
+        <li class="sidebar-item"><a class="sidebar-link" href="#"> 
             <svg class="svg-icon svg-icon-sm svg-icon-heavy me-xl-2">
               <use xlink:href="#browser-window-1"> </use>
             </svg>Vaccine Lists </a></li>
-        <li class="sidebar-item"><a class="sidebar-link" href="login.html"> 
+        <li class="sidebar-item"><a class="sidebar-link" href="#"> 
             <svg class="svg-icon svg-icon-sm svg-icon-heavy me-xl-2">
               <use xlink:href="#disable-1"> </use>
             </svg>Content Management </a></li>

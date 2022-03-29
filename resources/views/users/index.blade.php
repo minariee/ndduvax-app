@@ -12,29 +12,28 @@
         </div>
       </div>
       <!-- Sidebar Navidation Menus--><span class="text-uppercase text-gray-400 text-xs letter-spacing-0 mx-3 px-2 heading">Menu</span>
-      <ul class="list-unstyled py-4">
-        <li class="sidebar-item"><a class="sidebar-link" href="{{url('/admin-dashboard')}}"> 
-            <svg class="svg-icon svg-icon-sm svg-icon-heavy me-xl-2">
-              <use xlink:href="#real-estate-1"> </use>
-            </svg>Dashboard </a></li>
-        <li class="sidebar-item"><a class="sidebar-link" href="{{url('/admin-table')}}"> 
-            <svg class="svg-icon svg-icon-sm svg-icon-heavy me-xl-2">
-              <use xlink:href="#portfolio-grid-1"> </use>
-            </svg>Admin Record</a></li>
-        <li class="sidebar-item active"><a class="sidebar-link" href="{{url('/user-list')}}"> 
-            <svg class="svg-icon svg-icon-sm svg-icon-heavy me-xl-2">
-              <use xlink:href="#sales-up-1"> </use>
-            </svg>Patients Record </a></li>
-        <li class="sidebar-item"><a class="sidebar-link" href="{{url('/sms-semaphore')}}"> 
+    <ul class="list-unstyled py-4">
+      <li class="sidebar-item"><a class="sidebar-link" href="{{url('/admin-dashboard')}}"> 
+          <svg class="svg-icon svg-icon-sm svg-icon-heavy me-xl-2">
+            <use xlink:href="#real-estate-1"> </use>
+          </svg>Dashboard </a></li>
+      <li class="sidebar-item"><a class="sidebar-link" href="{{url('/admin-table')}}"> 
+          <svg class="svg-icon svg-icon-sm svg-icon-heavy me-xl-2">
+            <use xlink:href="#portfolio-grid-1"> </use>
+          </svg>Admin Record </a></li>
+      <li class="sidebar-item"><a class="sidebar-link" href="{{url('/user-list')}}"> 
+          <svg class="svg-icon svg-icon-sm svg-icon-heavy me-xl-2">
+            <use xlink:href="#sales-up-1"> </use>
+          </svg>Patients Record </a></li>
+          <li class="sidebar-item"><a class="sidebar-link" href="{{url('/sms-semaphore')}}"> 
             <svg class="svg-icon svg-icon-sm svg-icon-heavy me-xl-2">
               <use xlink:href="#survey-1"> </use>
             </svg>SMS </a></li>
-            <li class="sidebar-item"><a class="sidebar-link" href="{{url('/sms-semaphore')}}"> 
-              <svg class="svg-icon svg-icon-sm svg-icon-heavy me-xl-2">
-                <use xlink:href="#browser-window-1"> </use>
-              </svg>Vaccine Lists </a></li>
-        </li>
-        <li class="sidebar-item"><a class="sidebar-link" href="login.html"> 
+        <li class="sidebar-item"><a class="sidebar-link" href="#"> 
+            <svg class="svg-icon svg-icon-sm svg-icon-heavy me-xl-2">
+              <use xlink:href="#browser-window-1"> </use>
+            </svg>Vaccine Lists </a></li>
+        <li class="sidebar-item"><a class="sidebar-link" href="#"> 
             <svg class="svg-icon svg-icon-sm svg-icon-heavy me-xl-2">
               <use xlink:href="#disable-1"> </use>
             </svg>Content Management </a></li>

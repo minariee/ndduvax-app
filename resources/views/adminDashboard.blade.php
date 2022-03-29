@@ -13,15 +13,9 @@
         </div>
         <!-- Sidebar Navidation Menus--><span class="text-uppercase text-gray-400 text-xs letter-spacing-0 mx-3 px-2 heading">Menu</span>
         <ul class="list-unstyled py-4">
-<<<<<<< Updated upstream
           <li class="sidebar-item active"><a class="sidebar-link" href="{{url('/blog_admin')}}"> 
-=======
-<<<<<<< HEAD
           <li class="sidebar-item active"><a class="sidebar-link" href="{{url('/admin-dashboard')}}"> 
-=======
           <li class="sidebar-item active"><a class="sidebar-link" href="{{url('/blog_admin')}}"> 
->>>>>>> 2e10d09212be443a555d7dcf98c8c2f64ff09e3f
->>>>>>> Stashed changes
               <svg class="svg-icon svg-icon-sm svg-icon-heavy me-xl-2">
                 <use xlink:href="#real-estate-1"> </use>
               </svg>Dashboard </a></li>
@@ -37,11 +31,11 @@
               <svg class="svg-icon svg-icon-sm svg-icon-heavy me-xl-2">
                 <use xlink:href="#survey-1"> </use>
               </svg>SMS </a></li>
-          <li class="sidebar-item"><a class="sidebar-link" href="forms.html"> 
+          <li class="sidebar-item"><a class="sidebar-link" href="#"> 
               <svg class="svg-icon svg-icon-sm svg-icon-heavy me-xl-2">
                 <use xlink:href="#browser-window-1"> </use>
               </svg>Vaccine Lists </a></li>
-          <li class="sidebar-item"><a class="sidebar-link" href="login.html"> 
+          <li class="sidebar-item"><a class="sidebar-link" href="#"> 
               <svg class="svg-icon svg-icon-sm svg-icon-heavy me-xl-2">
                 <use xlink:href="#disable-1"> </use>
               </svg>Content Management </a></li>
