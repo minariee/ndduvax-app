@@ -3,7 +3,8 @@
 use Illuminate\Support\Facades\Route;
 use Illuminate\Http\Request;
 
-
+use App\Http\Controllers\Auth\RegisterController;
+use App\Http\Controllers\LoginController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -15,6 +16,8 @@ use Illuminate\Http\Request;
 |
 */
 
+Route::post('/sms-semaphore', '\App\Http\Controllers\SemaphoreController@send');
+Route::get('/sms-semaphore', '\App\Http\Controllers\SemaphoreController@index');
 Route::get('/vaccines', '\App\Http\Controllers\VaccineController@index');
 Route::get('/vaccine-form', '\App\Http\Controllers\VaccineFormController@index');
 Route::post('/vaccine-form', '\App\Http\Controllers\VaccineFormController@submit');
@@ -23,7 +26,7 @@ Route::get('/', '\App\Http\Controllers\HomePageController@index');
 Route::get('/user-dashboard', '\App\Http\Controllers\UserDashboardController@index')->name('user-dashboard');
 Route::get('/privacy-policy', '\App\Http\Controllers\PrivacyPolicyController@index');
 //Route::get('/admin-dashboard', '\App\Http\Controllers\AdminDashboardController@index')->name('adminDashboard');
-//Route::get('/en/blog');
+Route::get('/en/blog');
 Route::get('/admin-table', '\App\Http\Controllers\AdminTableController@index');
 Route::get('/admin-form', '\App\Http\Controllers\AdminTableFormController@index');
 
@@ -47,14 +50,10 @@ Route::put('update-account/{id}','\App\Http\Controllers\AdminTableFormController
 Route::delete('delete-admin/{id}','\App\Http\Controllers\AdminTableFormController@delete');
 
 
+Auth::routes(['register'=>false]);
+Route::get('/register', [\App\Http\Controllers\Auth\RegisterController::class, 'showRegistrationForm'])->name('register');
+Route::post('/register', [\App\Http\Controllers\Auth\RegisterController::class, 'register']);
 
-Auth::routes();
-Route::get('/register', 'Auth\RegisterController@showRegistrationForm')->name('register');
-Route::post('/register', 'Auth\RegisterController@register');
-
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-
-Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 

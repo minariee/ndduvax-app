@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\Auth;
 class LoginController extends Controller
 {   
     public function login(){
-        return view('loginscreen');
+        return view('auth/login');
     }
     /**
      * Handle an authentication attempt.

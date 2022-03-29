@@ -4,13 +4,13 @@ use App\Models\User;
 
 class SMS {
     protected $message;
-
-    function send($recipient, $message) {
+    
+    function send($recipients = [], $message) {
         $this->message = $message;
         $ch = curl_init();
         $parameters = array(
-            'apikey' => env('SMS_KEY'), //Your API KEY
-            'number' => $recipient,
+            'apikey' => env('SEMAPHORE_KEY'), //Your API KEY
+            'number' => implode(',',$recipients),
             'message' => $this->message,
             'sendername' => 'SEMAPHORE'
         );

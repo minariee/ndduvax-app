@@ -41,17 +41,21 @@ class UserListController extends Controller
      * 
      * @return \Illuminate\Http\Response
      */
-    public function store(User $users, StoreUserRequest $request) 
+    public function store(User $users, Request $request) 
     {
         $this->validate($request,
         [
-            'name' => ['required', 'string', 'max:255'],
-            'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
-            'password' => ['required', 'string', 'min:8', 'confirmed'],
-            'mobile_number' => ['required','varchar', 'min:14'],
+            'name' => ['required'],
+            'email' => ['required'],
+            'password' => ['required'],
+            'mobile_number' => ['required','min:11'],
         ]);
-        User::create($request->all());
-
+        $users = new User;
+        $users->name = $request->name;
+        $users->email = $request->email;
+        $users->password = $request->password;
+        $users->mobile_number = $request->mobile_number;
+        $users->save();
         return redirect()->route('users.index')
             ->withSuccess(__('User created successfully.'));
     }
@@ -92,13 +96,12 @@ class UserListController extends Controller
      * 
      * @return \Illuminate\Http\Response
      */
-    public function update(User $users, UpdateUserRequest $request) 
+    public function update($id, Request $request) 
     {
         $users = User::find($id);
         $users->name = $request->name;
         $users->email = $request->email;
-        $users->password = $request->password;
-        $users->mobile_number = $request->mobile_number;
+       
        
         $users->save();
         return redirect()->route('users.index')

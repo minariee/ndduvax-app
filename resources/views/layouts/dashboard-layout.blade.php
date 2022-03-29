@@ -45,7 +45,7 @@
                 <ul class="nav-menu list-unstyled d-flex flex-md-row align-items-md-center">
     
                   <!-- Logout    -->
-                  <li class="nav-item"><a class="nav-link text-white" href="{{ route('login')}}" method="POST"> <span class="d-none d-sm-inline">Logout</span>
+                  <li class="nav-item"><a class="nav-link text-white" href="{{ url('/login')}}" method="POST"> <span class="d-none d-sm-inline">Logout</span>
                       <svg class="svg-icon svg-icon-xs svg-icon-heavy">
                         <use xlink:href="#security-1"> </use>
                       </svg></a></li>

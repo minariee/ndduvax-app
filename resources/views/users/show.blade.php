@@ -71,11 +71,14 @@
                     <div class="bg-light p-4 rounded">
                         
                             <div>
-                                Name: {{ $user->name }}
+                              <strong>Name:</strong> {{ $user->name }}
                             </div>
                             <div>
-                                Email: {{ $user->email }}
+                              <strong>Email:</strong> {{ $user->email }}
                             </div>
+                            <div>
+                              <strong>Mobile Number:</strong> {{ $user->mobile_number }}
+                          </div>
                     </div>
                     <div class="mt-4">
                         <a href="{{ route('users.edit', $user->id) }}" class="btn btn-info">Edit</a>

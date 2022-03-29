@@ -62,10 +62,10 @@
                         </div>
 
                         <div class="row mb-3">
-                            <label for="mobile-number" class="col-md-4 col-form-label text-md-end">{{ __('Mobile Number') }}</label>
+                            <label for="mobile_number" class="col-md-4 col-form-label text-md-end">{{ __('Mobile Number') }}</label>
 
                             <div class="col-md-6">
-                                <input id="mobile-number" type="text" class="form-control" name="mobile_no" required autocomplete="new-password">
+                                <input id="mobile_number" type="text" class="form-control" name="mobile_number">
                             </div>
                         </div>
 

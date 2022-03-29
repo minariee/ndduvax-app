@@ -13,7 +13,7 @@
       </div>
       <!-- Sidebar Navidation Menus--><span class="text-uppercase text-gray-400 text-xs letter-spacing-0 mx-3 px-2 heading">Menu</span>
       <ul class="list-unstyled py-4">
-        <li class="sidebar-item active"><a class="sidebar-link" href="index.html"> 
+        <li class="sidebar-item "><a class="sidebar-link" href="index.html"> 
             <svg class="svg-icon svg-icon-sm svg-icon-heavy me-xl-2">
               <use xlink:href="#real-estate-1"> </use>
             </svg>Dashboard </a></li>
@@ -60,7 +60,7 @@
     <div class="content-inner w-100">
         <header class="bg-white shadow-sm px-4 py-3 z-index-20">
           <div class="container-fluid px-0">
-            <h2 class="mb-0 p-1">Welcome Admin!</h2>
+            <h2 class="mb-0 p-1">Add New User</h2>
           </div>
         </header>
         <section class="pb-0">
@@ -71,43 +71,51 @@
         <div class="row">
             <div class="col-lg-12 margin-tb">
                 <div class="pull-left">
-                    <h2>Add New User</h2>
+                    
                 </div>
                
             </div>
         </div>
-    
-        @if ($errors->any())
-            <div class="alert alert-danger">
-                <strong>Whoops!</strong> There were some problems with your input.<br><br>
-                <ul>
-                    @foreach ($errors->all() as $error)
-                        <li>{{ $error }}</li>
-                    @endforeach
-                </ul>
-            </div>
-        @endif
+  
         <form action="{{ route('users.store') }}" method="POST" >
-            {{ csrf_field() }}
+          @csrf
             <div class="row">
                 <div class="col-xs-12 col-sm-12 col-md-12">
                     <div class="form-group">
                         <strong>Name:</strong>
-                        <input type="text" name="name" class="form-control" placeholder="Name">
+                        <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
+
+                        @error('name')
+                            <span class="invalid-feedback" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                        @enderror
                     </div>
                 </div>
                 <div class="col-xs-12 col-sm-12 col-md-12">
                     <div class="form-group">
-                        <strong>Email:</strong>
-                        <input type="text" name="email" class="form-control" placeholder="Email">
+                      <strong>Email:</strong>
+                      <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email">
+                      @error('email')
+                          <span class="invalid-feedback" role="alert">
+                              <strong>{{ $message }}</strong>
+                          </span>
+                      @enderror
                     </div>
                 </div>
                 <div class="col-xs-12 col-sm-12 col-md-12">
                     <div class="form-group">
                         <strong>Password:</strong>
-                        <input type="text" name="password" class="form-control" placeholder="Password">
+                        <input id="password" type="password" class="form-control"  name="password" required autocomplete="new-password">
                     </div>
                 </div>
+
+              <div class="col-xs-12 col-sm-12 col-md-12">
+                <div class="form-group">
+                  <strong>Mobile Number:</strong>
+                  <input id="mobile_number" type="text" class="form-control" name="mobile_number">
+                  </div>
+              </div>
                 <div class="col-xs-12 col-sm-12 col-md-12 text-center">
                     <br>
                     <div class="pull-right">
