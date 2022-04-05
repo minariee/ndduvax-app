@@ -2,17 +2,20 @@
 
 namespace App\Models;
 
-use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
-use Illuminate\Database\Eloquent\SoftDeletes;
+use Spatie\Permission\Traits\HasRoles;
 
 class User extends Authenticatable
 {
-    use HasApiTokens, HasFactory, Notifiable,SoftDeletes;
-    
+    use HasApiTokens;
+    use HasFactory;
+    use Notifiable;
+    use SoftDeletes;
+    use HasRoles;
 
     /**
      * The attributes that are mass assignable.
@@ -23,6 +26,7 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'avatar',
         'mobile_number',
     ];
 
@@ -47,13 +51,12 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-
     /**
      * Enter your own logic (e.g. if ($this->id === 1) to
-     *   enable this user to be able to add/edit blog posts
+     *   enable this user to be able to add/edit blog posts.
      *
      * @return bool - true = they can edit / manage blog posts,
-     *        false = they have no access to the blog admin panel
+     *              false = they have no access to the blog admin panel
      */
     public function canManageBinshopsBlogPosts()
     {
@@ -61,17 +64,21 @@ class User extends Authenticatable
         // Maybe you can just hardcode in a user id that you
         //   know is always an admin ID?
 
-       if (  $this->user_type === 'administrator'
-           ){
+        if ($this->user_type === 'administrator'
+           ) {
+            // return true so this user CAN edit/post/delete
+            // blog posts (and post any HTML/JS)
 
-           // return true so this user CAN edit/post/delete
-           // blog posts (and post any HTML/JS)
-
-           return true;
+            return true;
         }
 
         // otherwise return false, so they have no access
         // to the admin panel (but can still view posts)
         return false;
+    }
+
+    public function account()
+    {
+        return $this->hasOne(Account::class);
     }
 }

@@ -4,11 +4,20 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Account extends Model
 {
     use HasFactory;
+    use SoftDeletes;
 
-    protected $fillable = ['name', 'occupation', 'date', 'type_of_vaccine', 'dose' ];
-    public $timestamps = false;
+    protected $fillable = [
+        'name',
+        'occupation',
+    ];
+
+    public function vaccines()
+    {
+        return $this->hasMany(Vaccine::class);
+    }
 }
