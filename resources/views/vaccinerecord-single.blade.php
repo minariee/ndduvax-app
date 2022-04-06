@@ -48,7 +48,7 @@
           <div class="card shadow-sm">
             <div class="card-header bg-transparent text-center">
 
-            <img src="{{ is_null($account->profile_url)?'/uploads/avatars/default.jpg':$account->profile_url }}" style="width:180px; height:150px; border-radius:50%;">
+            <img src="{{ is_null($user->avatar)?'/uploads/avatars/default.jpg':$account->profile_url }}" style="width:180px; height:150px; border-radius:50%;">
             <div class="container">
             <form enctype="multipart/form-data" action="/profile" method="POST" style="margin-top:30px">
             </div>
@@ -75,27 +75,27 @@
                 <tr>
                   <th width="30%">Name</th>
                   <td width="2%">:</td>
-                  <td>{{ $account->name}}</td>
+                  <td>{{ $account->name }}</td>
                 </tr>
                 <tr>
                   <th width="30%">Occupation</th>
                   <td width="2%">:</td>
-                  <td>{{ $account->occupation}}</td>
+                  <td>{{ strtoupper($account->occupation) }}</td>
                 </tr>
                 <tr>
                   <th width="30%">Date Taken</th>
                   <td width="2%">:</td>
-                  <td>{{ $account->date}}</td>
+                  <td>{{ is_null($account->vaccines()->first()) ? 'N/A': $account->vaccines()->first()->latest_dosage_date }}</td>
                 </tr>
                 <tr>
                   <th width="30%">Type of Vaccine</th>
                   <td width="2%">:</td>
-                  <td>{{ $account->type_of_vaccine}}</td>
+                  <td>{{ is_null($account->vaccines()->first()) ? 'N/A': $account->vaccines()->first()->vaccine_type }}</td>
                 </tr>
                 <tr>
                   <th width="30%">Dose</th>
                   <td width="2%">:</td>
-                  <td>{{ $account->dose}}</td>
+                  <td>{{ is_null($account->vaccines()->first()) ? 'N/A': $account->vaccines()->first()->current_dose }}</td>
                 </tr>
               </table>
             </div>
@@ -103,7 +103,7 @@
             <div style="height: 26px"></div>
           <div class="card shadow-sm">
             <div class="card-header bg-transparent border-0">
-              <h3 class="mb-0"><i class="far fa-clone pr-1"></i>Other Information</h3>
+              <h3 class="mb-0"><i class="far fa-clone pr-1"></i> Other Information</h3>
             </div>
             <div class="card-body pt-0">
                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>

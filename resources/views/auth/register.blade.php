@@ -6,11 +6,9 @@
         <div class="col-md-8">
             <div class="card">
                 <div style="font-size:24px; text-align:center;" class="card-header">{{ __('REGISTER') }}</div>
-
                 <div class="card-body">
-                    <form method="POST" action="{{ route('register') }}">
+                    <form method="POST" action="{{ route('register') }}" enctype="multipart/form-data">
                         @csrf
-
                         <div class="row mb-3">
                             <label for="name" class="col-md-4 col-form-label text-md-end">{{ __('Name') }}</label>
 
@@ -68,6 +66,15 @@
                                 <input id="mobile_number" type="text" class="form-control" name="mobile_number">
                             </div>
                         </div>
+                        <div class="row mb-3">
+                            <label for="occupation" class="col-md-4 col-form-label text-md-end">{{ __('Occupation') }}</label>
+                            <div class="col-md-6">
+                                <select id="occupation" class="form-control" name="occupation">
+                                    <option value="student">Student</option>
+                                    <option value="teacher">Teacher</option>
+                                </select>
+                            </div>
+                        </div>
 
                         <div class="row mb-3">
                             <label for="birth-date" class="col-md-4 col-form-label text-md-end">{{ __('Date of Birth') }}</label>
@@ -81,12 +88,24 @@
                             <label for="vaccination-record" class="col-md-4 col-form-label text-md-end">{{ __('Proof of Vaccination Records') }}</label>
 
                             <div class="col-md-6">
-                                <input class="form-control" type="file" id="formFileMultiple" multiple />
+                                <input name="vaccination-record" class="form-control @error('vaccination-recor') is-invalid @enderror" type="file" id="formFileMultiple" multiple />
+                                @error('vaccination-recor')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
                             </div>
                         </div>
 
-                        
+                        <!-- <div class="row mb-3" id="vaccines">
+                            <label for="vaccination-record" class="col-md-4 col-form-label text-md-end">{{ __('Proof of Vaccination Records') }}</label>
 
+                            <div class="row hidden-template" id="template"">
+                            
+                            </div>
+                        </div> -->
+
+                        
                         <div class="row mb-1">
                             <div style="align:center" class="col-md-3 offset-md-6">
                                 <button type="submit" class="btn btn-outline-success">

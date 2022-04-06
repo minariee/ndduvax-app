@@ -1,10 +1,8 @@
 <?php
 
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
-use Illuminate\Http\Request;
 
-use App\Http\Controllers\Auth\RegisterController;
-use App\Http\Controllers\LoginController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -30,46 +28,43 @@ Route::get('/en/blog');
 Route::get('/admin-table', '\App\Http\Controllers\AdminTableController@index');
 Route::get('/admin-form', '\App\Http\Controllers\AdminTableFormController@index');
 
-Route::group(['users'], function() {
-  Route::get('/user-list', '\App\Http\Controllers\UserListController@index')->name('users.index');
-  Route::get('/create', '\App\Http\Controllers\UserListController@create')->name('users.create');
-  Route::post('/create', '\App\Http\Controllers\UserListController@store')->name('users.store');
-  Route::get('/{users}/show', '\App\Http\Controllers\UserListController@show')->name('users.show');
-  Route::get('/{users}/edit', '\App\Http\Controllers\UserListController@edit')->name('users.edit');
-  Route::patch('/{users}/update', '\App\Http\Controllers\UserListController@update')->name('users.update');
-  Route::delete('/{users}/delete', '\App\Http\Controllers\UserListController@destroy')->name('users.destroy');
-  Route::post('/{users}/restore', '\App\Http\Controllers\UserListController@restore')->name('users.restore');
-  Route::delete('/{users}/force-delete', '\App\Http\Controllers\UserListController@forceDelete')->name('users.force-delete');
-  Route::post('/restore-all', '\App\Http\Controllers\UserListController@restoreAll')->name('users.restore-all');
+Route::group(['users'], function () {
+    Route::get('/user-list', '\App\Http\Controllers\UserListController@index')->name('users.index');
+    Route::get('/create', '\App\Http\Controllers\UserListController@create')->name('users.create');
+    Route::post('/create', '\App\Http\Controllers\UserListController@store')->name('users.store');
+    Route::get('/{users}/show', '\App\Http\Controllers\UserListController@show')->name('users.show');
+    Route::get('/{users}/edit', '\App\Http\Controllers\UserListController@edit')->name('users.edit');
+    Route::patch('/{users}/update', '\App\Http\Controllers\UserListController@update')->name('users.update');
+    Route::delete('/{users}/delete', '\App\Http\Controllers\UserListController@destroy')->name('users.destroy');
+    Route::post('/{users}/restore', '\App\Http\Controllers\UserListController@restore')->name('users.restore');
+    Route::delete('/{users}/force-delete', '\App\Http\Controllers\UserListController@forceDelete')->name('users.force-delete');
+    Route::post('/restore-all', '\App\Http\Controllers\UserListController@restoreAll')->name('users.restore-all');
 });
 
+Route::middleware(['auth', 'role:user'])->group(function () {
+    Route::get('/vaccinerecord/{id}', '\App\Http\Controllers\VaccineRecordController@show');
+});
+Route::middleware(['auth', 'role:admin'])->group(function () {
+    Route::get('/vaccinerecord', '\App\Http\Controllers\VaccineRecordController@index');
+    Route::get('/vaccinerecord/{id}', '\App\Http\Controllers\VaccineRecordController@show');
+});
 
 Route::post('/admin-form', '\App\Http\Controllers\AdminTableFormController@submit');
-Route::get('edit-admin/{id}','\App\Http\Controllers\AdminTableFormController@edit');
-Route::put('update-account/{id}','\App\Http\Controllers\AdminTableFormController@update');
-Route::delete('delete-admin/{id}','\App\Http\Controllers\AdminTableFormController@delete');
+Route::get('edit-admin/{id}', '\App\Http\Controllers\AdminTableFormController@edit');
+Route::put('update-account/{id}', '\App\Http\Controllers\AdminTableFormController@update');
+Route::delete('delete-admin/{id}', '\App\Http\Controllers\AdminTableFormController@delete');
 
-
-Auth::routes(['register'=>false]);
-Route::get('/register', [\App\Http\Controllers\Auth\RegisterController::class, 'showRegistrationForm'])->name('register');
-Route::post('/register', [\App\Http\Controllers\Auth\RegisterController::class, 'register']);
-
+Auth::routes(['register' => false]);
+Route::get('/register', [\App\Http\Controllers\Auth\RegisterController::class, 'showRegistrationForm']);
+Route::post('/register', [\App\Http\Controllers\Auth\RegisterController::class, 'register'])->name('register');
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 Route::middleware(['auth', 'isAdmin'])->group(function () {
     Route::get('/admin-dashboard', function () {
-      return view('adminDashboard');
+        return view('adminDashboard');
     })->name('dashboard');
-  });
-
-
-Route::get('/vaccinerecord', '\App\Http\Controllers\VaccineRecordController@index');
-Route::get('/vaccinerecord/{id}', '\App\Http\Controllers\VaccineRecordController@show');
-
+});
 
 Route::get('/profile', '\App\Http\Controllers\ProfilePictureController@profile');
 Route::post('/profile', '\App\Http\Controllers\ProfilePictureController@updateavatar');
-
-
-

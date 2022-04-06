@@ -29,20 +29,27 @@ class UserSeeder extends Seeder
         $userRole->givePermissionTo($personalRecordPermission);
 
         $admin = User::create([
-            'name' => 'super admin',
             'email' => 'admin@mailinator.com',
             'password' => Hash::make('123456789'),
             'mobile_number' => '09171338178',
+        ]);
+        $admin->account()->create([
+            'name' => 'super admin',
+            'occupation' => 'nurse',
         ]);
 
         $admin->assignRole($adminRole);
 
         $user = User::create([
-            'name' => 'Jam Letigio',
             'email' => 'jam@mailinator.com',
             'password' => Hash::make('123456789'),
             'mobile_number' => '09171338178',
         ]);
+        $user->account()->create([
+            'name' => 'Jam Letigio',
+            'occupation' => 'student',
+        ]);
+
         $user->assignRole($userRole);
     }
 }

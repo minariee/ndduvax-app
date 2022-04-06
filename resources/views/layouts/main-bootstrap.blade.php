@@ -35,9 +35,10 @@
                         @csrf
                     </form>
                 @endauth
-                           
+                @guest       
                     <a class="btn btn-md btn-outline-success" href="{{url('/login')}}">Login</a>
                     <a class="btn btn-md btn-outline-success" href="{{url('/register')}}">Register</a>
+                @endguest
                 
                     
             </div>

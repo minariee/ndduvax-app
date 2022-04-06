@@ -18,6 +18,7 @@ class CreateVaccinesTable extends Migration
             $table->string('vaccine_type');
             $table->integer('current_dose');
             $table->date('latest_dosage_date');
+            $table->unsignedBigInteger('account_id');
             $table->softDeletes();
         });
     }
