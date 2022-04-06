@@ -29,7 +29,7 @@
                 <!-- Navbar Header-->
                 <div class="navbar-brand d-flex d-lg-inline-block">
                   <!-- Navbar Brand -->
-                  <a class="navbar-brand d-flex d-lg-inline-block" href = "#">
+                  <a class="navbar-brand d-flex d-lg-inline-block" href="@role('user') /user-dashboard @else /admin-dashboard @endrole">
                     <div class="navbar-brand d-flex px-4 py-3 d-lg-inline-block">
                       <span>Vaccine </span><strong>Tracking App</strong></div>
                     <div class="brand-text d-none d-sm-inline-block d-lg-none"><strong>BD</strong></div>

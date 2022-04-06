@@ -21,7 +21,6 @@ Route::get('/vaccine-form', '\App\Http\Controllers\VaccineFormController@index')
 Route::post('/vaccine-form', '\App\Http\Controllers\VaccineFormController@submit');
 Route::get('/terms-and-condition', '\App\Http\Controllers\TermsAndConditionController@index');
 Route::get('/', '\App\Http\Controllers\HomePageController@index');
-Route::get('/user-dashboard', '\App\Http\Controllers\UserDashboardController@index')->name('user-dashboard');
 Route::get('/privacy-policy', '\App\Http\Controllers\PrivacyPolicyController@index');
 //Route::get('/admin-dashboard', '\App\Http\Controllers\AdminDashboardController@index')->name('adminDashboard');
 Route::get('/en/blog');
@@ -42,9 +41,13 @@ Route::group(['users'], function () {
 });
 
 Route::middleware(['auth', 'role:user'])->group(function () {
+    Route::get('/user-dashboard', '\App\Http\Controllers\UserDashboardController@index')->name('user-dashboard');
     Route::get('/vaccinerecord/{id}', '\App\Http\Controllers\VaccineRecordController@show');
 });
 Route::middleware(['auth', 'role:admin'])->group(function () {
+    Route::get('/admin-dashboard', function () {
+        return view('adminDashboard');
+    })->name('admin-dashboard');
     Route::get('/vaccinerecord', '\App\Http\Controllers\VaccineRecordController@index');
     Route::get('/vaccinerecord/{id}', '\App\Http\Controllers\VaccineRecordController@show');
 });
@@ -59,12 +62,6 @@ Route::get('/register', [\App\Http\Controllers\Auth\RegisterController::class, '
 Route::post('/register', [\App\Http\Controllers\Auth\RegisterController::class, 'register'])->name('register');
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-
-Route::middleware(['auth', 'isAdmin'])->group(function () {
-    Route::get('/admin-dashboard', function () {
-        return view('adminDashboard');
-    })->name('dashboard');
-});
 
 Route::get('/profile', '\App\Http\Controllers\ProfilePictureController@profile');
 Route::post('/profile', '\App\Http\Controllers\ProfilePictureController@updateavatar');

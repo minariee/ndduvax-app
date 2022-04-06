@@ -7,6 +7,12 @@
             <div class="card">
                 <div style="font-size:24px; text-align:center;" class="card-header">{{ __('REGISTER') }}</div>
                 <div class="card-body">
+                    @if(session('status'))
+                    <div class="alert alert-success" role="alert">
+                        {{ session('status') }}, click <a href="{{ route('login') }}">here to login.</a>
+
+                    </div>
+                    @endif
                     <form method="POST" action="{{ route('register') }}" enctype="multipart/form-data">
                         @csrf
                         <div class="row mb-3">
@@ -88,8 +94,8 @@
                             <label for="vaccination-record" class="col-md-4 col-form-label text-md-end">{{ __('Proof of Vaccination Records') }}</label>
 
                             <div class="col-md-6">
-                                <input name="vaccination-record" class="form-control @error('vaccination-recor') is-invalid @enderror" type="file" id="formFileMultiple" multiple />
-                                @error('vaccination-recor')
+                                <input name="vaccination-record" class="form-control @error('vaccination-record') is-invalid @enderror" type="file" id="formFileMultiple" multiple />
+                                @error('vaccination-record')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>

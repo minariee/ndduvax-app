@@ -62,7 +62,7 @@ class RegisterController extends Controller
 
         $this->create($request->all());
 
-        return redirect('user-dashboard');
+        return redirect('register')->with('status', 'User successfully registered!');
     }
 
     /**
