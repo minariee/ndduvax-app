@@ -32,7 +32,7 @@
           </li>
           @else
           <li class="sidebar-item">
-            <a class="sidebar-link" href="vaccinerecord/{{auth()->user()->account->id}}">
+            <a class="sidebar-link" href="{{ route('my-vaccinerecord') }}">
               <svg class="svg-icon svg-icon-sm svg-icon-heavy me-xl-2">
                 <use xlink:href="#portfolio-grid-1"> </use>
               </svg>

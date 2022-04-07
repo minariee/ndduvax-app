@@ -48,16 +48,25 @@
           <div class="card shadow-sm">
             <div class="card-header bg-transparent text-center">
 
-            <img src="{{ is_null($user->avatar)?'/uploads/avatars/default.jpg':$account->profile_url }}" style="width:180px; height:150px; border-radius:50%;">
+            <img src="{{ is_null($user->avatar)?'/uploads/avatars/default.jpg': route('avatar', ['user' => $user->id ]) }}" style="width:180px; height:150px; border-radius:50%;">
             <div class="container">
-            <form enctype="multipart/form-data" action="/profile" method="POST" style="margin-top:30px">
+            <form enctype="multipart/form-data" method="POST" action="{{ route('update-avatar', ['user' => $user->id ]) }}" style="margin-top:30px">
+              @method('PUT')
+              @csrf
             </div>
             <input type="file" name="avatar">
-            <input type="hidden" name="_token" value="{{ csrf_token() }}">
-            <input type="submit" class="pull-right btn btn-sm btn-primary">
+            @if ($errors->any())
+                <div class="alert alert-danger">
+                   @foreach ($errors->all() as $error)
+                      <div>{{ $error }}</div>
+                  @endforeach
+                </div>
+            @endif
+            <input type="submit" class="pull-right btn btn-sm btn-primary" value="Update profile image">
 
               <h3 style="margin-top:30px">{{ $account->name}}</h3>
             </div>
+            <!-- todo add these fields -->
             <div class="card-body">
               <p class="mb-0"><strong class="pr-1">Student ID:</strong>321000001</p>
               <p class="mb-0"><strong class="pr-1">Class:</strong>4</p>
@@ -97,6 +106,12 @@
                   <td width="2%">:</td>
                   <td>{{ is_null($account->vaccines()->first()) ? 'N/A': $account->vaccines()->first()->current_dose }}</td>
                 </tr>
+                <tr>
+                  <th width="30%">Proof of vaccination</th>
+                  <td width="2%">:</td>
+                  <td><a target="_blank" href="{{ route('download-proof-of-vaccination', ['account' => $account->id]) }}">View Record</a></td>
+                </tr>
+                
               </table>
             </div>
           </div>

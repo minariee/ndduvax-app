@@ -22,7 +22,7 @@
                         <td>{{ $account->occupation }}</td>
                         <td>{{ $account->date}}</td>
                         <td>{{ $account->type_of_vaccine}}</td>
-                        </td>
+                        <td><a target="_blank" href="{{ Storage::url($account->proof_of_vaccination) }}">Proof of vaccination</a></td>
                     </tr>
                     @endforeach
                 </tbody>

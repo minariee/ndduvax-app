@@ -58,9 +58,16 @@ class RegisterController extends Controller
      */
     public function register(RegistrationRequest $request)
     {
-        $request->file('vaccination-record')->store('records');
+        $path = $request->file('vaccination-record')->store('records');
 
-        $this->create($request->all());
+        $this->create([
+            'name' => $request->name,
+            'email' => $request->email,
+            'password' => $request->password,
+            'mobile_number' => $request->mobile_number,
+            'occupation' => $request->occupation,
+            'proof_of_vaccination' => $path,
+        ]);
 
         return redirect('register')->with('status', 'User successfully registered!');
     }
@@ -83,6 +90,7 @@ class RegisterController extends Controller
         $user->account()->create([
             'occupation' => $data['occupation'],
             'name' => $data['name'],
+            'proof_of_vaccination' => $data['proof_of_vaccination'],
         ]);
 
         $user->assignRole($userRole);
