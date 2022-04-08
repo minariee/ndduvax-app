@@ -22,7 +22,7 @@
             </div>
             <div class= "col-4 align=right">
                 @auth
-                    <a id="navbarDropdown" class="nav-link" href="{{ route('user-dashboard') }}" role="button">
+                    <a id="navbarDropdown" class="nav-link" href="{{ route('dashboard') }}" role="button">
                         {{ Auth::user()->name }}
                     </a>
                     <a class="dropdown-item" href="{{ route('logout') }}"
@@ -49,6 +49,9 @@
               <a class="p-2 link-secondary" href="{{url('/')}}">Home</a>
               <a class="p-2 link-secondary" href="{{url('/en/blog') }}">Blog</a>
               <a class="p-2 link-secondary" href="{{url('/privacy-policy')}}">Privacy Policy</a>
+              @auth
+              <a class="p-2 link-secondary" href="{{ route('dashboard') }}">Dashboard</a>
+              @endauth
             </nav>
           </div> 
       @yield('content')

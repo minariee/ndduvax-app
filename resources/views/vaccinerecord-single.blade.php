@@ -36,9 +36,6 @@
     color: #000;
 }
 
-.container{
-  width:1500%;
-}
 </style>
 
 <div class="student-profile py-4">

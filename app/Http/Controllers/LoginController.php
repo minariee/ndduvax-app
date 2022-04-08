@@ -6,14 +6,15 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
 class LoginController extends Controller
-{   
-    public function login(){
+{
+    public function login()
+    {
         return view('auth/login');
     }
+
     /**
      * Handle an authentication attempt.
      *
-     * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
     public function authenticate(Request $request)

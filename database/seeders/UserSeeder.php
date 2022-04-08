@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 use App\Models\User;
+use Faker\Generator;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\Hash;
 use Spatie\Permission\Models\Permission;
@@ -17,6 +18,7 @@ class UserSeeder extends Seeder
      */
     public function run()
     {
+        $faker = new Generator();
         $adminRole = Role::create([
             'name' => 'admin',
         ]);
@@ -39,17 +41,5 @@ class UserSeeder extends Seeder
         ]);
 
         $admin->assignRole($adminRole);
-
-        $user = User::create([
-            'email' => 'jam@mailinator.com',
-            'password' => Hash::make('123456789'),
-            'mobile_number' => '09171338178',
-        ]);
-        $user->account()->create([
-            'name' => 'Jam Letigio',
-            'occupation' => 'student',
-        ]);
-
-        $user->assignRole($userRole);
     }
 }
