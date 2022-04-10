@@ -23,10 +23,14 @@ class VaccineRecordController extends Controller
     {
         $account = Account::find($id);
         $user = $account->user;
+        $vaccines = $account->vaccines;
+        $latest = $account->latestVaccine();
 
         return view('vaccinerecord-single', [
             'user' => $user,
             'account' => $account,
+            'vaccines' => $vaccines,
+            'latest' => $latest,
         ]);
     }
 
@@ -34,10 +38,14 @@ class VaccineRecordController extends Controller
     {
         $user = Auth::user();
         $account = $user->account;
+        $vaccines = $account->vaccines;
+        $latest = $account->latestVaccine();
 
         return view('vaccinerecord-single', [
             'user' => $user,
             'account' => $account,
+            'vaccines' => $vaccines,
+            'latest' => $latest,
         ]);
     }
 }

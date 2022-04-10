@@ -16,6 +16,7 @@ class CreateVaccinesTable extends Migration
         Schema::create('vaccines', function (Blueprint $table) {
             $table->id();
             $table->string('vaccine_type');
+            $table->string('vaccine_brand');
             $table->integer('current_dose');
             $table->date('latest_dosage_date');
             $table->unsignedBigInteger('account_id');

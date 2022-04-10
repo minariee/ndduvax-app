@@ -41,27 +41,33 @@
 <div class="student-profile py-4">
     <div class="container">
       <div class="row">
+        <div class="col-lg-12">
+            @if ($errors->any())
+            <div class="alert alert-danger">
+              <ul>
+                @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+                @endforeach
+              </ul>
+            </div>
+            @endif
+        </div>
+      </div>
+      <div class="row">
         <div class="col-lg-4">
           <div class="card shadow-sm">
             <div class="card-header bg-transparent text-center">
 
-            <img src="{{ is_null($user->avatar)?'/uploads/avatars/default.jpg': route('avatar', ['user' => $user->id ]) }}" style="width:180px; height:150px; border-radius:50%;">
-            <div class="container">
-            <form enctype="multipart/form-data" method="POST" action="{{ route('update-avatar', ['user' => $user->id ]) }}" style="margin-top:30px">
-              @method('PUT')
-              @csrf
-            </div>
-            <input type="file" name="avatar">
-            @if ($errors->any())
-                <div class="alert alert-danger">
-                   @foreach ($errors->all() as $error)
-                      <div>{{ $error }}</div>
-                  @endforeach
-                </div>
-            @endif
-            <input type="submit" class="pull-right btn btn-sm btn-primary" value="Update profile image">
-
-              <h3 style="margin-top:30px">{{ $account->name}}</h3>
+              <img src="{{ is_null($user->avatar)?'/uploads/avatars/default.jpg': route('avatar', ['user' => $user->id ]) }}" style="width:180px; height:150px; border-radius:50%;">
+              <div class="container">
+                <form enctype="multipart/form-data" method="POST" action="{{ route('update-avatar', ['user' => $user->id ]) }}" style="margin-top:30px">
+                  @method('PUT')
+                  @csrf
+                  <input type="file" name="avatar">
+                  <input type="submit" class="pull-right btn btn-sm btn-primary" value="Update profile image">
+                </form>
+              </div>
+                <h3 style="margin-top:30px">{{ $account->name}}</h3>
             </div>
             <!-- todo add these fields -->
             <div class="card-body">
@@ -96,33 +102,131 @@
                 <tr>
                   <th width="30%">Type of Vaccine</th>
                   <td width="2%">:</td>
-                  <td>{{ is_null($account->vaccines()->first()) ? 'N/A': $account->vaccines()->first()->vaccine_type }}</td>
+                  <td>{{ is_null($account->vaccines()->first()) ? 'N/A': $latest->vaccine_type }}</td>
                 </tr>
                 <tr>
                   <th width="30%">Dose</th>
                   <td width="2%">:</td>
-                  <td>{{ is_null($account->vaccines()->first()) ? 'N/A': $account->vaccines()->first()->current_dose }}</td>
+                  <td>{{ is_null($account->vaccines()->first()) ? 'N/A': $latest->current_dose }}</td>
                 </tr>
                 <tr>
                   <th width="30%">Proof of vaccination</th>
                   <td width="2%">:</td>
                   <td><a target="_blank" href="{{ route('download-proof-of-vaccination', ['account' => $account->id]) }}">View Record</a></td>
                 </tr>
-                
               </table>
             </div>
           </div>
-            <div style="height: 26px"></div>
           <div class="card shadow-sm">
-            <div class="card-header bg-transparent border-0">
-              <h3 class="mb-0"><i class="far fa-clone pr-1"></i> Other Information</h3>
+            <div class="card-header bg-transparent border-0 d-flex justify-content-between align-items-center">
+              <h3 class="mb-0"><i class="far fa-clone pr-1"></i> Vaccination Information</h3>
+              @role('admin')
+              <button 
+              id="add-record" 
+              type="button" 
+              class="btn btn-primary"
+              data-toggle="modal" data-target="#form-modal"
+              >Add Record</button>
+              @endrole
             </div>
             <div class="card-body pt-0">
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+              <table class="table" id="vaccination-table">
+                <thead>
+                  <tr>
+                    <th scope="col">Dosage Date</th>
+                    <th scope="col">Vaccine Brand</th>
+                    <th scope="col">Dosage</th>
+                    <th scope="col">Vaccine Type</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  @if($vaccines->count() > 0)
+                  @foreach($vaccines as $vaccine)
+                  <tr>
+                    <th scope="row">{{ $vaccine->latest_dosage_date }}</th>
+                    <td>{{ $vaccine->vaccine_brand }}</td>
+                    <td>{{ $vaccine->current_dose }}</td>
+                    <td>{{ $vaccine->vaccine_type }}</td>
+                    <td>
+                      <form action="{{ route('delete-vax', ['vaccine' => $vaccine->id]) }}" method="POST">
+                        @csrf
+                        @method('DELETE')
+                        <button type="submit" class="btn btn-danger">Remove</button>
+                      </form>
+                    </td>
+                  </tr>
+                  @endforeach
+                  @else
+                  <tr>
+                    <th colspan="4">No record found.</th>
+                  </tr>
+                  @endif
+                </tbody>
+              </table>
             </div>
           </div>
         </div>
       </div>
     </div>
+</div>
+<div class="modal fade" id="form-modal" role="dialog">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Modal title</h5>
+        <button type="button" class="modal-close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form action="{{ route('add-vax', ['account' => $account->id]) }}" method="POST" id="add-vax-form">
+          @csrf
+          <div class="form-group row mb-1">
+            <label for="inputDate" class="col-sm-5 col-form-label">Dosage Date</label>
+            <div class="col-sm-7">
+              <input name="latest_dosage_date" type="date" class="form-control" id="inputDate" required />
+            </div>
+          </div>
+          <div class="form-group row mb-1">
+            <label for="inputBrand" class="col-sm-5 col-form-label">Vaccine Brand</label>
+            <div class="col-sm-7">
+              <input name="vaccine_brand" type="input" class="form-control" id="inputBrand" required />
+            </div>
+          </div>
+          <div class="form-group row mb-1">
+            <label for="inputDosage" class="col-sm-5 col-form-label">Dosage</label>
+            <div class="col-sm-7">
+              <input name="current_dose" type="input" class="form-control" id="inputDosage" required />
+            </div>
+          </div>
+          <div class="form-group row mb-1">
+            <label for="inputType" class="col-sm-5 col-form-label">Vaccine Type</label>
+            <div class="col-sm-7">
+              <input name="vaccine_type" type="input" class="form-control" id="inputType" required />
+            </div>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary modal-close">Close</button>
+        <button id="save-add" type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
   </div>
+</div>
+  <script>
+    $(function() {
+      $('.modal-close').click(function() {
+        location.reload()
+      })
+      $('#add-record').click(function (e) {
+        e.preventDefault()
+        $('#form-modal').modal('toggle')
+      })
+      $('#save-add').click(function() {
+        $('#add-vax-form').submit()
+      })
+    })
+  </script>
 @endsection

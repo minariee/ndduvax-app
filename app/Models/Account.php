@@ -17,6 +17,11 @@ class Account extends Model
         'proof_of_vaccination',
     ];
 
+    public function latestVaccine()
+    {
+        return $this->vaccines()->orderBy('latest_dosage_date', 'desc')->get()->first();
+    }
+
     public function vaccines()
     {
         return $this->hasMany(Vaccine::class);

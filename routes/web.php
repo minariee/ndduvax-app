@@ -37,9 +37,12 @@ Route::middleware(['auth'])->group(function () {
         Route::get('/my-vaccinerecord', '\App\Http\Controllers\VaccineRecordController@myRecord')->name('my-vaccinerecord');
     });
     Route::middleware(['role:admin'])->group(function ($route) {
+        Route::post('/add-vax/{account}', '\App\Http\Controllers\VaccineController@store')->name('add-vax');
+        Route::delete('/delete-vax/{vaccine}', '\App\Http\Controllers\VaccineController@delete')->name('delete-vax');
+
         Route::get('/admin-dashboard', '\App\Http\Controllers\AdminDashboardController@index')->name('admin-dashboard');
         Route::get('/vaccinerecord', '\App\Http\Controllers\VaccineRecordController@index');
-        Route::get('/vaccinerecord/{id}', '\App\Http\Controllers\VaccineRecordController@show');
+        Route::get('/vaccinerecord/{id}', '\App\Http\Controllers\VaccineRecordController@show')->name('vaccine-record');
         Route::get('/announcement', '\App\Http\Controllers\AnnoucementController@index');
         Route::get('/annoucement/{announcement}', '\App\Http\Controllers\AnnouncementController@show');
         Route::post('/announcement', '\App\Http\Controllers\AnnouncementController@store');
