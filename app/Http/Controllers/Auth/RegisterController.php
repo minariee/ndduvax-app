@@ -67,6 +67,7 @@ class RegisterController extends Controller
             'mobile_number' => $request->mobile_number,
             'occupation' => $request->occupation,
             'proof_of_vaccination' => $path,
+            'gender' => $request->gender,
         ]);
 
         return redirect('register')->with('status', 'User successfully registered!');
@@ -91,6 +92,7 @@ class RegisterController extends Controller
             'occupation' => $data['occupation'],
             'name' => $data['name'],
             'proof_of_vaccination' => $data['proof_of_vaccination'],
+            'gender' => $data['gender'],
         ]);
 
         $user->assignRole($userRole);

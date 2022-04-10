@@ -17,7 +17,7 @@
             <tbody>
              @foreach ($vaccines as $vaccine)
               <tr>
-                  <td>{{ $vaccine->vaccine_brand }}</td>
+                  <td>{{ $vaccine->brand_name }}</td>
               </tr>    
               @endforeach
             </tbody>

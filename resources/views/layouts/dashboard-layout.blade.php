@@ -8,6 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="robots" content="all,follow">
     <!-- Google fonts - Poppins -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:300,400,700">
     <!-- Choices CSS-->
     <link href="{{URL:: asset('assets/css/choices.css') }}" rel="stylesheet">
@@ -92,7 +93,7 @@
       <!-- Sidebar Navidation Menus--><span class="text-uppercase text-gray-400 text-xs letter-spacing-0 mx-3 px-2 heading">Menu</span>
       <ul class="list-unstyled py-4">
         <li class="sidebar-item active">
-          <a class="sidebar-link" href="{{url('/en/blog')}}"> 
+          <a class="sidebar-link" href="{{ route('dashboard') }}"> 
             <svg class="svg-icon svg-icon-sm svg-icon-heavy me-xl-2">
               <use xlink:href="#real-estate-1"> </use>
             </svg>
