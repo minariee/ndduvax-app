@@ -11,7 +11,7 @@
                         <th>Name </th>
                         <th>Occupation</th>
                         <th>Last Date Vaccinated</th>
-                        <th>Last Vaccine/Dose</th>
+                        <th>Last Vaccine (Dose #)</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -20,8 +20,8 @@
                         <td><a href="/vaccinerecord/{{ $account->id}}">{{ $account->id}}</a></td>
                         <td>{{ $account->name}}</td>
                         <td>{{ $account->occupation }}</td>
-                        <td>{{ $account->date}}</td>
-                        <td>{{ $account->type_of_vaccine}}</td>
+                        <td>{{ $account->latestVaccine()->latest_dosage_date}}</td>
+                        <td>{{ $account->latestVaccine()->vaccine_brand}} ({{ $account->latestVaccine()->current_dose}})</td>
                     </tr>
                     @endforeach
                 </tbody>
