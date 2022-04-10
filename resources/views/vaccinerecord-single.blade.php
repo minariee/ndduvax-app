@@ -71,9 +71,9 @@
             </div>
             <!-- todo add these fields -->
             <div class="card-body">
-              <p class="mb-0"><strong class="pr-1">Student ID:</strong>321000001</p>
-              <p class="mb-0"><strong class="pr-1">Class:</strong>4</p>
-              <p class="mb-0"><strong class="pr-1">Section:</strong>A</p>
+              <p class="mb-0"><strong class="pr-1">Patient ID:</strong> &nbsp; {{ str_pad($account->id, 10, 0, STR_PAD_LEFT) }}</p>
+              <p class="mb-0"><strong class="pr-1">Gender: </strong>&nbsp; {{ ucfirst($user->gender) }}</p>
+              <p class="mb-0"><strong class="pr-1">Mobile Numer: </strong>{{ $user->mobile_number }}</p>
             </div>
           </div>
         </div>
@@ -159,7 +159,7 @@
                   @endforeach
                   @else
                   <tr>
-                    <th colspan="4">No record found.</th>
+                    <th colspan="5">No record found.</th>
                   </tr>
                   @endif
                 </tbody>
@@ -174,12 +174,15 @@
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title">Modal title</h5>
+        <h5 class="modal-title">Vaccination Record Form</h5>
         <button type="button" class="modal-close">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
       <div class="modal-body">
+      <div class="alert alert-info" role="alert">
+        Cannot find the vaccine brand your looking for? you can add one in our <a href="#">Vaccine Manager</a>.
+      </div>
         <form action="{{ route('add-vax', ['account' => $account->id]) }}" method="POST" id="add-vax-form">
           @csrf
           <div class="form-group row mb-1">
@@ -191,7 +194,12 @@
           <div class="form-group row mb-1">
             <label for="inputBrand" class="col-sm-5 col-form-label">Vaccine Brand</label>
             <div class="col-sm-7">
-              <input name="vaccine_brand" type="input" class="form-control" id="inputBrand" required />
+              <select id="inputBrand" class="form-control" name="vaccine_brand" value="{{ $vaccine_brands->first()->brand_name }}" required>
+                @foreach($vaccine_brands as $vaccine_brand)
+                <option value="{{ $vaccine_brand->brand_name }}">{{ $vaccine_brand->brand_name }}</option>
+                @endforeach
+              </select>
+              <!-- <input name="vaccine_brand" type="input" class="form-control" id="inputBrand" required /> -->
             </div>
           </div>
           <div class="form-group row mb-1">

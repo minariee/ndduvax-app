@@ -137,6 +137,13 @@
           </a>
         </li>
         <li class="sidebar-item">
+          <a class="sidebar-link" href="{{ route('vaccine-types') }}">
+            <svg class="svg-icon svg-icon-sm svg-icon-heavy me-xl-2">
+              <use xlink:href="#survey-1"> </use>
+            </svg>Vaccine Type Management 
+          </a>
+        </li>
+        <li class="sidebar-item">
           <a class="sidebar-link" href="#">
             <svg class="svg-icon svg-icon-sm svg-icon-heavy me-xl-2">
               <use xlink:href="#disable-1"> </use>

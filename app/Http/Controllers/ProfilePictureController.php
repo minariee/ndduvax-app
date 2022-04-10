@@ -28,7 +28,7 @@ class ProfilePictureController extends Controller
     public function updateavatar(Request $request, User $user)
     {
         $request->validate([
-            'avatar' => 'required|mimes:jpg,png,jpeg',
+            'avatar' => 'mimes:jpeg,jpg,png,gif|required',
         ]);
 
         $user->avatar = $request->file('avatar')->store('avatar');

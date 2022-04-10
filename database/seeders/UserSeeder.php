@@ -34,6 +34,7 @@ class UserSeeder extends Seeder
             'email' => 'admin@mailinator.com',
             'password' => Hash::make('123456789'),
             'mobile_number' => '09171338178',
+            'gender' => 'male',
         ]);
         $admin->account()->create([
             'name' => 'super admin',

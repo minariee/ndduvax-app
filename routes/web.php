@@ -39,7 +39,7 @@ Route::middleware(['auth'])->group(function () {
     Route::middleware(['role:admin'])->group(function ($route) {
         Route::post('/add-vax/{account}', '\App\Http\Controllers\VaccineController@store')->name('add-vax');
         Route::delete('/delete-vax/{vaccine}', '\App\Http\Controllers\VaccineController@delete')->name('delete-vax');
-
+        Route::get('/vaccine-types', '\App\Http\Controllers\VaccineTypesController@index')->name('vaccine-types');
         Route::get('/admin-dashboard', '\App\Http\Controllers\AdminDashboardController@index')->name('admin-dashboard');
         Route::get('/vaccinerecord', '\App\Http\Controllers\VaccineRecordController@index');
         Route::get('/vaccinerecord/{id}', '\App\Http\Controllers\VaccineRecordController@show')->name('vaccine-record');

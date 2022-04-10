@@ -1,7 +1,7 @@
 @extends('layouts.main-bootstrap')
 
 @section('content')
-<div class="container">
+<div class="container" style="padding-bottom: 50px;">
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
@@ -70,6 +70,19 @@
 
                             <div class="col-md-6">
                                 <input id="mobile_number" type="text" class="form-control" name="mobile_number">
+                            </div>
+                        </div>
+                        <div class="row mb-3">
+                            <label for="gender" class="col-md-4 col-form-label text-md-end">{{ __('Gender') }}</label>
+                            <div class="col-md-6">
+                                <div class="form-check form-check-inline">
+                                    <input name="gender" class="form-check-input" type="radio" checked id="inlineCheckbox1" value="male">
+                                    <label class="form-check-label" for="inlineCheckbox1">Male</label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <input name="gender" class="form-check-input" type="radio" id="inlineCheckbox2" value="female">
+                                    <label class="form-check-label" for="inlineCheckbox2">Female</label>
+                                </div>
                             </div>
                         </div>
                         <div class="row mb-3">

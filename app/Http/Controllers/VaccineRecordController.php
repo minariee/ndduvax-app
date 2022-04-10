@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Account;
+use App\Models\VaccineType;
 use Illuminate\Support\Facades\Auth;
 
 class VaccineRecordController extends Controller
@@ -31,6 +32,7 @@ class VaccineRecordController extends Controller
             'account' => $account,
             'vaccines' => $vaccines,
             'latest' => $latest,
+            'vaccine_brands' => VaccineType::orderBy('brand_name', 'asc')->get(),
         ]);
     }
 
@@ -46,6 +48,7 @@ class VaccineRecordController extends Controller
             'account' => $account,
             'vaccines' => $vaccines,
             'latest' => $latest,
+            'vaccine_brands' => VaccineType::orderBy('brand_name', 'asc')->get(),
         ]);
     }
 }
