@@ -20,8 +20,13 @@
                         <td><a href="/vaccinerecord/{{ $account->id}}">{{ $account->id}}</a></td>
                         <td>{{ $account->name}}</td>
                         <td>{{ $account->occupation }}</td>
+                        @if( $account->vaccines()->count() < 1 )
+                        <td>N/A</td>
+                        <td>N/A</td>
+                        @else
                         <td>{{ $account->latestVaccine()->latest_dosage_date}}</td>
                         <td>{{ $account->latestVaccine()->vaccine_brand}} ({{ $account->latestVaccine()->current_dose}})</td>
+                        @endif
                     </tr>
                     @endforeach
                 </tbody>
