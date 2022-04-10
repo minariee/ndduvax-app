@@ -51,7 +51,7 @@ class User extends Authenticatable
     ];
 
 
-    /** ----- ORIGINAL CODE FOR LARAVEL BLOG -------
+    /* ----- ORIGINAL CODE FOR LARAVEL BLOG -------
      * 
      * 
      * 
@@ -62,59 +62,27 @@ class User extends Authenticatable
      *              false = they have no access to the blog admin panel
      */
     
-    /* public function canManageBinshopsBlogPosts()
+     public function canManageBinshopsBlogPosts()
     {
         // Enter the logic needed for your app.
         // Maybe you can just hardcode in a user id that you
         //   know is always an admin ID?
 
-        if ($this->user_type === 'administrator'
+       /* if ($this->user_type === 'administrator'
            ) {
             // return true so this user CAN edit/post/delete
             // blog posts (and post any HTML/JS)
 
             return true;
-        }
+        }*/
 
         // otherwise return false, so they have no access
         // to the admin panel (but can still view posts)
-        return false;
+        return true;
     }
 
     public function account()
     {
         return $this->hasOne(Account::class);
-    }
-}*/
- /* ----------------------- -------------------------------- */
-
-
- /**
-     * Enter your own logic (e.g. if ($this->id === 1) to
-     *   enable this user to be able to add/edit blog posts
-     *
-     * @return bool - true = they can edit / manage blog posts,
-     *        false = they have no access to the blog admin panel
-     */
-    public function canManageBinshopsBlogPosts()
-    {
-        // Enter the logic needed for your app.
-        // Maybe you can just hardcode in a user id that you
-        //   know is always an admin ID?
-
-       /* if (       $this->id === 1
-             && $this->email === "your_admin_user@your_site.com"
-           ){
-
-           // return true so this user CAN edit/post/delete
-           // blog posts (and post any HTML/JS)
-
-           return true;
-        }*/
-
-        // otherwise return false, so they have no access
-        // to the admin panel (but can still view posts)
-
-        return true;
     }
 }
