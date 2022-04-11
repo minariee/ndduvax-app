@@ -67,17 +67,17 @@ class User extends Authenticatable
         // Maybe you can just hardcode in a user id that you
         //   know is always an admin ID?
 
-        /* if ($this->user_type === 'administrator'
+        if ($this->email === 'admin@mailinator.com'
             ) {
              // return true so this user CAN edit/post/delete
              // blog posts (and post any HTML/JS)
 
              return true;
-         }*/
+         }
 
         // otherwise return false, so they have no access
         // to the admin panel (but can still view posts)
-        return true;
+        return false;
     }
 
     /* ----------------------- -------------------------------- */

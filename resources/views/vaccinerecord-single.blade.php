@@ -6,7 +6,7 @@
     body {
     background: #67B26F;  /* fallback for old browsers */
     background: -webkit-linear-gradient(to right, #4ca2cd, #67B26F);  /* Chrome 10-25, Safari 5.1-6 */
-    background: #192a1c; /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    background: #ffffff; /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
     padding: 0;
     margin: 0;
     font-family: 'Lato', sans-serif;
@@ -36,6 +36,8 @@
     color: #000;
 }
 
+
+
 </style>
 
 <div class="student-profile py-4">
@@ -64,7 +66,7 @@
                   @method('PUT')
                   @csrf
                   <input type="file" name="avatar">
-                  <input type="submit" class="pull-right btn btn-sm btn-primary" value="Update profile image">
+                  <input type="submit" class="pull-right btn btn-sm btn-primary" style="background-color:#012b09;border:none;" value="Update profile image">
                 </form>
               </div>
                 <h3 style="margin-top:30px">{{ $account->name}}</h3>
@@ -124,6 +126,7 @@
               <button 
               id="add-record" 
               type="button" 
+              style="background-color:#012b09;border:none;"
               class="btn btn-primary"
               data-toggle="modal" data-target="#form-modal"
               >Add Record</button>

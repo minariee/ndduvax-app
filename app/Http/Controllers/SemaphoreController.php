@@ -2,26 +2,27 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Http\Request;
 use App\Models\User;
 use App\Services\SMS;
-use Illuminate\Http\Request;
 
 class SemaphoreController extends Controller
 {
-    public function index()
-    {
-        $users = User::all();
-
+    public function index() {
+        $users =User::select('mobile_number')->get();
+        
+        foreach ($users as $user) {
+            $user->mobile_number;    
+        }
         return view('smsemaphore', [
             'page_substitle' => 'SMS',
-            'users' => $users,
+            'users' => $users
+    
         ]);
     }
-
-    public function send(Request $request)
-    {
+    public function send(Request $request){
+        
         $sms = new SMS();
-
-        $sms->send(['09171338178', '09760063316', '09275551057'], $request->message);
-    }
+        $sms->send([$users], $request->message);
+    }    
 }

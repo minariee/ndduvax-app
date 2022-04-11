@@ -5,13 +5,13 @@
       <div class="row">
         <div class="col-md-6">
           <h1 class="mt-1">Vaccine Brand</h1> 
-           <button class="btn btn-primary mt-5 mb-2">
+           <button class="btn btn-primary mt-5 mb-2" style="background-color:#012b09;border:none;">
             Add Vaccine Brand
           </button>
           <table class="table">
             <thead class="table-light">
               <tr>
-                  <td>Brand name</td>
+                  <td>BRAND NAME</td>
               </tr>
             </thead>
             <tbody>

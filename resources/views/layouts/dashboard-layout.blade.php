@@ -118,6 +118,14 @@
             My Vaccine Record
           </a>
         </li>
+        <li class="sidebar-item active">
+          <a class="sidebar-link" href="/en/blog"> 
+            <svg class="svg-icon svg-icon-sm svg-icon-heavy me-xl-2">
+              <use xlink:href="#real-estate-1"> </use>
+            </svg>
+            News & Updates 
+          </a>
+        </li>
         @endrole
       </ul>
       @role('admin')
@@ -145,11 +153,11 @@
           </a>
         </li>
         <li class="sidebar-item">
-          <a class="sidebar-link" href="#">
+          <a class="sidebar-link" href="/blog_admin">
             <svg class="svg-icon svg-icon-sm svg-icon-heavy me-xl-2">
-              <use xlink:href="#disable-1"> </use>
+              <use xlink:href="#survey-1"> </use>
             </svg>
-            Content Management 
+            News and Updates
           </a>
         </li>
       </ul>
