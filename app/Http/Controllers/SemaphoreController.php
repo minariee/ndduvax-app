@@ -20,9 +20,33 @@ class SemaphoreController extends Controller
     
         ]);
     }
-    public function send(Request $request){
+    public function send(User $users,Request $request){
+        $users =User::select('mobile_number')->get();
         
-        $sms = new SMS();
-        $sms->send([$users], $request->message);
+        foreach ($users as $user) {
+            $user->mobile_number;    
+        }
+        $message = $request->input('message');
+        $mobiles = $user->mobile_number;
+        $ch = curl_init();
+        $parameters = array(
+            'apikey' => env('SEMAPHORE_KEY'), //Your API KEY
+            'number' => $mobiles,
+            'message' => $message,
+            'sendername' => 'SEMAPHORE'
+        );
+        curl_setopt( $ch, CURLOPT_URL,'https://semaphore.co/api/v4/messages' );
+        curl_setopt( $ch, CURLOPT_POST, 1 );
+
+        //Send the parameters set above with the request
+        curl_setopt( $ch, CURLOPT_POSTFIELDS, http_build_query( $parameters ) );
+
+        // Receive response from server
+        curl_setopt( $ch, CURLOPT_RETURNTRANSFER, true );
+        $output = curl_exec( $ch );
+        curl_close ($ch);
+
+        //Show the server response
+    return view('smsemaphore')->with('successMsg','Message sent successfully .');;
     }    
 }
