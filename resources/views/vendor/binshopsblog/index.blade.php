@@ -14,7 +14,7 @@
                     <a style="margin-bottom:40px" href='{{route("binshopsblog.admin.index")}}'
                        class='btn border  btn-outline-success btn-lg '>
                         <i class="fa fa-cogs" aria-hidden="true"></i>
-                        Go To Blog Admin Panel</a>
+                        Go To News & Updates Admin Panel</a>
                 </p>
             </div>
         @endif
