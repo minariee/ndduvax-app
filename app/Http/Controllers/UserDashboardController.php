@@ -39,7 +39,7 @@ class UserDashboardController extends Controller
                 ->where('latest_dosage_date', '<=', $endMonth)
                 ->get()
                 ->filter(function ($vax) {
-                    return $vax->account->gender == 'female';
+                    return $vax->account->gender === 'female';
                 })->count();
             $dataset1Male->push($countOfMonthMale);
             $dataset1Female->push($countOfMonthFemale);
