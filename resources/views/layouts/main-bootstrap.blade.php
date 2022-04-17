@@ -15,11 +15,11 @@
         <header class="blog-header py-3">
           <div class="row flex-nowrap justify-content-between align-items-center">
             <div class="col-4 pt-1">
-              <a href = "{{url('/')}}">  <img src="/assets/images/nddu.png" class="css-class"></a>
+              <a href = "{{url('/')}}"></a>
             </div>
             <div class="col-4 text-center">
-              <a class="blog-header-logo text-dark" href="#">NDDU VAX APP</a>
-            </div>
+              <header class ="blog-header-logo text-dark">Vax<b>Tracker</b></header>
+           </div>
             <div class= "col-4 align=right">
                 @auth
                     <a id="navbarDropdown" class="nav-link" href="{{ route('dashboard') }}" role="button">
