@@ -11,6 +11,7 @@ class VaccineType extends Model
 
     protected $fillable = [
         'brand_name',
+        'dose',
     ];
     public $timestamps = false;
 }

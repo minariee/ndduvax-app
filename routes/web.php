@@ -40,6 +40,11 @@ Route::middleware(['auth'])->group(function () {
         Route::post('/add-vax/{account}', '\App\Http\Controllers\VaccineController@store')->name('add-vax');
         Route::delete('/delete-vax/{vaccine}', '\App\Http\Controllers\VaccineController@delete')->name('delete-vax');
         Route::get('/vaccine-types', '\App\Http\Controllers\VaccineTypesController@index')->name('vaccine-types');
+        Route::get('/vaccine-types/create', '\App\Http\Controllers\VaccineTypesController@create')->name('vaccine-types.create');
+        Route::post('/vaccine-types', '\App\Http\Controllers\VaccineTypesController@store')->name('vaccine-types.store');
+        Route::get('/vaccine-types/{vaccine_type}/edit', '\App\Http\Controllers\VaccineTypesController@edit')->name('vaccine-types.edit');
+        Route::patch('/vaccine-types/{vaccine_type}', '\App\Http\Controllers\VaccineTypesController@update')->name('vaccine-types.update');
+        Route::delete('/vaccine-types/{vaccine_type}', '\App\Http\Controllers\VaccineTypesController@delete')->name('vaccine-types.delete');
         Route::get('/admin-dashboard', '\App\Http\Controllers\AdminDashboardController@index')->name('admin-dashboard');
         Route::get('/vaccinerecord', '\App\Http\Controllers\VaccineRecordController@index');
         Route::get('/vaccinerecord/{id}', '\App\Http\Controllers\VaccineRecordController@show')->name('vaccine-record');
@@ -72,6 +77,5 @@ Route::get('/register', [\App\Http\Controllers\Auth\RegisterController::class, '
 Route::post('/register', [\App\Http\Controllers\Auth\RegisterController::class, 'register'])->name('register');
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-
 
 Route::get('/trial', '\App\Http\Controllers\TrialController@index');

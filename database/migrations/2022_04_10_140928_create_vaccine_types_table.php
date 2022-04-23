@@ -16,6 +16,7 @@ class CreateVaccineTypesTable extends Migration
         Schema::create('vaccine_types', function (Blueprint $table) {
             $table->id();
             $table->string('brand_name');
+            $table->integer('dose')->default(1);
         });
     }
 
