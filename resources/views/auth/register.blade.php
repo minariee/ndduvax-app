@@ -5,6 +5,15 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
+            @if ($errors->any())
+            <div class="alert alert-danger">
+              <ul>
+                @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+                @endforeach
+              </ul>
+            </div>
+            @endif
                 <div style="font-size:24px; text-align:center;" class="card-header">{{ __('REGISTER') }}</div>
                 <div class="card-body">
                     @if(session('status'))
@@ -102,29 +111,13 @@
                                 <input type="date" id="birthday" name="birthday">
                             </div>
                         </div>
-
-                        <div class="row mb-3">
-                            <label for="vaccination-record" class="col-md-4 col-form-label text-md-end">{{ __('Proof of Vaccination Records') }}</label>
-
+                        <hr/>
+                        <h2>Vaccination Record</h2>
+                        <div class="row mb-3 justify-content-center">
                             <div class="col-md-6">
-                                <input name="vaccination-record" class="form-control @error('vaccination-record') is-invalid @enderror" type="file" id="formFileMultiple" multiple />
-                                @error('vaccination-record')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
+                                @include('shared.vaccination-form')
                             </div>
                         </div>
-
-                        <!-- <div class="row mb-3" id="vaccines">
-                            <label for="vaccination-record" class="col-md-4 col-form-label text-md-end">{{ __('Proof of Vaccination Records') }}</label>
-
-                            <div class="row hidden-template" id="template"">
-                            
-                            </div>
-                        </div> -->
-
-                        
                         <div class="row mb-1">
                             <div style="align:center" class="col-md-3 offset-md-6">
                                 <button type="submit" class="btn btn-outline-success">

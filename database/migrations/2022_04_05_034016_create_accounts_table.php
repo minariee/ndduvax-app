@@ -19,7 +19,6 @@ class CreateAccountsTable extends Migration
             $table->string('occupation');
             $table->unsignedBigInteger('user_id');
             $table->enum('gender', ['male', 'female']);
-            $table->string('proof_of_vaccination')->nullable();
             $table->timestamps();
             $table->softDeletes();
         });

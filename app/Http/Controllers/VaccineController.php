@@ -5,15 +5,31 @@ namespace App\Http\Controllers;
 use App\Http\Requests\VaccineFormRequest;
 use App\Models\Account;
 use App\Models\Vaccine;
+use App\Models\VaccineType;
 
 class VaccineController extends Controller
 {
     public function store(VaccineFormRequest $request, Account $account)
     {
-        $vaccine = new Vaccine($request->validated());
-        $account->vaccines()->save($vaccine);
+        $path = $request
+        ->file('proof_of_vaccination')
+        ->store('records');
+        $vaccineType = VaccineType::find($request->vaccine_brand);
 
-        return redirect()->route('vaccine-record', ['id' => $account->id]);
+        $vaccine = new Vaccine([
+            'vaccine_type' => $request->vaccine_type,
+            'vaccine_brand' => $vaccineType->brand_name,
+            'current_dose' => $vaccineType->dose,
+            'latest_dosage_date' => $request->latest_dosage_date,
+            'proof_of_vaccination' => $path,
+        ]);
+
+        $account
+        ->vaccines()
+        ->save($vaccine);
+
+        return redirect()
+        ->route('vaccine-record', ['id' => $account->id]);
     }
 
     public function delete(Vaccine $vaccine)
@@ -21,7 +37,8 @@ class VaccineController extends Controller
         $account = $vaccine->account;
         $vaccine->delete();
 
-        return redirect()->route('vaccine-record', ['id' => $account->id]);
+        return redirect()
+        ->route('vaccine-record', ['id' => $account->id]);
     }
 
     public function index()

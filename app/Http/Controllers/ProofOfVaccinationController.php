@@ -2,13 +2,13 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Account;
+use App\Models\Vaccine;
 use Illuminate\Support\Facades\Storage;
 
 class ProofOfVaccinationController extends Controller
 {
-    public function download(Account $account)
+    public function download(Vaccine $vaccine)
     {
-        return Storage::download($account->proof_of_vaccination);
+        return Storage::download($vaccine->proof_of_vaccination);
     }
 }
