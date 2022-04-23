@@ -30,8 +30,10 @@ class RegistrationRequest extends FormRequest
             'password' => ['required', 'string', 'min:8', 'confirmed'],
             'mobile_number' => ['required', 'min:8', 'max: 13'],
             'occupation' => ['required'],
-            'vaccination-record' => ['required', 'file', 'mimes:pdf,png,jpg,xls,xlsx'],
+            'vaccine_brand' => ['required', 'exists:vaccine_types,id'],
+            'proof_of_vaccination' => ['required', 'file', 'mimes:pdf,png,jpg,xls,xlsx'],
             'gender' => ['required', 'in:male,female'],
+            'latest_dosage_date' => 'required',
         ];
     }
 }

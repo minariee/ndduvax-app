@@ -32,7 +32,7 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/profile', '\App\Http\Controllers\ProfilePictureController@profile');
     Route::get('/avatar/{user}', '\App\Http\Controllers\ProfilePictureController@avatar')->name('avatar');
     Route::put('/profile/{user}', '\App\Http\Controllers\ProfilePictureController@updateavatar')->name('update-avatar');
-    Route::get('/vaccinationrecord/download/{account}', '\App\Http\Controllers\ProofOfVaccinationController@download')->name('download-proof-of-vaccination');
+    Route::get('/vaccinationrecord/download/{vaccine}', '\App\Http\Controllers\ProofOfVaccinationController@download')->name('download-proof-of-vaccination');
     Route::middleware(['role:user'])->group(function () {
         Route::get('/my-vaccinerecord', '\App\Http\Controllers\VaccineRecordController@myRecord')->name('my-vaccinerecord');
     });

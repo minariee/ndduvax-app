@@ -5,6 +5,8 @@ namespace App\Http\Controllers\Auth;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\RegistrationRequest;
 use App\Models\User;
+use App\Models\Vaccine;
+use App\Models\VaccineType;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Hash;
 use Spatie\Permission\Models\Role;
@@ -48,7 +50,9 @@ class RegisterController extends Controller
      */
     public function showRegistrationForm()
     {
-        return view('auth.register');
+        $vaccine_brands = VaccineType::all();
+
+        return view('auth.register', ['vaccine_brands' => $vaccine_brands]);
     }
 
     /**
@@ -58,9 +62,8 @@ class RegisterController extends Controller
      */
     public function register(RegistrationRequest $request)
     {
-        $path = $request->file('vaccination-record')->store('records');
-
-        $this->create([
+        $path = $request->file('proof_of_vaccination')->store('records');
+        $data = [
             'name' => $request->name,
             'email' => $request->email,
             'password' => $request->password,
@@ -68,7 +71,11 @@ class RegisterController extends Controller
             'occupation' => $request->occupation,
             'proof_of_vaccination' => $path,
             'gender' => $request->gender,
-        ]);
+            'vaccine_brand' => VaccineType::find($request->vaccine_brand),
+            'vaccine_type' => $request->vaccine_type,
+            'latest_dosage_date' => $request->latest_dosage_date,
+        ];
+        $this->create($data);
 
         return redirect('register')->with('status', 'User successfully registered!');
     }
@@ -91,11 +98,19 @@ class RegisterController extends Controller
         $user->account()->create([
             'occupation' => $data['occupation'],
             'name' => $data['name'],
-            'proof_of_vaccination' => $data['proof_of_vaccination'],
             'gender' => $data['gender'],
         ]);
 
+        $vaccine = new Vaccine([
+            'vaccine_type' => $data['vaccine_type'],
+            'proof_of_vaccination' => $data['proof_of_vaccination'],
+            'vaccine_brand' => $data['vaccine_brand']->brand_name,
+            'current_dose' => $data['vaccine_brand']->dose,
+            'latest_dosage_date' => $data['latest_dosage_date'],
+        ]);
+
         $user->assignRole($userRole);
+        $user->account->vaccines()->save($vaccine);
 
         return $user;
     }

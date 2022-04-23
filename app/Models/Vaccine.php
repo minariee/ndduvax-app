@@ -16,6 +16,7 @@ class Vaccine extends Model
         'vaccine_brand',
         'current_dose',
         'latest_dosage_date',
+        'proof_of_vaccination',
     ];
     public $timestamps = false;
 
