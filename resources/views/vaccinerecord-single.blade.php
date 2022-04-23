@@ -111,11 +111,6 @@
                   <td width="2%">:</td>
                   <td>{{ is_null($account->vaccines()->first()) ? 'N/A': $latest->current_dose }}</td>
                 </tr>
-                <tr>
-                  <th width="30%">Proof of vaccination</th>
-                  <td width="2%">:</td>
-                  <td><a target="_blank" href="{{ route('download-proof-of-vaccination', ['account' => $account->id]) }}">View Record</a></td>
-                </tr>
               </table>
             </div>
           </div>
@@ -140,6 +135,7 @@
                     <th scope="col">Vaccine Brand</th>
                     <th scope="col">Dosage</th>
                     <th scope="col">Vaccine Type</th>
+                    <th scope="col">Proof of Vaccination</th>
                     <th>Action</th>
                   </tr>
                 </thead>
@@ -151,6 +147,7 @@
                     <td>{{ $vaccine->vaccine_brand }}</td>
                     <td>{{ $vaccine->current_dose }}</td>
                     <td>{{ $vaccine->vaccine_type }}</td>
+                    <td><a target="_blank" href="{{ route('download-proof-of-vaccination', ['vaccine' => $vaccine->id]) }}">View Record</a></td>
                     <td>
                       <form action="{{ route('delete-vax', ['vaccine' => $vaccine->id]) }}" method="POST">
                         @csrf
@@ -183,61 +180,38 @@
         </button>
       </div>
       <div class="modal-body">
-      <div class="alert alert-info" role="alert">
-        Cannot find the vaccine brand your looking for? you can add one in our <a href="#">Vaccine Manager</a>.
-      </div>
-        <form action="{{ route('add-vax', ['account' => $account->id]) }}" method="POST" id="add-vax-form">
-          @csrf
-          <div class="form-group row mb-1">
-            <label for="inputDate" class="col-sm-5 col-form-label">Dosage Date</label>
-            <div class="col-sm-7">
-              <input name="latest_dosage_date" type="date" class="form-control" id="inputDate" required />
-            </div>
-          </div>
-          <div class="form-group row mb-1">
-            <label for="inputBrand" class="col-sm-5 col-form-label">Vaccine Brand</label>
-            <div class="col-sm-7">
-              <select id="inputBrand" class="form-control" name="vaccine_brand" value="{{ $vaccine_brands->first()->brand_name }}" required>
-                @foreach($vaccine_brands as $vaccine_brand)
-                <option value="{{ $vaccine_brand->brand_name }}">{{ $vaccine_brand->brand_name }}</option>
-                @endforeach
-              </select>
-              <!-- <input name="vaccine_brand" type="input" class="form-control" id="inputBrand" required /> -->
-            </div>
-          </div>
-          <div class="form-group row mb-1">
-            <label for="inputDosage" class="col-sm-5 col-form-label">Dosage</label>
-            <div class="col-sm-7">
-              <input name="current_dose" type="input" class="form-control" id="inputDosage" required />
-            </div>
-          </div>
-          <div class="form-group row mb-1">
-            <label for="inputType" class="col-sm-5 col-form-label">Vaccine Type</label>
-            <div class="col-sm-7">
-              <input name="vaccine_type" type="input" class="form-control" id="inputType" required />
-            </div>
-          </div>
-        </form>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary modal-close">Close</button>
-        <button id="save-add" type="button" class="btn btn-primary">Save changes</button>
-      </div>
+      <form action="{{ route('add-vax', ['account' => $account->id]) }}" method="POST" id="add-vax-form" enctype="multipart/form-data">
+        <div class="alert alert-info" role="alert">
+          Cannot find the vaccine brand your looking for? you can add one in our <a href="#">Vaccine Manager</a>.
+        </div>
+            @csrf
+            @include('shared.vaccination-form')
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary modal-close">Close</button>
+          <button id="save-add" type="submit" class="btn btn-primary">Save changes</button>
+        </div>
+      </form>
     </div>
   </div>
 </div>
   <script>
+   
     $(function() {
-      $('.modal-close').click(function() {
+      $('.modal-close').click(function () {
         location.reload()
       })
+       /**
+      $('#save-add').click(function() {
+        $('#add-vax-form').submit()
+      })
+      **/
       $('#add-record').click(function (e) {
         e.preventDefault()
         $('#form-modal').modal('toggle')
       })
-      $('#save-add').click(function() {
-        $('#add-vax-form').submit()
-      })
+      
     })
+    
   </script>
 @endsection

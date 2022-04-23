@@ -34,7 +34,9 @@ class VaccineTypesController extends Controller
         $vaccine_type->dose = $request->dose;
         $vaccine_type->save();
 
-        return redirect()->route('vaccine-types.edit', ['vaccine_type' => $vaccine_type->id])->with('status', 'Vaccine was successfully updated.');
+        return redirect()
+        ->route('vaccine-types.edit', ['vaccine_type' => $vaccine_type->id])
+        ->with('status', 'Vaccine was successfully updated.');
     }
 
     public function create()
@@ -54,7 +56,8 @@ class VaccineTypesController extends Controller
             'dose' => $request->dose,
         ]);
 
-        return redirect()->route('vaccine-types.store')->with('status', 'Vaccine was succesfully added.');
+        return redirect()->route('vaccine-types.store')
+        ->with('status', 'Vaccine was succesfully added.');
     }
 
     public function index()

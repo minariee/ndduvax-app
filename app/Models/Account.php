@@ -14,7 +14,6 @@ class Account extends Model
     protected $fillable = [
         'name',
         'occupation',
-        'proof_of_vaccination',
     ];
 
     public function latestVaccine()
