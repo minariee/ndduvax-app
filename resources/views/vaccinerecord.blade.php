@@ -1,6 +1,12 @@
 @extends('layouts.dashboard-layout')
 
 @section('content')
+
+<style>
+    a{
+        font-size:20px;
+    }
+</style> 
 <div class="container">
     <div class="row justify-content-md-center">
         <div class="col-md-10">
