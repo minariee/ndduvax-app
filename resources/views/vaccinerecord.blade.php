@@ -7,6 +7,17 @@
         font-size:20px;
     }
 </style> 
+
+<br>
+<br>
+<div class="container">
+    <form action="/vaccinerecord" method="POST" role="search">
+        @csrf
+    <input type="text" name="q" placeholder="search by name or occupation..." />
+    <button type="submit"> Search </button>
+    </form>
+</div>
+<br>
 <div class="container">
     <div class="row justify-content-md-center">
         <div class="col-md-10">
@@ -23,7 +34,7 @@
                 <tbody>
                     @foreach ($accounts as $account )
                     <tr>
-                        <td><a href="/vaccinerecord/{{ $account->id}}">{{ $account->id}}</a></td>
+                        <td><a title="Edit Vaccine Record" href="/vaccinerecord/{{ $account->id}}">{{ $account->id}}</a></td>
                         <td>{{ $account->name}}</td>
                         <td>{{ $account->occupation }}</td>
                         @if( $account->vaccines()->count() < 1 )
@@ -37,6 +48,7 @@
                     @endforeach
                 </tbody>
             </table>
+            {!! $accounts->render() !!}
         </div>
     </div>
 </div>
