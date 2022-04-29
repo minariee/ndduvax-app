@@ -5,15 +5,32 @@ namespace App\Http\Controllers;
 use App\Models\Account;
 use App\Models\VaccineType;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Http\Request;
 
 class VaccineRecordController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
         $accounts = Account::all()->filter(function ($account) {
             return $account->user->hasRole('user');
         });
-        
+
+        $accounts = Account::simplepaginate(2);
+        $search = $request->q;
+
+        if($search!=""){
+            $accounts = Account::where(function ($query) use ($search){
+                $query->where('name', 'like', '%'.$search.'%')
+                    ->orWhere('occupation', 'like', '%'.$search.'%')
+                    ->orWhere('id', 'like', '%'.$search.'%');
+            })
+            ->simplepaginate(2);
+            $accounts->appends(['q' => $search]);
+        }
+        else{
+            $account = Account::simplepaginate(2);
+        }
+
         return view('vaccinerecord', [
             'page_substitle' => 'Vaccine Record',
             'accounts' => $accounts,

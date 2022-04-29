@@ -46,7 +46,7 @@ Route::middleware(['auth'])->group(function () {
         Route::patch('/vaccine-types/{vaccine_type}', '\App\Http\Controllers\VaccineTypesController@update')->name('vaccine-types.update');
         Route::delete('/vaccine-types/{vaccine_type}', '\App\Http\Controllers\VaccineTypesController@delete')->name('vaccine-types.delete');
         Route::get('/admin-dashboard', '\App\Http\Controllers\AdminDashboardController@index')->name('admin-dashboard');
-        Route::get('/vaccinerecord', '\App\Http\Controllers\VaccineRecordController@index');
+        Route::any('/vaccinerecord', '\App\Http\Controllers\VaccineRecordController@index');
         Route::get('/vaccinerecord/{id}', '\App\Http\Controllers\VaccineRecordController@show')->name('vaccine-record');
         Route::get('/announcement', '\App\Http\Controllers\AnnoucementController@index');
         Route::get('/annoucement/{announcement}', '\App\Http\Controllers\AnnouncementController@show');

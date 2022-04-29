@@ -131,13 +131,13 @@
       @role('admin')
       <span class="text-uppercase text-gray-400 text-xs letter-spacing-0 mx-3 px-2 heading">Admin Management</span>
       <ul class="list-unstyled py-4">
-        <li class="sidebar-item">
+        {{--<li class="sidebar-item">
           <a class="sidebar-link" href="{{url('/admin-table')}}">
             <svg class="svg-icon svg-icon-sm svg-icon-heavy me-xl-2">
               <use xlink:href="#portfolio-grid-1"> </use>
             </svg>Admin Management
           </a>
-        </li>
+        </li>--}}
         <li class="sidebar-item">
           <a class="sidebar-link" href="{{url('/sms-semaphore')}}">
             <svg class="svg-icon svg-icon-sm svg-icon-heavy me-xl-2">
