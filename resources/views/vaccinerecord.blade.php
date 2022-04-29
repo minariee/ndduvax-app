@@ -14,7 +14,9 @@
                 <thead>
                     <tr>
                         <th>ID </th>
-                        <th>Name </th>
+                        <th>First Name</th>
+                        <th>Middle Name</th>
+                        <th>Last Name</th>
                         <th>Occupation</th>
                         <th>Last Date Vaccinated</th>
                         <th>Last Vaccine (Dose #)</th>
@@ -24,7 +26,9 @@
                     @foreach ($accounts as $account )
                     <tr>
                         <td><a href="/vaccinerecord/{{ $account->id}}">{{ $account->id}}</a></td>
-                        <td>{{ $account->name}}</td>
+                        <td>{{ $account->first_name}}</td>
+                        <td>{{ $account->middle_name }}</td>
+                        <td>{{ $account->last_name }}</td>
                         <td>{{ $account->occupation }}</td>
                         @if( $account->vaccines()->count() < 1 )
                         <td>N/A</td>
@@ -55,6 +59,7 @@
     <tr>
         <td><a href="/vaccinerecord/{{ $account->id}}">{{ $account->id}}</a></td>
         <td>{{ $account->name}}</td>
+        <td>{{ $account->last_name}}</td>
         <td>{{ $account->occupation }}</td>
         <td>{{ $account->date}}</td>
         <td>{{ $account->type_of_vaccine}}</td>

@@ -12,34 +12,43 @@
         </div>
       </div>
       <!-- Sidebar Navidation Menus--><span class="text-uppercase text-gray-400 text-xs letter-spacing-0 mx-3 px-2 heading">Menu</span>
-    <ul class="list-unstyled py-4">
-      <li class="sidebar-item"><a class="sidebar-link" href="{{url('/admin-dashboard')}}"> 
-          <svg class="svg-icon svg-icon-sm svg-icon-heavy me-xl-2">
-            <use xlink:href="#real-estate-1"> </use>
-          </svg>Dashboard </a></li>
-      <li class="sidebar-item"><a class="sidebar-link" href="{{url('/admin-table')}}"> 
-          <svg class="svg-icon svg-icon-sm svg-icon-heavy me-xl-2">
-            <use xlink:href="#portfolio-grid-1"> </use>
-          </svg>Admin Record </a></li>
-      <li class="sidebar-item"><a class="sidebar-link" href="{{url('/user-list')}}"> 
-          <svg class="svg-icon svg-icon-sm svg-icon-heavy me-xl-2">
-            <use xlink:href="#sales-up-1"> </use>
-          </svg>Patients Record </a></li>
-          <li class="sidebar-item"><a class="sidebar-link" href="{{url('/sms-semaphore')}}"> 
+      <ul class="list-unstyled py-4">
+        <li class="sidebar-item"><a class="sidebar-link" href="{{url('/admin-dashboard')}}"> 
+            <svg class="svg-icon svg-icon-sm svg-icon-heavy me-xl-2">
+              <use xlink:href="#real-estate-1"> </use>
+            </svg>Dashboard </a></li>
+        <li class="sidebar-item"><a class="sidebar-link" href="{{url('/admin-table')}}"> 
+            <svg class="svg-icon svg-icon-sm svg-icon-heavy me-xl-2">
+              <use xlink:href="#portfolio-grid-1"> </use>
+            </svg>Admin Management</a></li>
+        <li class="sidebar-item active"><a class="sidebar-link" href="{{url('/user-list')}}"> 
+            <svg class="svg-icon svg-icon-sm svg-icon-heavy me-xl-2">
+              <use xlink:href="#sales-up-1"> </use>
+            </svg>Patients Record </a></li>
+        <li class="sidebar-item"><a class="sidebar-link" href="forms.html"> 
             <svg class="svg-icon svg-icon-sm svg-icon-heavy me-xl-2">
               <use xlink:href="#survey-1"> </use>
             </svg>SMS </a></li>
-        <li class="sidebar-item"><a class="sidebar-link" href="#"> 
-            <svg class="svg-icon svg-icon-sm svg-icon-heavy me-xl-2">
-              <use xlink:href="#browser-window-1"> </use>
-            </svg>Vaccine Lists </a></li>
-        <li class="sidebar-item"><a class="sidebar-link" href="#"> 
+            <li class="sidebar-item"><a class="sidebar-link" href="forms.html"> 
+              <svg class="svg-icon svg-icon-sm svg-icon-heavy me-xl-2">
+                <use xlink:href="#browser-window-1"> </use>
+              </svg>Vaccine Lists </a></li>
+        </li>
+        <li class="sidebar-item"><a class="sidebar-link" href="login.html"> 
             <svg class="svg-icon svg-icon-sm svg-icon-heavy me-xl-2">
               <use xlink:href="#disable-1"> </use>
             </svg>Content Management </a></li>
       </ul><span class="text-uppercase text-gray-400 text-xs letter-spacing-0 mx-3 px-2 heading">Settings</span>
       <ul class="list-unstyled py-4">
-        {{--<li class="sidebar-item"> <a class="sidebar-link" href="#"> 
+      {{-- <li class="sidebar-item"> <a class="sidebar-link" href="{{url('/admin-form')}}"> 
+            <svg class="svg-icon svg-icon-sm svg-icon-heavy me-xl-2">
+              <use xlink:href="#imac-screen-1"> </use>
+            </svg>Add Admin </a></li>
+        <li class="sidebar-item"> <a class="sidebar-link" href="{{url('/admin-table')}}"> 
+            <svg class="svg-icon svg-icon-sm svg-icon-heavy me-xl-2">
+              <use xlink:href="#chart-1"> </use>
+            </svg>Admin List </a></li>
+        <li class="sidebar-item"> <a class="sidebar-link" href="#"> 
             <svg class="svg-icon svg-icon-sm svg-icon-heavy me-xl-2">
               <use xlink:href="#quality-1"> </use>
             </svg>Additional menu </a></li>
@@ -73,11 +82,10 @@
                 </div>
                     <thead class="table bg-success">
                       <tr>
-                        <th scope="col">Id</th>
+                        <th scope="col">Id</th>     
                         <th scope="col">Name</th>
                         <th scope="col">Email</th>
                         <th scope="col">Role</th>
-                        <th scope="col">Mobile Number</th>
                         <th scope="col">Created at</th>
                         <th width="280px">Action</th>
                       </tr>
@@ -89,7 +97,6 @@
                                 <td>{{ $user->name }}</td>
                                 <td>{{ $user->email }}</td>
                                 <td>{{ $user->user_type}}</td>
-                                <td>{{ $user->mobile_number}}</td>
                                 <td>{{ $user->created_at}}</td>
                                   <td><a href="{{ route('users.show', $user->id) }}" class="btn btn-warning btn-sm">Show</a>
                                       <a href="{{ route('users.edit', $user->id) }}" class="btn btn-info btn-sm">Edit</a>

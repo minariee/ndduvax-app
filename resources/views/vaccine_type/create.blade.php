@@ -24,17 +24,17 @@
       <form action="{{ route('vaccine-types.store') }}" method="POST">
         @csrf
         <div class="form-group row mb-1">
+          <label for="brand_name" class="col-sm-5 col-form-label">Vaccine Type</label>
+          <div class="col-sm-7">
+            <input name="type_name" type="input" class="form-control" id="type_name" value="{{ old('type_name') }}" required />
+          </div>
+        <div class="form-group row mb-1">
           <label for="brand_name" class="col-sm-5 col-form-label">Vaccine Brand</label>
           <div class="col-sm-7">
             <input name="brand_name" type="input" class="form-control" id="brand_name" value="{{ old('brand_name') }}" required />
           </div>
         </div>
-        <div class="form-group row mb-1">
-          <label for="dose" class="col-sm-5 col-form-label">Dosage</label>
-          <div class="col-sm-7">
-            <input name="dose" type="input" class="form-control" id="dose" value="{{ old('dose') }}" required />
-          </div>
-        </div>
+        
         <button type="submit" class="btn btn-primary">Add Vaccine Type</button>
         <a class="btn btn-warning" href="{{ route('vaccine-types') }}">Go back to vaccine list</a>
 

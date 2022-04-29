@@ -36,7 +36,9 @@ class UserSeeder extends Seeder
             'mobile_number' => '09171338178',
         ]);
         $admin->account()->create([
-            'name' => 'super admin',
+            'first_name' => 'super',
+            'middle_name' => 'admin',
+            'last_name' => 'account',
             'occupation' => 'nurse',
             'gender' => 'male',
         ]);

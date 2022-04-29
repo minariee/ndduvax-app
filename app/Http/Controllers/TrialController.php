@@ -3,16 +3,12 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\User;
-
+use DB;
 class TrialController extends Controller
 {
-    public function index() {
-        $users =User::select('mobile_number')->get();
-        
-        foreach ($users as $user) {
-            echo $user->mobile_number;    
-        }
-        
-    } 
+    function index()
+    {
+     $vaccinelist = DB::table('vaccine_types');
+    
+    }
 }

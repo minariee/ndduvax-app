@@ -11,16 +11,16 @@
           <table class="table">
             <thead class="table-light">
               <tr>
-                  <td>BRAND NAME</td>
-                  <td>Dosage</td>
+                  <td>Type of Vaccine</td>
+                  <td>Brand Name</td>
                   <td>Actions</td>
               </tr>
             </thead>
             <tbody>
              @foreach ($vaccines as $vaccine)
               <tr>
+                  <td>{{ $vaccine->type_name }}</td>
                   <td>{{ $vaccine->brand_name }}</td>
-                  <td>{{ $vaccine->dose }}</td>
                   <td>
                     <div class="btn-group">
                       <a class="btn btn-warning" href="{{ route('vaccine-types.edit', ['vaccine_type' => $vaccine->id ]) }}">Edit</a>

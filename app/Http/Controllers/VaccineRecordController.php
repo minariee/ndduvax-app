@@ -13,7 +13,7 @@ class VaccineRecordController extends Controller
         $accounts = Account::all()->filter(function ($account) {
             return $account->user->hasRole('user');
         });
-
+        
         return view('vaccinerecord', [
             'page_substitle' => 'Vaccine Record',
             'accounts' => $accounts,
@@ -33,6 +33,7 @@ class VaccineRecordController extends Controller
             'vaccines' => $vaccines,
             'latest' => $latest,
             'vaccine_brands' => VaccineType::orderBy('brand_name', 'asc')->get(),
+            'vaccine_types' => VaccineType::distinct()->get(['type_name']),
         ]);
     }
 
@@ -49,6 +50,7 @@ class VaccineRecordController extends Controller
             'vaccines' => $vaccines,
             'latest' => $latest,
             'vaccine_brands' => VaccineType::orderBy('brand_name', 'asc')->get(),
+            'vaccine_types' => VaccineType::orderBy('type_name', 'asc')->get(),
         ]);
     }
 }

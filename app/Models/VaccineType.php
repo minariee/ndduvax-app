@@ -10,8 +10,8 @@ class VaccineType extends Model
     use HasFactory;
 
     protected $fillable = [
+        'type_name',
         'brand_name',
-        'dose',
     ];
     public $timestamps = false;
 }

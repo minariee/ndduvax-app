@@ -12,8 +12,11 @@ class Account extends Model
     use SoftDeletes;
 
     protected $fillable = [
-        'name',
+        'first_name',
+        'middle_name',
+        'last_name',
         'occupation',
+        'gender',
     ];
 
     public function latestVaccine()

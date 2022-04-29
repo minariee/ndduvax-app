@@ -26,12 +26,12 @@ class VaccineTypesController extends Controller
     public function update(VaccineType $vaccine_type, Request $request)
     {
         $request->validate([
+            'type_name' =>'required',
             'brand_name' => 'required',
-            'dose' => 'required|numeric',
         ]);
 
+        $vaccine_type->type_name = $request->type_name;
         $vaccine_type->brand_name = $request->brand_name;
-        $vaccine_type->dose = $request->dose;
         $vaccine_type->save();
 
         return redirect()
@@ -47,13 +47,13 @@ class VaccineTypesController extends Controller
     public function store(Request $request)
     {
         $request->validate([
+            'type_name' => 'required',
             'brand_name' => 'required',
-            'dose' => 'required|numeric',
         ]);
 
         VaccineType::create([
+            'type_name' => $request->type_name,
             'brand_name' => $request->brand_name,
-            'dose' => $request->dose,
         ]);
 
         return redirect()->route('vaccine-types.store')
@@ -62,7 +62,7 @@ class VaccineTypesController extends Controller
 
     public function index()
     {
-        $vaccineTypes = VaccineType::orderBy('brand_name', 'asc')->get();
+        $vaccineTypes = VaccineType::orderBy('type_name', 'asc')->get();
 
         return view('vaccine_type.index', [
             'vaccines' => $vaccineTypes,

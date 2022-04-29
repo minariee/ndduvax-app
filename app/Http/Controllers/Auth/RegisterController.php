@@ -62,18 +62,15 @@ class RegisterController extends Controller
      */
     public function register(RegistrationRequest $request)
     {
-        $path = $request->file('proof_of_vaccination')->store('records');
         $data = [
-            'name' => $request->name,
+            'first_name' => $request->first_name,
+            'middle_name' => $request->middle_name,
+            'last_name' => $request->last_name,
             'email' => $request->email,
             'password' => $request->password,
             'mobile_number' => $request->mobile_number,
             'occupation' => $request->occupation,
-            'proof_of_vaccination' => $path,
             'gender' => $request->gender,
-            'vaccine_brand' => VaccineType::find($request->vaccine_brand),
-            'vaccine_type' => $request->vaccine_type,
-            'latest_dosage_date' => $request->latest_dosage_date,
         ];
         $this->create($data);
 
@@ -89,29 +86,19 @@ class RegisterController extends Controller
     {
         $userRole = Role::where(['name' => 'user'])->first();
         $user = User::create([
-            'name' => $data['name'],
             'email' => $data['email'],
             'mobile_number' => $data['mobile_number'],
             'password' => Hash::make($data['password']),
         ]);
 
         $user->account()->create([
+            'first_name' => $data['first_name'],
+            'middle_name' => $data['middle_name'],
+            'last_name' => $data['last_name'],
             'occupation' => $data['occupation'],
-            'name' => $data['name'],
             'gender' => $data['gender'],
         ]);
-
-        $vaccine = new Vaccine([
-            'vaccine_type' => $data['vaccine_type'],
-            'proof_of_vaccination' => $data['proof_of_vaccination'],
-            'vaccine_brand' => $data['vaccine_brand']->brand_name,
-            'current_dose' => $data['vaccine_brand']->dose,
-            'latest_dosage_date' => $data['latest_dosage_date'],
-        ]);
-
         $user->assignRole($userRole);
-        $user->account->vaccines()->save($vaccine);
-
         return $user;
     }
 }

@@ -22,6 +22,7 @@ class AdminTableFormController extends Controller
     }
 
     public function edit($id,Request $request){
+        $id = auth()->user()->id;
         $account = Account::find($id);
     
         return view('adminformedit',['account' => $account]);

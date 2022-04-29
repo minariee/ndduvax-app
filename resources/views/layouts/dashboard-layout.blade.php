@@ -86,7 +86,7 @@
       <div class="sidebar-header d-flex align-items-center py-4 px-3">
         <img class="avatar shadow-0 img-fluid rounded-circle" src="/assets/images/avatar-3.png" alt="...">
         <div class="ms-3 title">
-          <h1 class="h4 mb-2">{{ Auth::user()->account->name }}</h1>
+          <h1 class="h4 mb-2">{{ Auth::user()->account->first_name }}</h1>
           <p class="text-sm text-gray-500 fw-light mb-0 lh-1">{{ Auth::user()->hasRole('admin') ? 'Admin': 'User'}}</p>
         </div>
       </div>
@@ -181,7 +181,7 @@
     <div class="content-inner w-100">
       <header class="bg-white shadow-sm px-4 py-3 z-index-20">
         <div class="container-fluid px-0">
-          <h2 class="mb-0 p-1">Welcome {{ Auth::user()->account->name }}!</h2>
+          <h2 class="mb-0 p-1">Welcome {{ Auth::user()->account->first_name }}!</h2>
         </div>
       </header>
       @yield('content') 

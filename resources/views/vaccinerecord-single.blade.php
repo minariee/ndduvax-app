@@ -132,9 +132,9 @@
                 <thead>
                   <tr>
                     <th scope="col">Dosage Date</th>
+                    <th scope="col">Vaccine Type</th>
                     <th scope="col">Vaccine Brand</th>
                     <th scope="col">Dosage</th>
-                    <th scope="col">Vaccine Type</th>
                     <th scope="col">Proof of Vaccination</th>
                     <th>Action</th>
                   </tr>
@@ -144,9 +144,9 @@
                   @foreach($vaccines as $vaccine)
                   <tr>
                     <th scope="row">{{ $vaccine->latest_dosage_date }}</th>
+                    <td>{{ $vaccine->vaccine_type }}</td>
                     <td>{{ $vaccine->vaccine_brand }}</td>
                     <td>{{ $vaccine->current_dose }}</td>
-                    <td>{{ $vaccine->vaccine_type }}</td>
                     <td><a target="_blank" href="{{ route('download-proof-of-vaccination', ['vaccine' => $vaccine->id]) }}">View Record</a></td>
                     <td>
                       <form action="{{ route('delete-vax', ['vaccine' => $vaccine->id]) }}" method="POST">
