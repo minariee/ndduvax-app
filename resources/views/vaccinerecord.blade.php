@@ -36,12 +36,12 @@
                 <tbody>
                     @foreach ($accounts as $account )
                     <tr>
+
                         <td><a href="/vaccinerecord/{{ $account->id}}">{{ $account->id}}</a></td>
                         <td>{{ $account->first_name}}</td>
                         <td>{{ $account->middle_name }}</td>
                         <td>{{ $account->last_name }}</td>
-                        <td><a title="Edit Vaccine Record" href="/vaccinerecord/{{ $account->id}}">{{ $account->id}}</a></td>
-                        <td>{{ $account->name}}</td>
+
                         <td>{{ $account->occupation }}</td>
                         @if( $account->vaccines()->count() < 1 )
                         <td>N/A</td>

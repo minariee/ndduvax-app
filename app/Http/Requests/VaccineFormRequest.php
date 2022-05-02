@@ -26,6 +26,7 @@ class VaccineFormRequest extends FormRequest
         return [
             'vaccine_type' => 'required',
             'vaccine_brand' => 'required|exists:vaccine_types,id',
+            'dosage' => 'required',
             'latest_dosage_date' => 'required',
             'proof_of_vaccination' => 'required|file',
         ];

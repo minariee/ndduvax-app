@@ -43,9 +43,19 @@
   </div>
 </div>
 
+<div class="form-group row mb-1">
+  <label for="inputType" class="col-sm-5 col-form-label">Dosage</label>
+  <div class="col-sm-7">
+    <select name="dosage" class="form-control">
+      <option selected disabled>--Select Dosage--</option>
+      <option value="First Dose">First Dose</option>
+      <option value="Second Dose">Second Dose</option>
+      <option value="Booster">Booster</option>
+</div>
+</div>
 
 <div class="form-group row mb-1">
-  <label for="inputType" class="col-sm-5 col-form-label">Proof of Vaccination</label>
+  <label for="inputType" style="top:40px" class="col-sm-5 col-form-label">Proof of Vaccination</label>
   <div class="col-sm-7">
     <input name="proof_of_vaccination" class="form-control @error('proof_of_vaccination') is-invalid @enderror" type="file" id="formFileMultiple" multiple />
     @error('proof_of_vaccination')

@@ -15,9 +15,9 @@ class VaccineTypeSeeder extends Seeder
     public function run()
     {
         VaccineType::insert([
-            ['brand_name' => 'Pizer', 'type_name' => 'COVID-19'],
-            ['brand_name' => 'Moderna', 'type_name' => 'COVID-19'],
-            ['brand_name'=> 'Sinovac', 'type_name' => 'COVID-19'],
+            ['brand_name' => 'Pizer', 'type_name' => 'COVID-19', 'dosage' => 'First Dose'],
+            ['brand_name' => 'Moderna', 'type_name' => 'COVID-19', 'dosage' => 'Second Dose'],
+            ['brand_name'=> 'Sinovac', 'type_name' => 'COVID-19', 'dosage' => 'Booster'],
         ]);
     }
 }

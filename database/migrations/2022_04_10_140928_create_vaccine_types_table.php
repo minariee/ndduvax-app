@@ -17,6 +17,7 @@ class CreateVaccineTypesTable extends Migration
             $table->id();
             $table->string('type_name');
             $table->string('brand_name');
+            $table->string('dosage')->nullable();;
         });
     }
 

@@ -19,7 +19,7 @@ class VaccineController extends Controller
         $vaccine = new Vaccine([
             'vaccine_type' => $request->vaccine_type,
             'vaccine_brand' => $vaccineType->brand_name,
-            'current_dose' => $vaccineType->dose,
+            'current_dose' => $request->dosage,
             'latest_dosage_date' => $request->latest_dosage_date,
             'proof_of_vaccination' => $path,
         ]);

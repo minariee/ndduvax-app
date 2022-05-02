@@ -54,6 +54,7 @@ class VaccineTypesController extends Controller
         VaccineType::create([
             'type_name' => $request->type_name,
             'brand_name' => $request->brand_name,
+            'dosage' => $request->dosage,
         ]);
 
         return redirect()->route('vaccine-types.store')

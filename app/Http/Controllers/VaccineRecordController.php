@@ -70,4 +70,9 @@ class VaccineRecordController extends Controller
             'vaccine_types' => VaccineType::orderBy('type_name', 'asc')->get(),
         ]);
     }
+
+    public function getvaccinetype(){
+        $vaccinetype = VaccineType::table('type_name')->get();
+        return view ('vaccinerecord-single')->with('vaccinetype',$vaccinetype);
+    }
 }
