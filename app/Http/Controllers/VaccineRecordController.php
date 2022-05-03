@@ -20,7 +20,9 @@ class VaccineRecordController extends Controller
 
         if($search!=""){
             $accounts = Account::where(function ($query) use ($search){
-                $query->where('name', 'like', '%'.$search.'%')
+                $query->where('first_name', 'like', '%'.$search.'%')
+                    ->orwhere('middle_name', 'like', '%'.$search.'%')
+                    ->orwhere('last_name', 'like', '%'.$search.'%')
                     ->orWhere('occupation', 'like', '%'.$search.'%')
                     ->orWhere('id', 'like', '%'.$search.'%');
             })
