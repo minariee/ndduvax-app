@@ -14,7 +14,7 @@ class Vaccine extends Model
     protected $fillable = [
         'vaccine_type',
         'vaccine_brand',
-        'current dose',
+        'current_dose',
         'latest_dosage_date',
         'proof_of_vaccination',
     ];

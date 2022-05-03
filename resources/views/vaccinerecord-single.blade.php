@@ -141,7 +141,7 @@
                     <th scope="row">{{ $vaccine->latest_dosage_date }}</th>
                     <td>{{ $vaccine->vaccine_type }}</td>
                     <td>{{ $vaccine->vaccine_brand }}</td>
-                    <td>{{ $vaccine->dosage }}</td>
+                    <td>{{ $vaccine->current_dose }}</td>
                     <td><a target="_blank" href="{{ route('download-proof-of-vaccination', ['vaccine' => $vaccine->id]) }}">View Record</a></td>
                     <td>
                       <form action="{{ route('delete-vax', ['vaccine' => $vaccine->id]) }}" method="POST">
@@ -159,16 +159,6 @@
                   @endif
                 </tbody>
               </table>
-
-              @role('user')
-             <div class="form-group row mb-1">
-            <label for="inputType" style="top:40px" class="col-sm-5 col-form-label">Proof of Vaccination</label>
-              <div class="col-sm-7">
-              <input name="user_vaccination[]" class="form-control" type="file" id="formFileMultiple" multiple />
-              </div>
-              <button type="button" style="background-color:#012b09;border:none;" class="btn btn-primary">Add Vaccine Proof</button>
-            </div>
-            @endrole('user')
             </div>
           </div>
         </div>

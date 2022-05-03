@@ -17,13 +17,11 @@ class VaccineController extends Controller
         $vaccineType = VaccineType::find($request->vaccine_brand);
 
         $vaccine = new Vaccine([
-            'vaccine_type' => $request->vaccine_type,
+            'vaccine_type' => $vaccineType->type_name,
             'vaccine_brand' => $vaccineType->brand_name,
             'current_dose' => $request->dosage,
             'latest_dosage_date' => $request->latest_dosage_date,
-            'proof_of_vaccination' => $path,
         ]);
-
         $account
         ->vaccines()
         ->save($vaccine);
