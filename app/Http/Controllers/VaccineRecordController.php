@@ -53,6 +53,7 @@ class VaccineRecordController extends Controller
             'latest' => $latest,
             'vaccine_brands' => VaccineType::orderBy('brand_name', 'asc')->get(),
             'vaccine_types' => VaccineType::distinct()->get(['type_name']),
+            'current_dose' => $vaccines,
         ]);
     }
 
