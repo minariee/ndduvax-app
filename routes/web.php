@@ -2,7 +2,7 @@
 
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\UserDashboardController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -29,6 +29,7 @@ Route::get('/admin-form', '\App\Http\Controllers\AdminTableFormController@index'
 
 Route::middleware(['auth'])->group(function () {
     Route::get('/dashboard', '\App\Http\Controllers\UserDashboardController@index')->name('dashboard');
+    //Route::get('/dashboard', '\App\Http\Controllers\UserDashboardController@covidbrand')->name('dashboard');
     Route::get('/profile', '\App\Http\Controllers\ProfilePictureController@profile');
     Route::get('/avatar/{user}', '\App\Http\Controllers\ProfilePictureController@avatar')->name('avatar');
     Route::put('/profile/{user}', '\App\Http\Controllers\ProfilePictureController@updateavatar')->name('update-avatar');

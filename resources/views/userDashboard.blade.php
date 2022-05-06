@@ -1,6 +1,8 @@
 @extends('layouts.dashboard-layout')
 
 @section('content')
+
+
 <div class="container-fluid">
 
 </div>
@@ -84,11 +86,9 @@
   //   document.getElementById('chart-2'),
   //   config2
   // );
-</script>
 
-<html>
-  <head>
-    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+</script>
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
     <script type="text/javascript">
       google.charts.load('current', {'packages':['corechart']});
       google.charts.setOnLoadCallback(drawChart);
@@ -97,28 +97,20 @@
 
         var data = google.visualization.arrayToDataTable([
           ['Task', 'Hours per Day'],
-          ['Work',     11],
-          ['Eat',      2],
-          ['Commute',  2],
-          ['Watch TV', 2],
-          ['Sleep',    7]
+          {!!  $chartData  !!}
         ]);
 
         var options = {
-          title: 'Most COVID Vaccine being Taken'
+          title: 'List of COVID Vaccines being Taken'
         };
 
-        var chart = new google.visualization.PieChart(document.getElementById('piechart'));
+        var _chart = new google.visualization.PieChart(document.getElementById('piechart'));
 
-        chart.draw(data, options);
+        _chart.draw(data, options);
       }
+
     </script>
-  </head>
-  <body>
-    <div id="piechart" style="width: 900px; height: 500px;"></div>
-  </body>
 </html>
-
-
-
+</div>
 @endsection
+
