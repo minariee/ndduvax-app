@@ -48,22 +48,16 @@ class UserDashboardController extends Controller
             $current->addMonth();
         } while (!$current->gt($range['end']));
 
-        $result=DB::select(DB::raw("SELECT vaccine_brand, COUNT(*) as total_vaccine_brand FROM vaccines WHERE vaccine_type='COVID-19' GROUP BY vaccine_brand"));
-        $chartData="";
-        foreach($result as $list){
-            $chartData.="['".$list->vaccine_brand."',   ".$list->total_vaccine_brand."],";
-        }
-
-        return view('userdashboard', [
+        return view('userDashboard', [
             'page_substitle' => 'User Dashboard',
             'year' => Carbon::now()->format('Y'),
             'dataset1Male' => $dataset1Male,
             'dataset1Female' => $dataset1Female,
             'months' => $months,
             'brands' => $brands,
-            'chartData' => rtrim($chartData,","),
         ]);   
     }
+
 
     public function covidbrand()
     {
