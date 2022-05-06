@@ -11,11 +11,11 @@
 </div>
 
 <div class="form-group row mb-1">
-  <label for="vaccineType" class="col-sm-5 col-form-label">Vaccine Type</label>
+  <label for="inputType" class="col-sm-5 col-form-label">Vaccine Type</label>
   <div class="col-sm-7">
-    <select id="vaccineType" class="form-control @error('vaccine_types') is-invalid @enderror" name="vaccine_type" value="{{ $vaccine_types->first()->type_name }}" required>
+    <select id="inputType" class="form-control @error('vaccine_types') is-invalid @enderror" name="vaccine_type" value="{{ $vaccine_types->first()->type_name }}" required>
       @foreach($vaccine_types as $vaccine_type)
-      <option value="{{ $vaccine_type->type_name }}">{{ $vaccine_type->type_name }}</option>
+      <option>{{ $vaccine_type->type_name }}</option>
       @endforeach
     </select>
     @error('vaccine_types')
@@ -28,9 +28,9 @@
 
 
 <div class="form-group row mb-1">
-  <label for="vaccineBrand" class="col-sm-5 col-form-label">Vaccine Brand</label>
+  <label for="inputBrand" class="col-sm-5 col-form-label">Vaccine Brand</label>
   <div class="col-sm-7">
-    <select id="vaccineBrand" class="form-control @error('vaccine_brands') is-invalid @enderror" name="vaccine_brand" value="{{ $vaccine_brands->first()->brand_name }}" required>
+    <select id="inputBrand" class="form-control @error('vaccine_brands') is-invalid @enderror" name="vaccine_brand" value="{{ $vaccine_brands->first()->brand_name }}" required>
       @foreach($vaccine_brands as $vaccine_brand)
       <option value="{{ $vaccine_brand->id }}">{{ $vaccine_brand->brand_name }}</option>
       @endforeach
@@ -65,23 +65,3 @@
     @enderror
   </div>
 </div>
-
-<script>
-  $(function() {
-    var vaccine_brands = {!! json_encode($vaccine_brands)!!}
-    var onChange = () => {
-      var vaxType = $("#vaccineType").val()
-      $("#vaccineBrand").empty()
-      var options = vaccine_brands.filter((_brand) => _brand.type_name == vaxType)
-      options.forEach((_option) => {
-        var optionEl = $(`<option value='${_option.id}'>${_option.brand_name}</option>`)
-        $("#vaccineBrand").append(optionEl)
-      })
-    }
-
-    onChange()
-    $("#vaccineType").on('change', onChange)
-
-  })
-
-</script>
