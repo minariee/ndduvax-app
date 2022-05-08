@@ -98,10 +98,20 @@
               <use xlink:href="#real-estate-1"> </use>
             </svg>
             Dashboard 
-            <ul>
-              <li><a class="sidebar-link" href="#">All Vacines</a></li>
-              <li><a class="sidebar-link" href="#">COVID Vaccines</a></li>
-            </ul> 
+          
+              <li><a class="sidebar-link" href="#">
+                  <svg class="svg-icon svg-icon-sm svg-icon-heavy me-xl-2">
+                    <use xlink:href="#portfolio-grid-1"> </use>
+                  </svg>
+                  All Vacines
+                </a></li>
+              <li><a class="sidebar-link" href="#">
+                  <svg class="svg-icon svg-icon-sm svg-icon-heavy me-xl-2">
+                    <use xlink:href="#portfolio-grid-1"> </use>
+                  </svg>
+                  COVID Vaccines
+                </a></li></a></li>
+            
           </a>
         </li>
         @role('admin')
