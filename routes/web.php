@@ -14,6 +14,7 @@ use App\Http\Controllers\UserDashboardController;
 |
 */
 
+
 Route::post('/sms-semaphore', '\App\Http\Controllers\SemaphoreController@send');
 Route::get('/sms-semaphore', '\App\Http\Controllers\SemaphoreController@index');
 Route::get('/vaccines', '\App\Http\Controllers\VaccineController@index');
@@ -28,6 +29,9 @@ Route::get('/admin-table', '\App\Http\Controllers\AdminTableController@index');
 Route::get('/admin-form', '\App\Http\Controllers\AdminTableFormController@index');
 
 Route::middleware(['auth'])->group(function () {
+    Route::get('/UsersStatistics', '\App\Http\Controllers\UsersStatisticsController@userstatistics')->name('UsersStatistics');
+    Route::get('/CovidChart', '\App\Http\Controllers\CovidChartController@covidchart')->name('covidchart');
+    Route::get('/otherVaccines', '\App\Http\Controllers\OtherVaccinesController@otherVaccines')->name('otherVaccines');
     Route::get('/dashboard', '\App\Http\Controllers\UserDashboardController@index')->name('dashboard');
     //Route::get('/dashboard', '\App\Http\Controllers\UserDashboardController@covidbrand')->name('dashboard');
     Route::get('/profile', '\App\Http\Controllers\ProfilePictureController@profile');

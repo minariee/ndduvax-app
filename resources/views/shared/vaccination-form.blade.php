@@ -65,3 +65,23 @@
     @enderror
   </div>
 </div>
+
+<script>
+  $(function() {
+    var vaccine_brands = {!! json_encode($vaccine_brands)!!}
+    var onChange = () => {
+      var vaxType = $("#vaccineType").val()
+      $("#vaccineBrand").empty()
+      var options = vaccine_brands.filter((_brand) => _brand.type_name == vaxType)
+      options.forEach((_option) => {
+        var optionEl = $(`<option value='${_option.id}'>${_option.brand_name}</option>`)
+        $("#vaccineBrand").append(optionEl)
+      })
+    }
+
+    onChange()
+    $("#vaccineType").on('change', onChange)
+
+  })
+
+</script>
