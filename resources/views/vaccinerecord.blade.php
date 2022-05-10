@@ -37,7 +37,7 @@
                     @foreach ($accounts as $account )
                     <tr>
 
-                        <td><a href="/vaccinerecord/{{ $account->id}}">{{ $account->id}}</a></td>
+                        <td><a title="Edit Record" href="/vaccinerecord/{{ $account->id}}">{{ $account->id}}</a></td>
                         <td>{{ $account->first_name}}</td>
                         <td>{{ $account->middle_name }}</td>
                         <td>{{ $account->last_name }}</td>
