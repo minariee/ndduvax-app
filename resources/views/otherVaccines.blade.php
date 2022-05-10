@@ -4,6 +4,7 @@
 
 <html>
   <head>
+    
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
     <script type="text/javascript">
       google.charts.load('current', {'packages':['corechart']});
@@ -15,19 +16,19 @@
           ['Task', 'Hours per Day'],
           <?php echo $chartData?>
         ]);
-
         var options = {
-          title: 'Other Vaccine Chart'
+           title: 'Other Vaccine Chart'
         };
 
         var chart = new google.visualization.PieChart(document.getElementById('piechart'));
 
-        chart.draw(data, options);
+        chart.draw(data);
       }
     </script>
   </head>
   <body>
-    <div id="piechart" style="width: 900px; height: 500px;"></div>
+    <br><br><h2 style="left:410px; position:relative;">Other Vaccines Chart</h2></br></br>
+    <center><div id="piechart" style="width: 900px; height: 500px;"></div></center>
   </body>
 </html>
 @endsection

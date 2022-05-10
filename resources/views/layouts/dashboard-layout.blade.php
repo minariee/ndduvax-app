@@ -95,7 +95,7 @@
         <li class="sidebar-item">
           <a class="sidebar-link" href="{{route ('dashboard') }}">
             <svg class="svg-icon svg-icon-sm svg-icon-heavy me-xl-2">
-              <use xlink:href="#real-estate-1"> </use>
+              <use xlink:href="#portfolio-grid-1"> </use>
             </svg>
             Vaccination Statistics by Gender 
               <li><a class="sidebar-link" href="{{route ('UsersStatistics') }}">

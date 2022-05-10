@@ -17,18 +17,15 @@
           <?php echo $chartData?>
         ]);
 
-        var options = {
-          title: 'Chart for All Users'
-        };
-
         var chart = new google.visualization.PieChart(document.getElementById('piechart'));
 
-        chart.draw(data, options);
+        chart.draw(data);
       }
     </script>
   </head>
   <body>
-    <div id="piechart" style="width: 900px; height: 500px;"></div>
+    <br><br><h2 style="left:410px; position:relative;">Chart for All Users</h2></br></br>
+    <center><div id="piechart" style="width: 900px; height: 500px;"></div></center>
   </body>
 </html>
 @endsection
