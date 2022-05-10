@@ -122,6 +122,7 @@
               >Add Record</button>
               @endrole
               
+              @role('user')
               <button type="button" class="btn btn-success"   data-toggle="modal" data-target="#exampleModal">
               Add Record
               </button>
@@ -144,6 +145,7 @@
                     </div>
                   </div>
                 </div>
+                @endrole
 
             </div>
             <div class="card-body pt-0">
