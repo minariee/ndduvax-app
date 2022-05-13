@@ -63,7 +63,7 @@
           <a href="https://www.who.int/news-room/feature-stories/detail/how-do-vaccines-work?adgroupsurvey={adgroupsurvey}&gclid=Cj0KCQiAgP6PBhDmARIsAPWMq6mxOrvw13jAwitFNKx6Qdx5Eij3BHw_TeS-1oKz9OYfymzFbJnwgx0aAr7JEALw_wcB" class="stretched-link">Continue reading</a>
         </div>
         <div class="col-auto d-none d-lg-block">
-          <img src="assets/images/vaccine.jpg" svg class="bd-placeholder-img"  width="200" height="250" xmlns="http://www.w3.org/2000/svg" >
+          <img src="{{asset('assets/images/vaccine.jpg')}}" svg class="bd-placeholder-img"  width="200" height="250" xmlns="http://www.w3.org/2000/svg" >
         </div>
       </div>
     </div>

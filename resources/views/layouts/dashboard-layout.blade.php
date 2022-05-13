@@ -92,12 +92,30 @@
       </div>
       <!-- Sidebar Navidation Menus--><span class="text-uppercase text-gray-400 text-xs letter-spacing-0 mx-3 px-2 heading">Menu</span>
       <ul class="list-unstyled py-4">
-        <li class="sidebar-item active">
-          <a class="sidebar-link" href="{{ route('dashboard') }}"> 
+        <li class="sidebar-item">
+          <a class="sidebar-link" href="{{route ('dashboard') }}">
             <svg class="svg-icon svg-icon-sm svg-icon-heavy me-xl-2">
-              <use xlink:href="#real-estate-1"> </use>
+              <use xlink:href="#portfolio-grid-1"> </use>
             </svg>
-            Dashboard 
+            Vaccination Statistics by Gender 
+              <li><a class="sidebar-link" href="{{route ('UsersStatistics') }}">
+                  <svg class="svg-icon svg-icon-sm svg-icon-heavy me-xl-2">
+                    <use xlink:href="#portfolio-grid-1"> </use>
+                  </svg>
+                  Chart for All Users
+                </a></li>
+              <li><a class="sidebar-link" href="{{route ('covidchart') }}">
+                  <svg class="svg-icon svg-icon-sm svg-icon-heavy me-xl-2">
+                    <use xlink:href="#portfolio-grid-1"> </use>
+                  </svg>
+                  COVID Vaccines Chart
+                </a></li></a></li>
+                <li><a class="sidebar-link" href="{{route ('otherVaccines') }}">
+                  <svg class="svg-icon svg-icon-sm svg-icon-heavy me-xl-2">
+                    <use xlink:href="#portfolio-grid-1"> </use>
+                  </svg>
+                  Other Vaccines Chart
+                </a></li></a></li>
           </a>
         </li>
         @role('admin')
