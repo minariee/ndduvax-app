@@ -21,7 +21,9 @@ class VaccineController extends Controller
             'vaccine_brand' => $vaccineType->brand_name,
             'current_dose' => $request->dosage,
             'latest_dosage_date' => $request->latest_dosage_date,
+            'proof_of_vaccination' => $path,
         ]);
+
         $account
         ->vaccines()
         ->save($vaccine);
